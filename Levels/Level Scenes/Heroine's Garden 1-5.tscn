@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Levels/Tileset/HeroinesGardenLevels/Heroine'sGarden.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Shaders/HeroinesGardenShaders.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/Level Scenes/Portal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Platforms.tscn" type="PackedScene" id=5]
 
 [node name="Heroine\'s Garden 1-5" type="Node2D"]
 
@@ -10,7 +12,22 @@
 tile_data = PoolIntArray( 0, 4, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1074, 349 )
 
 [node name="HeroinesGardenShaders" parent="." instance=ExtResource( 3 )]
 
-[node name="Node" type="Node" parent="."]
+[node name="Portals" type="Node" parent="."]
+
+[node name="1-4" parent="Portals" instance=ExtResource( 4 )]
+position = Vector2( 2038, 1441 )
+next_scene_path = "res://Levels/Level Scenes/Heroine's Garden 1-4.tscn"
+player_spawn_location = Vector2( 116, 1816 )
+
+[node name="1-6" parent="Portals" instance=ExtResource( 4 )]
+rotation = 1.5708
+scale = Vector2( 1.01629, 11.6399 )
+next_scene_path = "res://Levels/Level Scenes/Heroine's Garden 1-6.tscn"
+player_spawn_location = Vector2( 615, 1825 )
+
+[node name="Platforms" parent="." instance=ExtResource( 5 )]
+tile_data = PoolIntArray( 393226, 8, 0, 589836, 9, 0, 786442, 8, 0, 917511, 9, 0, 1114120, 8, 0 )

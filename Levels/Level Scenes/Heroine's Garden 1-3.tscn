@@ -12,11 +12,12 @@
 tile_data = PoolIntArray( 0, 2, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 770, 1810 )
+position = Vector2( 1889, 1823 )
 
 [node name="Portals" type="Node" parent="."]
 
 [node name="1-2" parent="Portals" instance=ExtResource( 3 )]
+position = Vector2( -18, 214 )
 next_scene_path = "res://Levels/Level Scenes/Heroine's Garden 1-2.tscn"
 player_spawn_location = Vector2( 1897, 1819 )
 
@@ -29,6 +30,7 @@ player_spawn_location = Vector2( 1102, 279 )
 [node name="1-7" parent="Portals" instance=ExtResource( 3 )]
 position = Vector2( 2065, 1436 )
 next_scene_path = "res://Levels/Level Scenes/Heroine's Garden 1-7.tscn"
+player_spawn_location = Vector2( 81, 500 )
 
 [node name="HeroinesGardenShaders" parent="." instance=ExtResource( 4 )]
 
