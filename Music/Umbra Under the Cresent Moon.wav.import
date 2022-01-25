@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Umbra Under the Cresent Moon.wav-bde42185162e9eca6f38f34d27ec48ce.sample"
+
+[deps]
+
+source_file="res://Music/Umbra Under the Cresent Moon.wav"
+dest_files=[ "res://.import/Umbra Under the Cresent Moon.wav-bde42185162e9eca6f38f34d27ec48ce.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

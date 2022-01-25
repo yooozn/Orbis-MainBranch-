@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Fantastic Nova Transformation.wav-a5511f87d1b72988e247b42646b96ab3.sample"
+
+[deps]
+
+source_file="res://Music/Fantastic Nova Transformation.wav"
+dest_files=[ "res://.import/Fantastic Nova Transformation.wav-a5511f87d1b72988e247b42646b96ab3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

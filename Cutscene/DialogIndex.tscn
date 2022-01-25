@@ -1,0 +1,107 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Levels/Tileset/SparkForestLevels/Text/Didot Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Levels/blurybox.png" type="Texture" id=2]
+[ext_resource path="res://Cutscene/DialogIndex.gd" type="Script" id=3]
+[ext_resource path="res://Cutscene/Triangle.png" type="Texture" id=4]
+[ext_resource path="res://Voicelines/Mackenzie_Encounter_Line1.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Voicelines/Mackenzie_Encounter_Line2.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Voicelines/Mackenzie_Encounter_Line3.mp3" type="AudioStream" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_size = 1
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Triangle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 504, 208 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Triangle_Anim"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Triangle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 504, 208 ), Vector2( 504, 195.237 ) ]
+}
+
+[node name="DialogIndex" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialog Box" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="VoiceLineOne" type="AudioStreamPlayer2D" parent="Dialog Box"]
+stream = ExtResource( 5 )
+
+[node name="VoiceLineThree" type="AudioStreamPlayer2D" parent="Dialog Box"]
+stream = ExtResource( 7 )
+
+[node name="VoiceLineTwo" type="AudioStreamPlayer2D" parent="Dialog Box"]
+stream = ExtResource( 6 )
+
+[node name="TextBox" type="TextureProgress" parent="Dialog Box"]
+margin_left = 192.0
+margin_top = 16.0
+margin_right = 842.0
+margin_bottom = 229.0
+texture_progress = ExtResource( 2 )
+fill_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="Dialog Box"]
+margin_left = 208.0
+margin_top = 32.0
+margin_right = 2008.0
+margin_bottom = 462.0
+rect_scale = Vector2( 0.34227, 0.377282 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Triangle" type="Sprite" parent="Dialog Box"]
+position = Vector2( 504, 208 )
+scale = Vector2( 0.0451389, 0.0462963 )
+texture = ExtResource( 4 )
+
+[node name="Tween" type="Tween" parent="Dialog Box"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Dialog Box"]
+anims/RESET = SubResource( 5 )
+anims/Triangle_Anim = SubResource( 6 )
+
+[node name="Timer" type="Timer" parent="Dialog Box"]
+wait_time = 0.001
+autostart = true
+
+[connection signal="timeout" from="Dialog Box/Timer" to="." method="_on_Timer_timeout"]

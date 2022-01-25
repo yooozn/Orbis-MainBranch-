@@ -1,0 +1,225 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Characters/enemy/Fox_fury.gd" type="Script" id=1]
+[ext_resource path="res://Characters/enemy/Fox_Enemy_Walk-1.png" type="Texture" id=2]
+[ext_resource path="res://Characters/enemy/Fox_Enemy_Attack-7.png" type="Texture" id=3]
+[ext_resource path="res://Characters/enemy/Fox_Enemy_Attack-1.png" type="Texture" id=4]
+[ext_resource path="res://Characters/enemy/Fox_Enemy_Attack-3.png" type="Texture" id=5]
+[ext_resource path="res://Characters/Player/Effects.gd" type="Script" id=6]
+[ext_resource path="res://Characters/enemy/Fox_Enemy_Attack-2.png" type="Texture" id=7]
+[ext_resource path="res://testingthings/DetectWall.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Characters/enemy/Fox_Enemy_Attack-4.png" type="Texture" id=9]
+[ext_resource path="res://Characters/enemy/Fox_Enemy_Walk-3.png" type="Texture" id=10]
+[ext_resource path="res://Characters/enemy/Fox_Enemy_Attack-5.png" type="Texture" id=11]
+[ext_resource path="res://Characters/enemy/Fox_Enemy_Walk-5.png" type="Texture" id=12]
+[ext_resource path="res://Characters/enemy/Fox_Enemy_Attack-6.png" type="Texture" id=13]
+[ext_resource path="res://Characters/enemy/Fox_Enemy_Walk-4.png" type="Texture" id=14]
+[ext_resource path="res://Shaders/Fire.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Characters/enemy/Fox_Enemy_Walk-6.png" type="Texture" id=16]
+[ext_resource path="res://Characters/enemy/Fox_Enemy_Walk-2.png" type="Texture" id=17]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2.5389, 5.15702 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "Attack"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.3, 0, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "end_of_hit"
+}, {
+"args": [  ],
+"method": "hit"
+}, {
+"args": [  ],
+"method": "start_walk"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.7, 0.9, 1.1, 1.4, 1.6, 1.7, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 1, 2, 3, 4, 5, 6, 7, 7 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Attack" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Fire:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 1.2, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AttackDetector/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.9, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="ShaderMaterial" id=10]
+resource_local_to_scene = true
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "Attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 17 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:material:shader_param/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.429, 0.0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 17.4314, 2.78185 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 35.9724, 15.9918 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 9.74905, 1.43963 )
+
+[node name="Enemy" type="KinematicBody2D" groups=["Enemy"]]
+position = Vector2( 152, 94 )
+scale = Vector2( 3.19604, 3.51087 )
+collision_layer = 3
+collision_mask = 2
+script = ExtResource( 1 )
+Health = 6
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2( 1.32897, 1.07537 )
+scale = Vector2( 6.46323, 1.74999 )
+z_index = 1
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+modulate = Color( 1, 0.890196, 0, 1 )
+position = Vector2( -0.527283, -0.75 )
+z_index = -1
+shape = SubResource( 1 )
+
+[node name="Enemy_Stuff" type="AnimationPlayer" parent="."]
+anims/Attack = SubResource( 7 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+material = SubResource( 10 )
+position = Vector2( -5.006, -7.975 )
+scale = Vector2( 0.0249055, 0.0214991 )
+frames = SubResource( 11 )
+animation = "Walk"
+frame = 5
+playing = true
+
+[node name="Enemy_effects" type="AnimationPlayer" parent="."]
+anims/Stagger = SubResource( 4 )
+script = ExtResource( 6 )
+
+[node name="DamageTimer" type="Timer" parent="."]
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="."]
+pitch_scale = 0.81
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
+position = Vector2( -2.3275, 6.09788 )
+shape = SubResource( 6 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -20.9634, -1.70898 )
+enabled = true
+
+[node name="DetectWall" parent="." instance=ExtResource( 8 )]
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+position = Vector2( -3.44176, -9.39938 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+position = Vector2( -37.1943, -0.114885 )
+scale = Vector2( 0.613207, 0.632288 )
+shape = SubResource( 8 )
+
+[node name="AttackDetector" type="Area2D" parent="." groups=["Enemy"]]
+position = Vector2( -3.44176, -9.11455 )
+collision_layer = 0
+collision_mask = 2
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetector"]
+position = Vector2( -25.3439, 9.96904 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 9 )
+disabled = true
+
+[node name="Fire" parent="." instance=ExtResource( 15 )]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -37.1704, 1.70068 )
+rotation = -1.61955
+scale = Vector2( 0.00534839, 0.0203651 )
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
+[connection signal="animation_finished" from="Enemy_Stuff" to="." method="_on_Enemy_Stuff_animation_finished"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_DamageTimer_timeout"]
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_PlayerDetection_body_entered"]
+[connection signal="body_entered" from="AttackDetector" to="." method="_on_AttackDetector_body_entered"]

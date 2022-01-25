@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Levels/Tileset/HeroinesGardenLevels/Heroine'sGarden.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Level Scenes/Portal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/BG/Heroine'sGardenBackround.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Tileset/Fg/Grass.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Shaders/HeroinesGardenShaders.tscn" type="PackedScene" id=6]
+
+[node name="Heroine\'s Garden 1-1" type="Node2D"]
+
+[node name="Heroine\'sGarden" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 0, 0, 0 )
+
+[node name="Portal" type="Node" parent="."]
+
+[node name="1-2" parent="Portal" instance=ExtResource( 2 )]
+position = Vector2( 2046, 1424 )
+next_scene_path = "res://Levels/Level Scenes/Heroine's Garden 1-2.tscn"
+player_spawn_location = Vector2( 183, 365 )
+
+[node name="Heroine\'sGardenBackround" parent="." instance=ExtResource( 3 )]
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1905, 1820 )
+
+[node name="Environment" type="Node2D" parent="."]
+position = Vector2( -711, 18 )
+scale = Vector2( 0.158584, 0.119188 )
+
+[node name="Grass" parent="Environment" instance=ExtResource( 5 )]
+position = Vector2( 13097.1, 14305.1 )
+
+[node name="Grass2" parent="Environment" instance=ExtResource( 5 )]
+position = Vector2( 5731.96, 14271.6 )
+
+[node name="Grass3" parent="Environment" instance=ExtResource( 5 )]
+position = Vector2( 15651, 14296.8 )
+
+[node name="Grass4" parent="Environment" instance=ExtResource( 5 )]
+position = Vector2( 16401.4, 13474.5 )
+scale = Vector2( 1.56242, 1.67764 )
+
+[node name="HeroinesGardenShaders" parent="Environment" instance=ExtResource( 6 )]

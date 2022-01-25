@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Michelle_Lines 2.wav-94134114a793be05fe5e0101d317a617.sample"
+
+[deps]
+
+source_file="res://Voicelines/Michelle_Lines 2.wav"
+dest_files=[ "res://.import/Michelle_Lines 2.wav-94134114a793be05fe5e0101d317a617.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

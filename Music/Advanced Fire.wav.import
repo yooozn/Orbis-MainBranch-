@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Advanced Fire.wav-bdbaa3b12f3ae37995475d434661c6ca.sample"
+
+[deps]
+
+source_file="res://Music/Advanced Fire.wav"
+dest_files=[ "res://.import/Advanced Fire.wav-bdbaa3b12f3ae37995475d434661c6ca.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

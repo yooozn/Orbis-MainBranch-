@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Memory version 1.wav-0719e8c364a5f94b678e5e1626525f4f.sample"
+
+[deps]
+
+source_file="res://Music/Memory version 1.wav"
+dest_files=[ "res://.import/Memory version 1.wav-0719e8c364a5f94b678e5e1626525f4f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

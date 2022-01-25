@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Levels/Tileset/Fg/Grass_1.png" type="Texture" id=1]
+[ext_resource path="res://Shaders/Swaying.tres" type="Material" id=2]
+
+[node name="Grass" type="Node2D"]
+scale = Vector2( 1.01019, 0.86888 )
+
+[node name="Grass1" type="Sprite" parent="."]
+material = ExtResource( 2 )
+texture = ExtResource( 1 )

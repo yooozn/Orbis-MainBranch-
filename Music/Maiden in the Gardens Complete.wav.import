@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Maiden in the Gardens Complete.wav-7f77f854326a236614e9b2a174a7a5b7.sample"
+
+[deps]
+
+source_file="res://Music/Maiden in the Gardens Complete.wav"
+dest_files=[ "res://.import/Maiden in the Gardens Complete.wav-7f77f854326a236614e9b2a174a7a5b7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

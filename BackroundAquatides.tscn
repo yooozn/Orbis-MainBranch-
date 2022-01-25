@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Levels/AquaTide.png" type="Texture" id=1]
+
+[node name="BackroundAquatides" type="CanvasLayer"]
+layer = -3
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 515.5, 299.5 )
+scale = Vector2( 0.475463, 0.367284 )
+texture = ExtResource( 1 )

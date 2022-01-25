@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Flowers Among Fantasy (Better).wav-5032c277603f045b56c7647af3e6c9fe.sample"
+
+[deps]
+
+source_file="res://Music/Flowers Among Fantasy (Better).wav"
+dest_files=[ "res://.import/Flowers Among Fantasy (Better).wav-5032c277603f045b56c7647af3e6c9fe.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

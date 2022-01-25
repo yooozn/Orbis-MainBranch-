@@ -1,0 +1,209 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://testingthings/DetectWall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/enemy/Moss_Parent-4.png" type="Texture" id=2]
+[ext_resource path="res://Characters/Player/Effects.gd" type="Script" id=3]
+[ext_resource path="res://Characters/enemy/Moss_Parent-3.png" type="Texture" id=4]
+[ext_resource path="res://Characters/enemy/Moss_Parent-2.png" type="Texture" id=5]
+[ext_resource path="res://Characters/enemy/Moss_Parent-5.png" type="Texture" id=6]
+[ext_resource path="res://Characters/enemy/DetectPortal.tscn" type="PackedScene" id=7]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends KinematicBody2D
+
+export var group = 'Null'
+export var Event = 'Null'
+export var Turn = false
+export var Jump = false
+export var Damage = 1
+export var Can_damage = true
+export var Health = 3
+var pos = Vector2(0, 0)
+var speed = 300
+var left = true
+var right = false
+var gravity = 10
+onready var col = get_node(\"Detext/Detection\")
+var stopped = false
+
+func _ready():
+	set_collision_mask(2)
+# Called when the node enters the scene tree for the first time.
+func _process(delta):
+	_move_enemy()
+	detect_turn_around()
+	
+func _move_enemy():
+	#Old moving stuff
+#	if left == true:
+#		position.x += -speed
+#	if right == true:
+#		position.x += speed
+#	position.y = position.y
+#	position.normalized()
+	pos.x = -speed if left else speed
+	
+	if left:
+		pos.x = -speed
+	else:
+		pos.x = speed
+	
+	pos.y += gravity
+	pos = move_and_slide(pos, Vector2.UP)
+	
+func damage(damage):
+	pos.x = 0
+	$Damage.play()
+	$DamageTimer.start()
+	Can_damage = false 
+	print(damage)
+	Health -= 1
+	if Health == 0:
+		 
+		queue_free()
+	$Enemy_effects.play(\"Stagger\")
+#	$Effects._damage()
+	pass
+
+func detect_turn_around():
+	if not $RayCast2D.is_colliding() and is_on_floor() || $DetectWall.is_colliding():
+		left = !left
+		scale.x = -scale.x
+	if $DetectPortal.is_colliding():
+		left = !left
+		scale.x = -scale.x
+		
+
+func _on_DamageTimer_timeout():
+	Can_damage = true
+	pass # Replace with function body.
+
+
+
+func _on_Hitbox_body_entered(body):
+	Can_damage = true
+	if body.is_in_group('Player'):
+#	Area2D.damage(Damage)
+		body.damage(1)
+		
+func _on_Area2D_area_entered(area):
+		if left == true:
+				left = false
+				right = true
+				$\"AnimatedSprite\".flip_h = false
+		if right == true:
+				right = false
+				left = true
+				$\"AnimatedSprite\".flip_h = true
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10.6451, 9.80361 )
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=5]
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:material:shader_param/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.429, 0.0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 20.75, 22.25 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 8.70232, 0.209591 )
+
+[node name="Enemy" type="KinematicBody2D" groups=["Enemy"]]
+position = Vector2( 152, 94 )
+collision_layer = 7
+collision_mask = 7
+script = SubResource( 1 )
+Health = 6
+
+[node name="Hitbox" type="Area2D" parent="."]
+scale = Vector2( 7.5002, 5.85109 )
+z_index = 1
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+modulate = Color( 1, 0.890196, 0, 1 )
+position = Vector2( -0.527283, -0.75 )
+z_index = -1
+shape = SubResource( 2 )
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( -1, -1 )
+scale = Vector2( 0.0837345, 0.101094 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+material = SubResource( 3 )
+position = Vector2( -1, -1 )
+scale = Vector2( 0.0837345, 0.101094 )
+frames = SubResource( 4 )
+animation = "Walk"
+frame = 3
+playing = true
+flip_h = true
+
+[node name="Enemy_effects" type="AnimationPlayer" parent="."]
+anims/Stagger = SubResource( 5 )
+script = ExtResource( 3 )
+
+[node name="DamageTimer" type="Timer" parent="."]
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="."]
+pitch_scale = 0.81
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2( 3.64107, 2.47449 )
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -1 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
+position = Vector2( -3.47932, 52.5 )
+scale = Vector2( 8.32874, 7.1568 )
+shape = SubResource( 7 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -83, 9 )
+scale = Vector2( 1.16161, 2.78418 )
+enabled = true
+
+[node name="DetectWall" parent="." instance=ExtResource( 1 )]
+position = Vector2( -71, 1 )
+rotation = 1.49699
+
+[node name="DetectPortal" parent="." instance=ExtResource( 7 )]
+position = Vector2( -39, 3 )
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_DamageTimer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

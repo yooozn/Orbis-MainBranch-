@@ -1,0 +1,11 @@
+extends StaticBody2D
+
+var area = Area2D
+func _process(delta):
+	if Globals.door2 == false:
+		$AnimatedSprite.play("Neutral")
+	else:
+		if Globals.door2 == true:
+			$AnimatedSprite.play("Open")
+			$CollisionShape2D.disabled = true
+		

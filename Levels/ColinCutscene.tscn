@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Cutscene/Colin Encounter.ogv" type="VideoStream" id=1]
+[ext_resource path="res://Levels/ColinCutscene.gd" type="Script" id=2]
+[ext_resource path="res://Levels/CutsceneColin.gd" type="Script" id=3]
+[ext_resource path="res://Levels/CutsceneTransition.tscn" type="PackedScene" id=5]
+
+[node name="ColinCutscene1" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CutsceneColin" type="VideoPlayer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+stream = ExtResource( 1 )
+autoplay = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CutsceneTransition" parent="." instance=ExtResource( 5 )]
+layer = 2
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="finished" from="CutsceneColin" to="." method="_on_CutsceneColin_finished"]
+[connection signal="finished" from="CutsceneColin" to="CutsceneColin" method="_on_CutsceneColin_finished"]
+[connection signal="ready" from="CutsceneColin" to="." method="_on_Cutscene_ready"]

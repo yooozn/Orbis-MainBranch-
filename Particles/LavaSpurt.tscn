@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Levels/Tileset/Seamless/Ember_Particle (1).png" type="Texture" id=1]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 2
+emission_box_extents = Vector3( 1000, 1000, 1000 )
+flag_disable_z = true
+direction = Vector3( 90, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, -90, 0 )
+angular_velocity = 720.0
+orbit_velocity = 0.01
+orbit_velocity_random = 0.0
+linear_accel = -13.07
+linear_accel_random = 1.0
+radial_accel = 1.0
+angle = 1.0
+scale = 0.02
+
+[node name="LavaSpurt" type="Particles2D"]
+position = Vector2( 0, -1.88776 )
+amount = 100
+lifetime = 2.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+process_material = SubResource( 1 )
+texture = ExtResource( 1 )

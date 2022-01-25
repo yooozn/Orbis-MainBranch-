@@ -1,0 +1,144 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Characters/enemy/Flying_Mob_-2.png" type="Texture" id=1]
+[ext_resource path="res://Characters/enemy/Flying_Mob_-4.png" type="Texture" id=2]
+[ext_resource path="res://Characters/Player/Effects.gd" type="Script" id=3]
+[ext_resource path="res://Characters/enemy/Flying_Mob_-3.png" type="Texture" id=4]
+[ext_resource path="res://Characters/enemy/Flying_Mob_-5.png" type="Texture" id=5]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends KinematicBody2D
+
+
+var player = null
+var move = Vector2.ZERO
+var speed = 1
+
+func _physics_process(delta):
+	move = Vector2.ZERO
+	
+	if player != null:
+		move = position.direction_to(player.position) * speed
+	else:
+		move = Vector2.ZERO
+		
+		move = move.normalized()
+		move = move_and_collide(move)
+		
+func _on_PlayerDetection_area_entered(body):
+	if body!= self:
+		player = body
+
+func _on_PlayerDetection_area_exited(body):
+	player = null
+
+func _on_Timer_timeout():
+	pass # Replace with function body.
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10.6451, 9.80361 )
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=5]
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:material:shader_param/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.429, 0.0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 20.75, 22.25 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 8.70232, 0.995863 )
+
+[node name="FlyingEnemy" type="KinematicBody2D" groups=["Enemy"]]
+position = Vector2( 404, 227 )
+collision_layer = 2
+collision_mask = 2
+script = SubResource( 1 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2( -12, 5 )
+scale = Vector2( 7.5002, 5.85109 )
+z_index = 1
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+modulate = Color( 1, 0.890196, 0, 1 )
+position = Vector2( 0.133327, 0 )
+z_index = -1
+shape = SubResource( 2 )
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( -1, -1 )
+scale = Vector2( 0.0837345, 0.101094 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+material = SubResource( 3 )
+position = Vector2( 16, 12 )
+scale = Vector2( 0.226369, 0.224432 )
+frames = SubResource( 4 )
+animation = "Walk"
+frame = 1
+playing = true
+
+[node name="Enemy_effects" type="AnimationPlayer" parent="."]
+anims/Stagger = SubResource( 5 )
+script = ExtResource( 3 )
+
+[node name="DamageTimer" type="Timer" parent="."]
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="."]
+pitch_scale = 0.81
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+scale = Vector2( 17.918, 11.8705 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+position = Vector2( 0, -1 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
+position = Vector2( -3.47932, 49.1272 )
+scale = Vector2( 8.32874, 7.1568 )
+shape = SubResource( 7 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -83, 9 )
+scale = Vector2( 1.16161, 2.78418 )
+enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_DamageTimer_timeout"]
+[connection signal="area_entered" from="PlayerDetection" to="." method="_on_PlayerDetection_area_entered"]
+[connection signal="area_exited" from="PlayerDetection" to="." method="_on_PlayerDetection_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

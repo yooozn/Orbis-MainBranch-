@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Dusk Peak.wav-bb1418fd5f6d48f5d2146cf128bb9cd5.sample"
+
+[deps]
+
+source_file="res://Music/Dusk Peak.wav"
+dest_files=[ "res://.import/Dusk Peak.wav-bb1418fd5f6d48f5d2146cf128bb9cd5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

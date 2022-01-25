@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Levels/BG/Heroine's_Gardens_.png" type="Texture" id=1]
+
+[node name="Heroine\'sGardenBackround" type="CanvasLayer"]
+layer = -7
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 525, 283 )
+scale = Vector2( 0.482165, 0.39854 )
+texture = ExtResource( 1 )

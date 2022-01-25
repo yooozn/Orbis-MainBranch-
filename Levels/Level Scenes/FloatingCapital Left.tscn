@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Levels/Tileset/FloatingCapitalLevels/Floating Capital Levels.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/BG/BackroundFloatingCapital.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Level Scenes/Portal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Shaders/FloatingCapitalShaders.tscn" type="PackedScene" id=5]
+
+[node name="FloatingCapital Left" type="Node2D"]
+
+[node name="Floating Capital Levels" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 0, 0, 0 )
+
+[node name="BackroundFloatingCapital" parent="." instance=ExtResource( 2 )]
+
+[node name="Portals" type="Node" parent="."]
+
+[node name="MagmaCavern" parent="Portals" instance=ExtResource( 3 )]
+position = Vector2( -14, 1465 )
+scale = Vector2( 6.25796, 12.4038 )
+next_scene_path = "res://Levels/Level Scenes/Magma Cavern 1-8.tscn"
+player_spawn_location = Vector2( 1963, 1829 )
+
+[node name="Middle" parent="Portals" instance=ExtResource( 3 )]
+position = Vector2( 2069, 1632 )
+scale = Vector2( 4.21843, 14.1921 )
+next_scene_path = "res://Levels/Level Scenes/FloatingCaptial Middle.tscn"
+player_spawn_location = Vector2( 62, 1792 )
+
+[node name="Up" parent="Portals" instance=ExtResource( 3 )]
+rotation = -1.56565
+scale = Vector2( 5.9281, 19.3967 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 128, 1812 )
+
+[node name="Shaders" parent="." instance=ExtResource( 5 )]
+
+[node name="Backdrops" type="Node" parent="."]

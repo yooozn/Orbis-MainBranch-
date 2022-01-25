@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Levels/Tileset/SparkForestLevels/Spark Forest Levels.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Level Scenes/Portal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://BackroundSparkForestBoss.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Particles/Leaves.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Particles/Sam_Bam_Particles.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Caladea-Regular.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 7 )
+
+[node name="Spark Forest Boss" type="Node2D"]
+
+[node name="Spark Forest Levels" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 0, 14, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="Portal" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2016, 1417 )
+next_scene_path = "res://Levels/Level Scenes/Spark Forest 1-2.tscn"
+
+[node name="BackroundSparkForestBoss" parent="." instance=ExtResource( 4 )]
+
+[node name="Sam_Bam_Particles" parent="." instance=ExtResource( 6 )]
+
+[node name="Leaves" parent="." instance=ExtResource( 5 )]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 1413.0
+margin_top = 1389.0
+margin_right = 2027.0
+margin_bottom = 1841.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "This is a placeholder Portal area "
+__meta__ = {
+"_edit_use_anchors_": false
+}

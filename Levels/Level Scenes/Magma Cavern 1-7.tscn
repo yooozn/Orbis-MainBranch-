@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Levels/Tileset/LavaCavernLevels/MagmaCavern Levels.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Platforms.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/Level Scenes/Portal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Particles/LavaSpurt.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Shaders/FireFog.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Shaders/Fire.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/BG/BackroundMagmaCavern.tscn" type="PackedScene" id=8]
+
+[node name="Magma Cavern 1-7" type="Node2D"]
+
+[node name="LavaCavern Levels" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 0, 6, 0 )
+
+[node name="Platforms" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 131077, 6, 0, 458755, 7, 0, 655363, 6, 0, 786438, 6, 0, 983044, 7, 0, 1048584, 7, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 803, 200 )
+
+[node name="Portals" type="Node" parent="."]
+
+[node name="1-8" parent="Portals" instance=ExtResource( 4 )]
+position = Vector2( 649, -29 )
+rotation = -1.57318
+next_scene_path = "res://Levels/Level Scenes/Magma Cavern 1-8.tscn"
+player_spawn_location = Vector2( 1080, 1825 )
+
+[node name="FireFog" parent="." instance=ExtResource( 6 )]
+
+[node name="LavaSpurt" parent="." instance=ExtResource( 5 )]
+position = Vector2( 911, 1119 )
+
+[node name="Fire" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1651, 1280 )
+scale = Vector2( 0.163958, 0.221444 )
+z_index = -1
+
+[node name="Fire2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1148, 1610 )
+scale = Vector2( 0.165877, 0.228016 )
+z_index = -1
+
+[node name="BackroundMagmaCavern" parent="." instance=ExtResource( 8 )]

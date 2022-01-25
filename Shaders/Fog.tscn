@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fog.gdshader" type="Shader" id=1]
+[ext_resource path="res://Characters/New/Orbis Animations/bamm/Bamm_Attack_1-2.png" type="Texture" id=2]
+[ext_resource path="res://fog2.shader" type="Shader" id=3]
+
+[sub_resource type="ShaderMaterial" id=13]
+shader = ExtResource( 3 )
+shader_param/color = Vector3( 0.35, 0.48, 0.95 )
+shader_param/OCTAVES = 4
+
+[sub_resource type="ShaderMaterial" id=14]
+shader = ExtResource( 1 )
+shader_param/color = Vector3( 1, 1, 1 )
+shader_param/OCTAVES = 1
+
+[node name="Fog" type="Node2D"]
+material = SubResource( 13 )
+
+[node name="Sam\'s Fog" type="Sprite" parent="."]
+material = SubResource( 14 )
+position = Vector2( 967.287, 119.461 )
+texture = ExtResource( 2 )

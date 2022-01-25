@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Levels/Tileset/SparkForestLevels/Spark Forest Levels.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Level Scenes/Portal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/Platforms.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Shaders/SparkForestShaders.tscn" type="PackedScene" id=5]
+
+[node name="Spark Forest 1-7" type="Node2D"]
+
+[node name="Spark Forest Levels" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 0, 5, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1364, 1628 )
+
+[node name="Portals" type="Node" parent="."]
+
+[node name="1-4" parent="Portals" instance=ExtResource( 2 )]
+position = Vector2( 974.004, 31.2151 )
+rotation = 1.5708
+next_scene_path = "res://Levels/Level Scenes/Spark Forest 1-4.tscn"
+player_spawn_location = Vector2( 156, 1823 )
+
+[node name="1-8" parent="Portals" instance=ExtResource( 2 )]
+position = Vector2( 1050.99, 2012.98 )
+rotation = 1.5708
+scale = Vector2( 3.339, 10 )
+next_scene_path = "res://Spark Forest 1-8.tscn"
+player_spawn_location = Vector2( 1446.39, 372.937 )
+
+[node name="Platforms" parent="." instance=ExtResource( 4 )]
+tile_data = PoolIntArray( 196615, 1, 0, 327685, 1, 0, 851972, 1, 0, 1048582, 1, 0, 1310724, 1, 0 )
+
+[node name="Shaders" parent="." instance=ExtResource( 5 )]

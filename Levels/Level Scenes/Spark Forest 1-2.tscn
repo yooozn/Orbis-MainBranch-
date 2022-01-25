@@ -1,0 +1,258 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Tileset/SparkForestLevels/Spark Forest Levels.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Platforms.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/Level Scenes/Area2D.gd" type="Script" id=4]
+[ext_resource path="res://Characters/New/Orbis Animations/mackenzie/Mackenzie_Idle_Crouch-1.png" type="Texture" id=5]
+[ext_resource path="res://Characters/New/Orbis Animations/mackenzie/Mackenzie_Idle_1-1.png" type="Texture" id=6]
+[ext_resource path="res://Levels/Level Scenes/Portal.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Characters/light.png" type="Texture" id=8]
+[ext_resource path="res://Particles/Sam_Bam_Particles.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Particles/Clouds.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Particles/Leaves.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Levels/BG/BackroundSparkForest.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Cutscene/DialogIndex.gd" type="Script" id=13]
+[ext_resource path="res://Levels/blurybox.png" type="Texture" id=14]
+[ext_resource path="res://Levels/Tileset/SparkForestLevels/Text/Didot Regular.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://Cutscene/Triangle.png" type="Texture" id=16]
+[ext_resource path="res://Shaders/Fog.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Collectables/Collectable1.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Characters/enemy/Event_trigger.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Levels/Level Scenes/Spark Forest 1-2.gd" type="Script" id=21]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 663.91
+height = 728.764
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+outline_size = 1
+use_filter = true
+font_data = ExtResource( 15 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Triangle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 504, 208 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Triangle_Anim"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Triangle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 504, 208 ), Vector2( 504, 195.237 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "New Anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MackenzieStand:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("MackenzieStand:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Spark Forest 1-2" type="Node2D"]
+script = ExtResource( 21 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1855.13, 1951.47 )
+
+[node name="Spark Forest Levels" parent="." instance=ExtResource( 2 )]
+cell_quadrant_size = 1
+cell_custom_transform = Transform2D( 63.805, 0, 0, 64, 0, 0 )
+occluder_light_mask = 0
+tile_data = PoolIntArray( 0, 2, 0 )
+
+[node name="Platforms" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 393218, 1, 0, 655362, 0, 0, 917513, 1, 0, 1114113, 0, 0, 1114119, 1, 0, 1245193, 0, 0 )
+
+[node name="Character" type="Node2D" parent="."]
+
+[node name="MackenziePortal" type="Area2D" parent="."]
+position = Vector2( 471.724, 1836.52 )
+scale = Vector2( 0.4, 0.4 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 4 )
+Video = "res://Cutscene/MackenzieCutscene1.ogv"
+
+[node name="Collision1" type="CollisionShape2D" parent="MackenziePortal"]
+position = Vector2( 448.19, 6.19971 )
+rotation = 1.58162
+scale = Vector2( 0.704539, 0.573391 )
+shape = SubResource( 1 )
+
+[node name="MackenzieCrouch" type="Sprite" parent="MackenziePortal"]
+texture = ExtResource( 5 )
+flip_h = true
+
+[node name="Portals" type="Node" parent="."]
+
+[node name="1-1" parent="Portals" instance=ExtResource( 7 )]
+position = Vector2( 2031.86, 1669.78 )
+scale = Vector2( 1.52731, 3.23708 )
+next_scene_path = "res://Spark Forest.tscn"
+player_spawn_location = Vector2( 137.824, 1946.59 )
+
+[node name="1-3" parent="Portals" instance=ExtResource( 7 )]
+position = Vector2( 131.313, 2051.01 )
+rotation = -1.57204
+next_scene_path = "res://Levels/Level Scenes/Spark Forest 1-3.tscn"
+player_spawn_location = Vector2( 476, 146 )
+
+[node name="1-4" parent="Portals" instance=ExtResource( 7 )]
+position = Vector2( -8.18424, 190.038 )
+scale = Vector2( 2.49733, 3.46636 )
+next_scene_path = "res://Levels/Level Scenes/Spark Forest 1-4.tscn"
+player_spawn_location = Vector2( 1907.89, 1821.6 )
+
+[node name="Shading" type="Node" parent="."]
+
+[node name="Lights" type="Node2D" parent="Shading"]
+
+[node name="Light2D" type="Light2D" parent="Shading/Lights"]
+position = Vector2( 45, -63 )
+scale = Vector2( 3.65986, 6.20292 )
+texture = ExtResource( 8 )
+
+[node name="Particles" type="Node2D" parent="Shading"]
+
+[node name="Sam_Bam_Particles" parent="Shading/Particles" instance=ExtResource( 9 )]
+
+[node name="Clouds" parent="Shading/Particles" instance=ExtResource( 10 )]
+
+[node name="Leaves" parent="Shading/Particles" instance=ExtResource( 11 )]
+
+[node name="BackroundSparkForest" parent="." instance=ExtResource( 12 )]
+
+[node name="Dialog Box" type="CanvasLayer" parent="."]
+layer = 4
+script = ExtResource( 13 )
+
+[node name="TextBox" type="TextureProgress" parent="Dialog Box"]
+margin_left = 192.0
+margin_top = 16.0
+margin_right = 842.0
+margin_bottom = 229.0
+texture_progress = ExtResource( 14 )
+fill_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="Dialog Box"]
+margin_left = 208.0
+margin_top = 32.0
+margin_right = 2008.0
+margin_bottom = 462.0
+rect_scale = Vector2( 0.34227, 0.377282 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Triangle" type="Sprite" parent="Dialog Box"]
+position = Vector2( 504, 208 )
+scale = Vector2( 0.0451389, 0.0462963 )
+texture = ExtResource( 16 )
+
+[node name="Tween" type="Tween" parent="Dialog Box"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Dialog Box"]
+autoplay = "Triangle_Anim"
+anims/RESET = SubResource( 3 )
+anims/Triangle_Anim = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="Dialog Box"]
+wait_time = 0.001
+autostart = true
+
+[node name="DialogIndex" type="Node2D" parent="."]
+
+[node name="DialogIndex" type="Control" parent="DialogIndex"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource( 19 )]
+position = Vector2( 970.071, 482.64 )
+scale = Vector2( 4.9705, 5.0698 )
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 19 )]
+position = Vector2( 925, 1214 )
+scale = Vector2( 3.80745, 4.20367 )
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 19 )]
+position = Vector2( 1455, 484 )
+scale = Vector2( 3.68355, 3.87413 )
+
+[node name="Fog" parent="." instance=ExtResource( 17 )]
+position = Vector2( -29.9661, 1174.67 )
+scale = Vector2( 1.33145, 1.90309 )
+z_index = 16
+
+[node name="MackenzieStand" type="Sprite" parent="."]
+visible = false
+position = Vector2( 504, 1748 )
+scale = Vector2( 0.368246, 0.400167 )
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MackenzieStand"]
+root_node = NodePath("../..")
+"anims/New Anim" = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[node name="Collectable" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1194, 1513 )
+
+[connection signal="body_entered" from="MackenziePortal" to="MackenziePortal" method="_on_MackenziePortal_body_entered"]
+[connection signal="timeout" from="Dialog Box/Timer" to="Dialog Box" method="_on_Timer_timeout"]
+[connection signal="berries_collected" from="Collectable" to="." method="_on_Collectable_berries_collected"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Levels/Tileset/FloatingCapitalLevels/Floating Blue.png" type="Texture" id=1]
+
+[node name="BackroundFloatingCapital" type="CanvasLayer"]
+layer = -2
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 511, 301 )
+scale = Vector2( 0.478704, 0.372878 )
+texture = ExtResource( 1 )

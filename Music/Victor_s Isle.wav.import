@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Victor_s Isle.wav-dd7f3d1f4e1ee8fa10d05a88e19f229b.sample"
+
+[deps]
+
+source_file="res://Music/Victor_s Isle.wav"
+dest_files=[ "res://.import/Victor_s Isle.wav-dd7f3d1f4e1ee8fa10d05a88e19f229b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

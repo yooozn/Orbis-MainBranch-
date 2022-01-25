@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Lava Cavern.wav-7b4280d0124249b57564ac0bae046ab5.sample"
+
+[deps]
+
+source_file="res://Music/Lava Cavern.wav"
+dest_files=[ "res://.import/Lava Cavern.wav-7b4280d0124249b57564ac0bae046ab5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

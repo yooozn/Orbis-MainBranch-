@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="DetectPortal" type="RayCast2D"]
+rotation = 1.588
+scale = Vector2( 4.46347, 1.61706 )
+enabled = true
+collision_mask = 256
+collide_with_areas = true
+collide_with_bodies = false

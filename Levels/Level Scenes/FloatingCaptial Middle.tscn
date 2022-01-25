@@ -1,0 +1,337 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://Levels/Tileset/FloatingCapitalLevels/Floating Capital Levels.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Tileset/FloatingCapitalLevels/Floating Blue.png" type="Texture" id=3]
+[ext_resource path="res://Levels/Tileset/Fg/Fountain.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Shaders/FloatingCapitalShaders.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/Tileset/Fg/Streetlight.png" type="Texture" id=6]
+[ext_resource path="res://Levels/Level Scenes/Portal.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/Tileset/Fg/Tall_Light.png" type="Texture" id=8]
+[ext_resource path="res://Levels/Tileset/Fg/Skinny_Pillar.png" type="Texture" id=9]
+[ext_resource path="res://Particles/Sakura.png" type="Texture" id=10]
+[ext_resource path="res://Levels/Tileset/Fg/Bush_.png" type="Texture" id=11]
+[ext_resource path="res://Shaders/Swaying.tres" type="Material" id=12]
+[ext_resource path="res://Levels/Tileset/Fg/Fence.png" type="Texture" id=13]
+[ext_resource path="res://Levels/Tileset/SparkForestLevels/Text/Didot Regular.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://Voicelines/Mackenzie_Encounter_Line3.mp3" type="AudioStream" id=15]
+[ext_resource path="res://Voicelines/Mackenzie_Encounter_Line2.mp3" type="AudioStream" id=16]
+[ext_resource path="res://Voicelines/Mackenzie_Encounter_Line1.mp3" type="AudioStream" id=17]
+[ext_resource path="res://Levels/Level Scenes/MackenzieCutscene.gd" type="Script" id=18]
+[ext_resource path="res://Levels/blurybox.png" type="Texture" id=19]
+[ext_resource path="res://Cutscene/Triangle.png" type="Texture" id=20]
+[ext_resource path="res://Levels/Level Scenes/MackenzieDialogFountain.gd" type="Script" id=21]
+[ext_resource path="res://Characters/New/Orbis Animations/mackenzie/Mackenzie_Idle_1-1.png" type="Texture" id=22]
+[ext_resource path="res://Levels/Level Scenes/FloatingCaptial Middle.gd" type="Script" id=23]
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 137.0
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 0, 1000, 1 )
+flag_disable_z = true
+gravity = Vector3( 98, 0, 0 )
+angular_velocity = 49.66
+orbit_velocity = 0.01
+orbit_velocity_random = 0.0
+radial_accel = 100.0
+radial_accel_random = 1.0
+damping = 100.0
+damping_random = 1.0
+scale = 0.1
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 0, 1000, 1 )
+flag_disable_z = true
+gravity = Vector3( 98, 0, 0 )
+angular_velocity = 49.66
+orbit_velocity = 0.01
+orbit_velocity_random = 0.0
+radial_accel = 100.0
+radial_accel_random = 1.0
+damping = 100.0
+damping_random = 1.0
+scale = 0.05
+
+[sub_resource type="StreamTexture" id=5]
+flags = 4
+load_path = "res://.import/Sakura.png-177af295795681f2cbfc70598efb4fe3.stex"
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_size = 1
+use_filter = true
+font_data = ExtResource( 14 )
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Triangle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 504, 208 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Triangle_Anim"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Triangle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 504, 208 ), Vector2( 504, 195.237 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Dissapear"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="FloatingCaptial Middle" type="Node2D"]
+script = ExtResource( 23 )
+
+[node name="Floating Capital Levels" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 0, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 62, 1792 )
+
+[node name="BackroundFloatingCapital" type="CanvasLayer" parent="."]
+layer = -4
+
+[node name="Sprite" type="Sprite" parent="BackroundFloatingCapital"]
+position = Vector2( 503.134, 304.781 )
+scale = Vector2( 0.475342, 0.372878 )
+texture = ExtResource( 3 )
+
+[node name="Fountain" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1062, 1323 )
+scale = Vector2( 0.51828, 0.513246 )
+z_index = -2
+
+[node name="MackenzieDialogFountain" type="Area2D" parent="."]
+position = Vector2( 1043, 1688 )
+script = ExtResource( 21 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MackenzieDialogFountain"]
+shape = SubResource( 8 )
+
+[node name="Shaders" parent="." instance=ExtResource( 5 )]
+
+[node name="Leaves" type="Particles2D" parent="Shaders"]
+position = Vector2( -107.836, 1109.66 )
+amount = 100
+lifetime = 50.0
+randomness = 1.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+process_material = SubResource( 3 )
+texture = ExtResource( 10 )
+
+[node name="Leaves2" type="Particles2D" parent="Shaders"]
+position = Vector2( -108, 1110 )
+z_index = -3
+amount = 100
+lifetime = 50.0
+randomness = 1.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+process_material = SubResource( 4 )
+texture = SubResource( 5 )
+
+[node name="Bush" type="Sprite" parent="Shaders"]
+material = ExtResource( 12 )
+position = Vector2( 290, 1691 )
+scale = Vector2( 0.174328, 0.175141 )
+z_index = -1
+texture = ExtResource( 11 )
+
+[node name="Bush3" type="Sprite" parent="Shaders"]
+material = ExtResource( 12 )
+position = Vector2( 1746, 1691 )
+scale = Vector2( 0.174328, 0.175141 )
+z_index = -1
+texture = ExtResource( 11 )
+
+[node name="Bush4" type="Sprite" parent="Shaders"]
+material = ExtResource( 12 )
+position = Vector2( 1901, 1686 )
+scale = Vector2( 0.174328, 0.175141 )
+z_index = -1
+texture = ExtResource( 11 )
+
+[node name="Bush2" type="Sprite" parent="Shaders"]
+material = ExtResource( 12 )
+position = Vector2( 110, 1686 )
+scale = Vector2( 0.174328, 0.175141 )
+z_index = -1
+texture = ExtResource( 11 )
+
+[node name="Portals" type="Node" parent="."]
+
+[node name="Right" parent="Portals" instance=ExtResource( 7 )]
+position = Vector2( 2054, 1416 )
+next_scene_path = "res://Levels/Level Scenes/FloatingCaptialSide Right.tscn"
+player_spawn_location = Vector2( 85, 1778 )
+
+[node name="Left" parent="Portals" instance=ExtResource( 7 )]
+position = Vector2( -10, 1446 )
+next_scene_path = "res://Levels/Level Scenes/FloatingCapital Left.tscn"
+player_spawn_location = Vector2( 1913, 1800 )
+
+[node name="Assets" type="Node" parent="."]
+
+[node name="TallLight" type="Sprite" parent="Assets"]
+position = Vector2( 2335, 1187 )
+scale = Vector2( 0.56427, 0.624408 )
+z_index = -2
+texture = ExtResource( 8 )
+
+[node name="TallLight2" type="Sprite" parent="Assets"]
+position = Vector2( 551, 1221 )
+scale = Vector2( 0.56427, 0.624408 )
+z_index = -2
+texture = ExtResource( 8 )
+
+[node name="Streetlight" type="Sprite" parent="Assets"]
+position = Vector2( 323, 1400 )
+scale = Vector2( 0.427144, 0.453776 )
+z_index = -2
+texture = ExtResource( 6 )
+
+[node name="Streetlight2" type="Sprite" parent="Assets"]
+position = Vector2( 1827, 1404 )
+scale = Vector2( 0.427144, 0.453776 )
+z_index = -2
+texture = ExtResource( 6 )
+
+[node name="SkinnyPillar" type="Sprite" parent="Assets"]
+position = Vector2( 734, 822 )
+z_index = -3
+texture = ExtResource( 9 )
+
+[node name="SkinnyPillar2" type="Sprite" parent="Assets"]
+position = Vector2( 2760, 827 )
+z_index = -3
+texture = ExtResource( 9 )
+
+[node name="Fence2" type="Sprite" parent="Assets"]
+position = Vector2( 1807, 1701 )
+scale = Vector2( 0.27979, 0.287323 )
+texture = ExtResource( 13 )
+
+[node name="Fence" type="Sprite" parent="Assets"]
+position = Vector2( 260, 1714 )
+scale = Vector2( 0.27979, 0.287323 )
+texture = ExtResource( 13 )
+
+[node name="MackenzieCutscene" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MackenzieCutscene" type="CanvasLayer" parent="MackenzieCutscene"]
+layer = 4
+script = ExtResource( 18 )
+
+[node name="VoiceLineOne" type="AudioStreamPlayer2D" parent="MackenzieCutscene/MackenzieCutscene"]
+stream = ExtResource( 17 )
+
+[node name="VoiceLineThree" type="AudioStreamPlayer2D" parent="MackenzieCutscene/MackenzieCutscene"]
+stream = ExtResource( 15 )
+
+[node name="VoiceLineTwo" type="AudioStreamPlayer2D" parent="MackenzieCutscene/MackenzieCutscene"]
+stream = ExtResource( 16 )
+
+[node name="TextBox" type="TextureProgress" parent="MackenzieCutscene/MackenzieCutscene"]
+margin_left = 192.0
+margin_top = 16.0
+margin_right = 842.0
+margin_bottom = 229.0
+value = 100.0
+texture_progress = ExtResource( 19 )
+fill_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="MackenzieCutscene/MackenzieCutscene"]
+margin_left = 208.0
+margin_top = 32.0
+margin_right = 2008.0
+margin_bottom = 462.0
+rect_scale = Vector2( 0.34227, 0.377282 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Triangle" type="Sprite" parent="MackenzieCutscene/MackenzieCutscene"]
+position = Vector2( 504, 208 )
+scale = Vector2( 0.0451389, 0.0462963 )
+texture = ExtResource( 20 )
+
+[node name="Tween" type="Tween" parent="MackenzieCutscene/MackenzieCutscene"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MackenzieCutscene/MackenzieCutscene"]
+autoplay = "Triangle_Anim"
+anims/RESET = SubResource( 7 )
+anims/Triangle_Anim = SubResource( 6 )
+
+[node name="Timer" type="Timer" parent="MackenzieCutscene/MackenzieCutscene"]
+wait_time = 0.001
+autostart = true
+
+[node name="MackenzieIdle1-1" type="Sprite" parent="."]
+position = Vector2( 1239, 1655 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 22 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MackenzieIdle1-1"]
+anims/Dissapear = SubResource( 9 )
+anims/RESET = SubResource( 10 )
+
+[connection signal="body_entered" from="MackenzieDialogFountain" to="MackenzieDialogFountain" method="_on_MackenzieDialogFountain_body_entered"]
+[connection signal="timeout" from="MackenzieCutscene/MackenzieCutscene/Timer" to="MackenzieCutscene" method="_on_Timer_timeout"]
+[connection signal="timeout" from="MackenzieCutscene/MackenzieCutscene/Timer" to="MackenzieCutscene/MackenzieCutscene" method="_on_Timer_timeout"]

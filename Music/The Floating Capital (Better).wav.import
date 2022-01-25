@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/The Floating Capital (Better).wav-88fe46ab91185c5ece75ae27f7ba40b4.sample"
+
+[deps]
+
+source_file="res://Music/The Floating Capital (Better).wav"
+dest_files=[ "res://.import/The Floating Capital (Better).wav-88fe46ab91185c5ece75ae27f7ba40b4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

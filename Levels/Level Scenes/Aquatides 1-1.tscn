@@ -1,0 +1,71 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Levels/Tileset/AquaTideLevels/AquatidesLevels.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Platforms.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://BackroundAquatides.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GodRays.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/Level Scenes/Portal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Particles/Bubble_Particles.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Shaders/Water.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Levels/Level Scenes/Aquatides 1-1.gd" type="Script" id=9]
+[ext_resource path="res://Characters/enemy/Bobbing_Enemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Characters/enemy/Feesh_Enemy.tscn" type="PackedScene" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 76.3437, 79.2274 )
+
+[node name="Aquatides 1-1" type="Node2D"]
+rotation = -0.00377006
+script = ExtResource( 9 )
+
+[node name="Aquatides Levels" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 0, 0, 0 )
+
+[node name="Platforms" parent="." instance=ExtResource( 2 )]
+tile_data = PoolIntArray( 327687, 4, 0, 327692, 4, 0, 393217, 4, 0, 524291, 4, 0, 524294, 4, 0, 655364, 4, 0, 720897, 4, 0, 720903, 4, 0, 917507, 4, 0, 917515, 4, 0, 983046, 4, 0, 1048585, 4, 0, 1114113, 4, 0, 1179658, 4, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 956.52, 659.611 )
+
+[node name="BackroundAquatides" parent="." instance=ExtResource( 4 )]
+
+[node name="GodRays" parent="." instance=ExtResource( 5 )]
+position = Vector2( 417.448, 1207.58 )
+
+[node name="Portals" type="Node" parent="."]
+
+[node name="1-2" parent="Portals" instance=ExtResource( 6 )]
+position = Vector2( 2004, 85 )
+next_scene_path = "res://Levels/Level Scenes/Aquatides 1-2.tscn"
+player_spawn_location = Vector2( 87, 428 )
+
+[node name="1-8" parent="Portals" instance=ExtResource( 6 )]
+position = Vector2( 2070, 1634 )
+next_scene_path = "res://Levels/Level Scenes/Aquatides 1-8.tscn"
+player_spawn_location = Vector2( 87, 1817 )
+
+[node name="Particles" type="Node2D" parent="."]
+
+[node name="Bubble_Particles" parent="Particles" instance=ExtResource( 7 )]
+
+[node name="Water" parent="." instance=ExtResource( 8 )]
+position = Vector2( 862.861, 1156.19 )
+scale = Vector2( 1.09354, 1.85132 )
+
+[node name="Music" type="Area2D" parent="."]
+position = Vector2( 248.143, 492.939 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Music"]
+shape = SubResource( 1 )
+
+[node name="Enemy" parent="." instance=ExtResource( 10 )]
+position = Vector2( 816.309, 1511.09 )
+scale = Vector2( 2.29188, 2.34561 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1575.73, 339.943 )
+scale = Vector2( 5.97788, 6.29834 )
+
+[connection signal="body_entered" from="Music" to="." method="_on_Music_body_entered"]
+[connection signal="body_exited" from="Music" to="." method="_on_Music_body_exited"]

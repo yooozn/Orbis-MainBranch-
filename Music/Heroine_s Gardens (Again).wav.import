@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Heroine_s Gardens (Again).wav-d109fadcc7d46c4544255c04c9c2d4dc.sample"
+
+[deps]
+
+source_file="res://Music/Heroine_s Gardens (Again).wav"
+dest_files=[ "res://.import/Heroine_s Gardens (Again).wav-d109fadcc7d46c4544255c04c9c2d4dc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Mackenzie_Encounter_Line2.mp3-fd278f654a18599c1f156155f7a6fc83.mp3str"
+
+[deps]
+
+source_file="res://Voicelines/Mackenzie_Encounter_Line2.mp3"
+dest_files=[ "res://.import/Mackenzie_Encounter_Line2.mp3-fd278f654a18599c1f156155f7a6fc83.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

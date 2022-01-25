@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Underwater Battle .wav-1b4e93322ecaf70dec90cc7d59be90f6.sample"
+
+[deps]
+
+source_file="res://Music/Underwater Battle .wav"
+dest_files=[ "res://.import/Underwater Battle .wav-1b4e93322ecaf70dec90cc7d59be90f6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

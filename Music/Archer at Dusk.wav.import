@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Archer at Dusk.wav-84aea8c98d6aca309ab5d7dca8a2c0b4.sample"
+
+[deps]
+
+source_file="res://Music/Archer at Dusk.wav"
+dest_files=[ "res://.import/Archer at Dusk.wav-84aea8c98d6aca309ab5d7dca8a2c0b4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

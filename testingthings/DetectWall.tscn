@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="DetectWall" type="RayCast2D"]
+rotation = 1.5708
+scale = Vector2( 2.29825, 0.491485 )
+enabled = true

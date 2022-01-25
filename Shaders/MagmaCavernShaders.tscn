@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Shaders/FireFog.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Particles/LavaSpurt.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fog2.shader" type="Shader" id=3]
+[ext_resource path="res://Levels/Tileset/Seamless/Ember_Particle (1).png" type="Texture" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 3 )
+shader_param/color = Vector3( 0.35, 0.48, 0.95 )
+shader_param/OCTAVES = 4
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 2
+emission_box_extents = Vector3( 1000, 1000, 1000 )
+flag_disable_z = true
+direction = Vector3( 90, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, -90, 0 )
+angular_velocity = 720.0
+orbit_velocity = 0.01
+orbit_velocity_random = 0.0
+linear_accel = -13.07
+linear_accel_random = 1.0
+radial_accel = 1.0
+angle = 1.0
+scale = 0.02
+
+[node name="Shaders" type="Node2D"]
+
+[node name="FireFog" type="Node2D" parent="." instance=ExtResource( 1 )]
+material = SubResource( 1 )
+position = Vector2( 77.9121, 671.242 )
+
+[node name="LavaSpurt" type="Particles2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1199.36, 1330.84 )
+amount = 100
+lifetime = 2.0
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+process_material = SubResource( 2 )
+texture = ExtResource( 4 )

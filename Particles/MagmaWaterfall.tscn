@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Shaders/Fire.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Particles/LavaSpurt.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Characters/Player/cloud 2.png" type="Texture" id=3]
+[ext_resource path="res://Levels/BG/Lava_Fall.png" type="Texture" id=4]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 2
+emission_box_extents = Vector3( 1000, 1000, 100 )
+flag_disable_z = true
+spread = 68.16
+gravity = Vector3( 0, -98, 0 )
+angular_velocity = 4.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 100.0
+radial_accel = 91.35
+scale = 20.61
+hue_variation = 1.0
+
+[node name="MagmaWaterfall" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 214.187, 221.746 )
+scale = Vector2( 1.20917, 1.21655 )
+texture = ExtResource( 4 )
+
+[node name="Fire" parent="." instance=ExtResource( 1 )]
+position = Vector2( -466.171, -400.655 )
+scale = Vector2( 0.544755, 0.608735 )
+
+[node name="Fire2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 967.619, -27.7181 )
+scale = Vector2( 0.689941, 0.65303 )
+z_index = -1
+
+[node name="LavaSpurt" parent="." instance=ExtResource( 2 )]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 858.274, 540.554 )
+scale = Vector2( 0.0384494, 0.0273304 )
+amount = 100
+lifetime = 50.0
+process_material = SubResource( 1 )
+texture = ExtResource( 3 )
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+position = Vector2( -193.726, 604.554 )
+scale = Vector2( 0.0384494, 0.0273304 )
+amount = 100
+lifetime = 50.0
+process_material = SubResource( 1 )
+texture = ExtResource( 3 )

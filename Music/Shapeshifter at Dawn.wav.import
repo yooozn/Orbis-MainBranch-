@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Shapeshifter at Dawn.wav-3c90776d4b13adec3dfd2a42a3137c3f.sample"
+
+[deps]
+
+source_file="res://Music/Shapeshifter at Dawn.wav"
+dest_files=[ "res://.import/Shapeshifter at Dawn.wav-3c90776d4b13adec3dfd2a42a3137c3f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
