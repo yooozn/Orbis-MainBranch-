@@ -1,0 +1,117 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Characters/enemy/Simple_Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Moss_Baby_Walk-2.png" type="Texture" id=2]
+[ext_resource path="res://Moss_Baby_Walk-3.png" type="Texture" id=3]
+[ext_resource path="res://Moss_Baby_Hurt-2.png" type="Texture" id=4]
+[ext_resource path="res://Moss_Baby_Walk-5.png" type="Texture" id=5]
+[ext_resource path="res://Characters/Player/Effects.gd" type="Script" id=6]
+[ext_resource path="res://Moss_Baby_Walk-4.png" type="Texture" id=7]
+[ext_resource path="res://testingthings/DetectWall.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Characters/enemy/DetectPortal.tscn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10.6451, 9.80361 )
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:material:shader_param/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.429, 0.0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 15.2612, 14.0991 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 9, 0.569661 )
+
+[node name="Enemy" type="KinematicBody2D" groups=["Enemy"]]
+position = Vector2( 152, 94 )
+scale = Vector2( 3.19604, 3.51087 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 1 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+z_index = 1
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+modulate = Color( 1, 0.890196, 0, 1 )
+position = Vector2( -0.527283, -0.75 )
+z_index = -1
+shape = SubResource( 1 )
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( -1, -1 )
+scale = Vector2( 0.0837345, 0.101094 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+material = SubResource( 2 )
+position = Vector2( 0.625793, 0 )
+scale = Vector2( 0.0837345, 0.101094 )
+frames = SubResource( 3 )
+animation = "Walk"
+frame = 3
+playing = true
+flip_h = true
+
+[node name="Enemy_effects" type="AnimationPlayer" parent="."]
+anims/Stagger = SubResource( 4 )
+script = ExtResource( 6 )
+
+[node name="DamageTimer" type="Timer" parent="."]
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="."]
+pitch_scale = 0.81
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -0.555546, -1.28173 )
+rotation = -3.14159
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
+position = Vector2( -1.25155, 9.68421 )
+shape = SubResource( 6 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -20.9634, -1.70898 )
+enabled = true
+
+[node name="DetectWall" parent="." instance=ExtResource( 8 )]
+collision_mask = 257
+
+[node name="DetectPortal" parent="." instance=ExtResource( 9 )]
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_DamageTimer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
