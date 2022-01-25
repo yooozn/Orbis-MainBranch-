@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Levels/Tileset/HeroinesGardenLevels/Room_2.png" type="Texture" id=1]
 [ext_resource path="res://Levels/Tileset/HeroinesGardenLevels/Room_6.png" type="Texture" id=2]
@@ -35,6 +35,9 @@ points = PoolVector2Array( 2048, 1037.17, 1387.61, 1037.17, 1387.61, 873.354, 20
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
 points = PoolVector2Array( 2048, 2048, 0.367981, 2048, 0.367981, 1829.9, 2048, 1829.9 )
+
+[sub_resource type="ConvexPolygonShape2D" id=23]
+points = PoolVector2Array( 1315.78, 461.786, 730.524, 461.786, 730.524, 300.542, 1315.78, 300.542 )
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
 points = PoolVector2Array( 0, 369.817, 1322.94, 369.817, 1322.94, 584.808, 0, 584.808 )
@@ -184,6 +187,12 @@ points = PoolVector2Array( 2048, 2048, 0, 2048, 0, 1828.17, 2048, 1828.17 )
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 23 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 3/z_index = 0

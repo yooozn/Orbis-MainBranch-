@@ -10,5 +10,6 @@
 tile_data = PoolIntArray( 0, 6, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 81, 500 )
 
 [node name="HeroinesGardenShaders" parent="." instance=ExtResource( 3 )]
