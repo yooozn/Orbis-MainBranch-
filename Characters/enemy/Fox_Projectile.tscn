@@ -103,14 +103,14 @@ animations = [ {
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 13 ) ],
-"loop": true,
-"name": "Attack",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 17 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "Walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "Attack",
 "speed": 5.0
 } ]
 
@@ -166,8 +166,8 @@ material = SubResource( 10 )
 position = Vector2( -5.006, -7.975 )
 scale = Vector2( 0.0249055, 0.0214991 )
 frames = SubResource( 11 )
-animation = "Walk"
-frame = 5
+animation = "Attack"
+frame = 3
 playing = true
 
 [node name="Enemy_effects" type="AnimationPlayer" parent="."]
@@ -208,7 +208,6 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetector"]
 position = Vector2( -25.3439, 9.96904 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 9 )
 disabled = true
 

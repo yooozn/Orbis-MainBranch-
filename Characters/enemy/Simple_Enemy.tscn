@@ -1,29 +1,29 @@
 [gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Characters/enemy/Simple_Enemy.gd" type="Script" id=1]
-[ext_resource path="res://Moss_Baby_Walk-2.png" type="Texture" id=2]
-[ext_resource path="res://Moss_Baby_Walk-3.png" type="Texture" id=3]
-[ext_resource path="res://Moss_Baby_Hurt-2.png" type="Texture" id=4]
-[ext_resource path="res://Moss_Baby_Walk-5.png" type="Texture" id=5]
+[ext_resource path="res://Characters/enemy/Simple_Enemy-5.png" type="Texture" id=2]
+[ext_resource path="res://Characters/enemy/Simple_Enemy-4.png" type="Texture" id=3]
+[ext_resource path="res://Characters/enemy/Simple_Enemy-1.png" type="Texture" id=4]
+[ext_resource path="res://Characters/enemy/Simple_Enemy-2.png" type="Texture" id=5]
 [ext_resource path="res://Characters/Player/Effects.gd" type="Script" id=6]
-[ext_resource path="res://Moss_Baby_Walk-4.png" type="Texture" id=7]
+[ext_resource path="res://Characters/enemy/Simple_Enemy-3.png" type="Texture" id=7]
 [ext_resource path="res://testingthings/DetectWall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Characters/enemy/DetectPortal.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10.6451, 9.80361 )
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=7]
 resource_local_to_scene = true
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 5.0
@@ -72,10 +72,10 @@ position = Vector2( -1, -1 )
 scale = Vector2( 0.0837345, 0.101094 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-material = SubResource( 2 )
-position = Vector2( 0.625793, 0 )
-scale = Vector2( 0.0837345, 0.101094 )
-frames = SubResource( 3 )
+material = SubResource( 7 )
+position = Vector2( -1.87732, -5.69659 )
+scale = Vector2( 0.0455738, 0.0448055 )
+frames = SubResource( 8 )
 animation = "Walk"
 frame = 3
 playing = true
