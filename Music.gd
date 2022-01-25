@@ -7,6 +7,8 @@ var ColinBoss = load("res://Music/Aqua Blue Knight complete for real.wav")
 var MagmaCavern = load("res://Music/Lava Cavern.wav")
 var FireColor = load("res://Music/Fire-Coloured Intelligence.wav")
 var MichelleBoss = load("res://Music/A Mind_s Flame.wav")
+var FloatingCapital = load("res://Music/The Floating Capital (Better).wav")
+var HeroinesGarden = load("res://Music/Heroine_s Gardens (Again).wav")
 var PlaceHolder = load("res://Music/Aosta.wav")
 
 
@@ -32,6 +34,12 @@ func  play_music(number):
 	if number == 6: 
 		$MichelleBoss.stream = MichelleBoss
 		$MichelleBoss.play()
+	if number == 7: 
+		$FloatingCapital.stream = FloatingCapital
+		$FloatingCapital.play()
+	if number == 8: 
+		$"Heroine's Garden".stream = HeroinesGarden
+		$"Heroine's Garden".play()
 	if number == 69:
 		$PlaceHolder.stream = PlaceHolder
 		$PlaceHolder.play()

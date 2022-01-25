@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Levels/Tileset/HeroinesGardenLevels/Heroine'sGarden.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Level Scenes/Portal.tscn" type="PackedScene" id=2]
@@ -7,8 +7,15 @@
 [ext_resource path="res://Levels/Tileset/Fg/Grass.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Shaders/HeroinesGardenShaders.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Collectables/Collectable2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/Level Scenes/Heroine's Garden 1-1.gd" type="Script" id=8]
+[ext_resource path="res://Levels/SparkForestTitle.gd" type="Script" id=9]
+[ext_resource path="res://TitleOfplaces/Heroine_s_Gardens_Title.png" type="Texture" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 27.0551, 38.4668 )
 
 [node name="Heroine\'s Garden 1-1" type="Node2D"]
+script = ExtResource( 8 )
 
 [node name="Heroine\'sGarden" parent="." instance=ExtResource( 1 )]
 tile_data = PoolIntArray( 0, 0, 0 )
@@ -23,7 +30,7 @@ player_spawn_location = Vector2( 183, 365 )
 [node name="Heroine\'sGardenBackround" parent="." instance=ExtResource( 3 )]
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1905, 1820 )
+position = Vector2( 58, 1803 )
 
 [node name="Environment" type="Node2D" parent="."]
 position = Vector2( -711, 18 )
@@ -46,3 +53,43 @@ scale = Vector2( 1.56242, 1.67764 )
 
 [node name="Collectable" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1100, 1777 )
+
+[node name="Music" type="Area2D" parent="."]
+position = Vector2( 60, 1815 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Music"]
+position = Vector2( 16.2392, -28.495 )
+scale = Vector2( 0.952161, 1.00099 )
+shape = SubResource( 1 )
+
+[node name="TitleIntroduction" type="CanvasLayer" parent="."]
+script = ExtResource( 9 )
+
+[node name="SparkForest" type="TextureProgress" parent="TitleIntroduction"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 111.0
+margin_top = -99.9999
+margin_right = 2159.0
+margin_bottom = 1948.0
+rect_scale = Vector2( 0.402454, 0.431997 )
+texture_progress = ExtResource( 10 )
+fill_mode = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="TitleIntroduction"]
+wait_time = 0.01
+autostart = true
+
+[node name="Timer2" type="Timer" parent="TitleIntroduction"]
+wait_time = 0.1
+
+[node name="Timer3" type="Timer" parent="TitleIntroduction"]
+wait_time = 0.01
+
+[connection signal="body_entered" from="Music" to="." method="_on_Music_body_entered"]
+[connection signal="timeout" from="TitleIntroduction/Timer" to="TitleIntroduction" method="_on_Timer_timeout"]
+[connection signal="timeout" from="TitleIntroduction/Timer2" to="TitleIntroduction" method="_on_Timer2_timeout"]
+[connection signal="timeout" from="TitleIntroduction/Timer3" to="TitleIntroduction" method="_on_Timer3_timeout"]
