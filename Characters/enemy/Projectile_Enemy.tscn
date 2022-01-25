@@ -292,7 +292,7 @@ position = Vector2( -1.87744, -10.5387 )
 scale = Vector2( 0.0258359, 0.0262384 )
 frames = SubResource( 12 )
 animation = "Attack"
-frame = 5
+frame = 6
 playing = true
 
 [node name="Enemy_effects" type="AnimationPlayer" parent="."]

@@ -43,6 +43,11 @@ func _process(delta):
 		phase = 2
 		print("phase2")
 	if healthPhase2 == 0:
+		$"../../Transition_Screen".transition()
+		Globals.ColinDefeated = true
+		$"../../ColinDialog2".scale = Vector2(1, 1) 
+		Music.play_music(9)
+		Music.stop(4)
 		queue_free()
 	if canDamage == true and inRange == true and immunity == false:
 		Globals.player.damage(1)
@@ -58,6 +63,8 @@ func _process(delta):
 
 func _on_DetectionRange_body_entered(body):
 	if body.is_in_group("Player"):
+		Music.play_music(4)
+		Music.stop(9)
 		$DetectionRange/CollisionShape2D.set_deferred("disabled", true)
 		_anim_player.play("start")
 		yield(get_tree().create_timer(3),"timeout")

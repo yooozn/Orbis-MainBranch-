@@ -2,9 +2,7 @@ extends CanvasLayer
 
 var dialog = [
 	"Heyo!",
-	"We're breathing under water! How cool is that?!",
-	"This place is awesonme, but let's not waste any time. Do you like playing the waves?",
-	"Hey! Did you just see my memories? You must know the dreamer pretty well then...", 
+	"We're breathing under water! How cool is that?! This place is awesome, but let's not waste any time. Do you like playing the waves?",
 	
 ]
 
@@ -26,11 +24,11 @@ func _process(delta):
 			load_dialog()
 func load_dialog():
 	if dialog_index < dialog.size():
-#		if dialog_index == 0:
-#			Voices.play_voiceline(4)
-#		if dialog_index == 1:
-#			Voices.play_voiceline(5)
-#			Voices.stop(4)
+		if dialog_index == 0:
+			Voices.play_voiceline(13)
+		if dialog_index == 1:
+			Voices.play_voiceline(14)
+			Voices.stop(13)
 #		if dialog_index == 2:
 #			Voices.play_voiceline(6)
 #			Voices.stop(5)
@@ -50,4 +48,4 @@ func load_dialog():
 		Globals.cantmove = false
 		Globals.Cutscene = false
 		Globals.ColinDialog1End = true
-		Voices.stop(9)
+		Voices.stop(14)

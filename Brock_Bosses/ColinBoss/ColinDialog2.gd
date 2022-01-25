@@ -2,7 +2,8 @@ extends CanvasLayer
 
 var dialog = [
 	
-	"PlaceHolder",
+	"Hey! Did you just see my memories? You muse know the Dreamer pretty well, then...",
+	"The coral lets us breathe underwater, in case you were wondering. However, if you want more on that, you'll have to venture a little deeper.",
 	
 ]
 
@@ -25,10 +26,10 @@ func _process(delta):
 func load_dialog():
 	if dialog_index < dialog.size():
 		if dialog_index == 0:
-			Voices.play_voiceline(11)
+			Voices.play_voiceline(15)
 		if dialog_index == 1:
-			Voices.play_voiceline(12)
-			Voices.stop(11)
+			Voices.play_voiceline(16)
+			Voices.stop(15)
 		$"Text".bbcode_text = dialog[dialog_index]
 		dialog_index += 1
 		$"Tween".interpolate_property(
@@ -42,4 +43,4 @@ func load_dialog():
 		Globals.cantmove = false
 		Globals.Cutscene = false
 		Globals.ColinDialog2End = true
-		Voices.stop(12)
+		Voices.stop(16)

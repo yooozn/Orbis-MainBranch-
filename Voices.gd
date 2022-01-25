@@ -13,6 +13,10 @@ var MichelleVoiceline6 = load("res://Voicelines/Michelle_Lines 5.wav")
 var MichelleVoiceline7 = load("res://Voicelines/Michelle_Lines 6.wav")
 var MichelleVoiceline8 = load("res://Voicelines/Michelle_Lines 7.wav")
 var MichelleVoiceline9 = load("res://Voicelines/Michelle_Lines 8.wav")
+var ColinVoiceline1 = load("res://Voicelines/IMG_8427.mp3")
+var ColinVoiceline2 = load("res://Voicelines/IMG_8437.mp3")
+var ColinVoiceline3 = load("res://Voicelines/IMG_8438.mp3")
+var ColinVoiceline4 = load("res://Voicelines/IMG_8440.mp3")
 
 func play_voiceline(number):
 	if number == 1:
@@ -51,7 +55,18 @@ func play_voiceline(number):
 	if number == 12: 
 		$MichelleVoiceline6.stream = MichelleVoiceline9
 		$MichelleVoiceline6.play()
-		
+	if number == 13: 
+		$ColinVoiceline1.stream = ColinVoiceline1
+		$ColinVoiceline1.play()
+	if number == 14: 
+		$ColinVoiceline2.stream = ColinVoiceline2
+		$ColinVoiceline2.play()
+	if number == 15: 
+		$ColinVoiceline3.stream = ColinVoiceline3
+		$ColinVoiceline3.play()
+	if number == 16: 
+		$ColinVoiceline4.stream = ColinVoiceline4
+		$ColinVoiceline4.play()
 func stop(number):
 	if number == 1:
 		$MackenzieVoiceline1.stream = MackenzieVoiceline1
@@ -89,3 +104,9 @@ func stop(number):
 	if number == 12:
 		$MichelleVoiceline7.stream = MichelleVoiceline9
 		$MichelleVoiceline7.stop()
+	if number == 13:
+		$ColinVoiceline1.stream = ColinVoiceline1
+		$ColinVoiceline1.stop()
+	if number == 14:
+		$ColinVoiceline2.stream = ColinVoiceline2
+		$ColinVoiceline2.stop()

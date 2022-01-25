@@ -69,7 +69,7 @@ script = ExtResource( 9 )
 modulate = Color( 1, 1, 1, 0 )
 self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 111.0
-margin_top = -99.9999
+margin_top = -100.0
 margin_right = 2159.0
 margin_bottom = 1948.0
 rect_scale = Vector2( 0.402454, 0.431997 )
@@ -89,6 +89,7 @@ wait_time = 0.1
 [node name="Timer3" type="Timer" parent="TitleIntroduction"]
 wait_time = 0.01
 
+[connection signal="berries_collected" from="Collectable" to="." method="_on_Collectable_berries_collected"]
 [connection signal="body_entered" from="Music" to="." method="_on_Music_body_entered"]
 [connection signal="timeout" from="TitleIntroduction/Timer" to="TitleIntroduction" method="_on_Timer_timeout"]
 [connection signal="timeout" from="TitleIntroduction/Timer2" to="TitleIntroduction" method="_on_Timer2_timeout"]

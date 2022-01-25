@@ -96,11 +96,6 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 67 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 59 ), ExtResource( 68 ), ExtResource( 62 ), ExtResource( 52 ), ExtResource( 58 ), ExtResource( 53 ), ExtResource( 60 ), ExtResource( 64 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 61 ), ExtResource( 63 ), ExtResource( 57 ) ],
-"loop": true,
-"name": "attack2NoDisc",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 7 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "attack1",
@@ -109,6 +104,11 @@ animations = [ {
 "frames": [ ExtResource( 32 ), ExtResource( 34 ), ExtResource( 37 ), ExtResource( 35 ), ExtResource( 48 ), ExtResource( 36 ), ExtResource( 45 ), ExtResource( 44 ), ExtResource( 42 ), ExtResource( 47 ), ExtResource( 33 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 38 ), ExtResource( 43 ), ExtResource( 39 ), ExtResource( 46 ) ],
 "loop": true,
 "name": "attack2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 67 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 59 ), ExtResource( 68 ), ExtResource( 62 ), ExtResource( 52 ), ExtResource( 58 ), ExtResource( 53 ), ExtResource( 60 ), ExtResource( 64 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 61 ), ExtResource( 63 ), ExtResource( 57 ) ],
+"loop": true,
+"name": "attack2NoDisc",
 "speed": 5.0
 } ]
 

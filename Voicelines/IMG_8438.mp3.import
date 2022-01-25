@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/IMG_8438.mp3-9843f1579d90b88aaf88c0def8f8b73f.mp3str"
+
+[deps]
+
+source_file="res://Voicelines/IMG_8438.mp3"
+dest_files=[ "res://.import/IMG_8438.mp3-9843f1579d90b88aaf88c0def8f8b73f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
