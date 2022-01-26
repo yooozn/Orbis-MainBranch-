@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://debugstart.gd" type="Script" id=1]
+[ext_resource path="res://testingthings/debugstart.gd" type="Script" id=1]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.0918579, 0.59031, 0.671875, 1, 0.0582275, 0.621094, 0.17256, 1 )

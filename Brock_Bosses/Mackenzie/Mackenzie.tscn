@@ -1,6 +1,6 @@
 [gd_scene load_steps=61 format=2]
 
-[ext_resource path="res://MackenzieBoss.gd" type="Script" id=1]
+[ext_resource path="res://Brock_Bosses/Mackenzie/MackenzieBoss.gd" type="Script" id=1]
 [ext_resource path="res://Levels/Tileset/AquaTideLevels/AquatidesLevels.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Characters/New/Orbis Animations/mackenzie/Mackenzie_Idle-2.png" type="Texture" id=3]
 [ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=4]
@@ -67,14 +67,14 @@ animations = [ {
 "name": "attack3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 17 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 47 ), ExtResource( 12 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 45 ), ExtResource( 34 ), ExtResource( 38 ), ExtResource( 16 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "attack1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 43 ), ExtResource( 46 ), ExtResource( 49 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "attack2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 17 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 47 ), ExtResource( 12 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 45 ), ExtResource( 34 ), ExtResource( 38 ), ExtResource( 16 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "attack1",
 "speed": 5.0
 } ]
 

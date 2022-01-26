@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Particles/Bamm_Projectile.png" type="Texture" id=1]
+[ext_resource path="res://testingthings/EnemyHit.tres" type="Material" id=2]
+[ext_resource path="res://Brock_Bosses/Mackenzie/MackenzieProjectile.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 38.1182
+
+[node name="MackenzieProjectile" type="Area2D"]
+script = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 4, -8 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+material = ExtResource( 2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 1 )
