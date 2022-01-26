@@ -17,6 +17,8 @@ func _Save():
 		"4" : "four",
 		"5" : "five",
 		"6" : "six",
+		"MZD1Start" : Globals.MackenzieDialog2Start,
+		"MZD1End" : Globals.MackenzieDialog2End,
 		"CD1Start" : Globals.ColinDialog1Start,
 		"CD1End" : Globals.ColinDialog1End,
 		"CD2Start" : Globals.ColinDialog2Start,
@@ -87,6 +89,8 @@ func _Load():
 			Globals.MichelleDialog2Start = player_data["MD2Start"]
 			Globals.MichelleDialog2End = player_data["MD2End"]
 			Globals.MichelleDefeated = player_data["MDefeated"]
+			Globals.MackenzieDialog2Start = player_data["MZD1Start"]
+			Globals.MackenzieDialog2End = player_data["MZD1End"]
 			get_tree().change_scene(room)
 			print(player_data["1"])
 
