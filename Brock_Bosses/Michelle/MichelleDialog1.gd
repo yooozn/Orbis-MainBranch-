@@ -58,4 +58,5 @@ func load_dialog():
 		Globals.cantmove = false
 		Globals.Cutscene = false
 		Globals.MichelleDialog1End = true
+		$"TitleIntroduction/Timer2".start()
 		Voices.stop(9)

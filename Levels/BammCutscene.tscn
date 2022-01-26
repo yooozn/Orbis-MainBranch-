@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Cutscene/Bamm-Encounter.ogv" type="VideoStream" id=1]
+[ext_resource path="res://Shaders/SparkForestShaders.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/CutsceneTransition.tscn" type="PackedScene" id=5]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends CanvasLayer
+
+
+onready var fade_class = load(\"res://Levels/CutsceneTransition.tscn\")
+
+
+func _on_CutscenBamm_finished():
+	var fade_scene = fade_class.instance()
+	get_parent().add_child(fade_scene)
+"
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends VideoPlayer
+
+#Tells us aspect ratio
+var aspect_ratio = 16.0/9.0
+
+func _ready():
+	#Finds the size of the viewport
+	var vsize = get_viewport_rect().size
+	#Gets the colorrect to the size of the ciewport
+	get_parent().get_node(\"ColorRect\").set_size(vsize)
+	#How tall and how wide it is and would figure it out and if the video is not tall enough it sqqueezes it
+	if vsize.y < vsize.x / aspect_ratio:
+		set_size(Vector2(vsize.y * aspect_ratio, vsize.y))
+		set_position(Vector2( (vsize.x - vsize.y * aspect_ratio) / 2, 0))
+	else:
+		set_size(Vector2(vsize.x, vsize.x / aspect_ratio))
+		set_position(Vector2(0, (vsize.y - vsize.x / aspect_ratio)))
+		
+		
+
+
+func _on_CutscenBamm_finished():
+	#	Globals.MichelleDialog1Start = true
+	Globals.Finished = true
+	Globals.cantmove = false
+	get_tree().set_pause(false)
+	get_parent().queue_free()
+"
+
+[node name="BammCutscene1" type="CanvasLayer"]
+script = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CutscenBamm" type="VideoPlayer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+stream = ExtResource( 1 )
+autoplay = true
+script = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CutsceneTransition" parent="." instance=ExtResource( 5 )]
+layer = 2
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Shaders" parent="." instance=ExtResource( 2 )]
+
+[connection signal="finished" from="CutscenBamm" to="." method="_on_CutscenBamm_finished"]
+[connection signal="finished" from="CutscenBamm" to="CutscenBamm" method="_on_CutscenBamm_finished"]
+[connection signal="ready" from="CutscenBamm" to="." method="_on_Cutscene_ready"]

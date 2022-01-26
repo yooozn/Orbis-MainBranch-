@@ -10,6 +10,7 @@ func _ready():
 func _process(delta):
 	if Globals.MichelleDialog1Start == true:
 		$"MichelleDialog1".scale = Vector2(1, 1) 
+		$"MichelleDialog1/TitleIntroduction/Timer".start()
 	if Globals.MichelleDefeated == true:
 		$"MichelleStand".show()
 		$"Portal/AnimationPlayer".play("Avalible")

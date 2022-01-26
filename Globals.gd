@@ -29,6 +29,13 @@ var ColinDialog2Start= false
 var ColinDialog2End = false
 var ColinDefeated = false
 
+#BammVariables
+var SamDialog1Start = false
+var SamDialog1End = false
+var SamDialog2Start= false
+var SamDialog2End = false
+var SamDefeated = false
+
 #MackenzieVariables
 var MackenzieDialog2Start = false
 var MackenzieDialog2End = false

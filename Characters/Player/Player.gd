@@ -41,6 +41,8 @@ var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$"Camera2D/Post Processing/Curve/ui/Health/"._on_Player_health_update(health)
+	emit_signal("health_update", health)
 	#Position of the player when entering the portal
 	self.global_position = Globals.player_initial_map_position
 	Globals.player = self
@@ -197,7 +199,7 @@ func attackdown():
 		if jab_num == 1:
 			jab_num += 1
 			$"Player_sprite/DownSlash".play("Down")
-			$AnimationPlayer.play("DownSlash")
+			$AnimationPlayer2.play("New Anim")
 			$Attack_timer.start()
 		can_interupt = false
 		
@@ -356,3 +358,11 @@ func set_limit(left, right, top, bottom):
 
 func _on_DashTimer_timeout():
 		can_beHit = true
+
+
+func _on_Downslash_body_entered(body):
+	if body.is_in_group('Enemy'):
+		print('collision')
+		body.damage(1)
+		jab_connected = true
+	print(body)

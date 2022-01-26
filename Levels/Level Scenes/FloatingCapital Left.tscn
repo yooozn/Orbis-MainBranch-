@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Levels/Tileset/FloatingCapitalLevels/Floating Capital Levels.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/BG/BackroundFloatingCapital.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/Level Scenes/Portal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Shaders/FloatingCapitalShaders.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/Tileset/Fg/Streetlight.png" type="Texture" id=6]
+[ext_resource path="res://Levels/Tileset/trees/Bush_.png" type="Texture" id=7]
+[ext_resource path="res://Levels/Level Scenes/FloatingCapital Left.gd" type="Script" id=8]
 
 [node name="FloatingCapital Left" type="Node2D"]
+script = ExtResource( 8 )
 
 [node name="Floating Capital Levels" parent="." instance=ExtResource( 1 )]
 tile_data = PoolIntArray( 0, 0, 0 )
@@ -18,8 +22,8 @@ tile_data = PoolIntArray( 0, 0, 0 )
 [node name="MagmaCavern" parent="Portals" instance=ExtResource( 3 )]
 position = Vector2( -14, 1465 )
 scale = Vector2( 6.25796, 12.4038 )
-next_scene_path = "res://Levels/Level Scenes/Magma Cavern 1-8.tscn"
-player_spawn_location = Vector2( 1963, 1829 )
+next_scene_path = "res://Levels/Level Scenes/MagmaCavern 1-9.tscn"
+player_spawn_location = Vector2( 1882, 1755 )
 
 [node name="Middle" parent="Portals" instance=ExtResource( 3 )]
 position = Vector2( 2069, 1632 )
@@ -37,3 +41,51 @@ position = Vector2( 128, 1812 )
 [node name="Shaders" parent="." instance=ExtResource( 5 )]
 
 [node name="Backdrops" type="Node" parent="."]
+
+[node name="Fountain" type="Node2D" parent="."]
+position = Vector2( 1025, 908 )
+
+[node name="Bush" type="Sprite" parent="Fountain"]
+position = Vector2( -818.001, 683 )
+scale = Vector2( 0.238716, 0.251068 )
+z_index = -1
+texture = ExtResource( 7 )
+
+[node name="Bush2" type="Sprite" parent="Fountain"]
+position = Vector2( -1343, 679 )
+scale = Vector2( 0.238716, 0.251068 )
+z_index = -1
+texture = ExtResource( 7 )
+
+[node name="Bush3" type="Sprite" parent="Fountain"]
+position = Vector2( 1090, 679 )
+scale = Vector2( 0.238716, 0.251068 )
+z_index = -1
+texture = ExtResource( 7 )
+
+[node name="Bush4" type="Sprite" parent="Fountain"]
+position = Vector2( -2029, 687 )
+scale = Vector2( 0.238716, 0.251068 )
+z_index = -1
+texture = ExtResource( 7 )
+
+[node name="Streetlight" type="Sprite" parent="Fountain/Bush4"]
+position = Vector2( 5269.87, -908.12 )
+scale = Vector2( 1.80341, 1.8237 )
+texture = ExtResource( 6 )
+
+[node name="Streetlight2" type="Sprite" parent="Fountain/Bush4"]
+position = Vector2( 13204, -856.341 )
+scale = Vector2( 1.80931, 1.8237 )
+texture = ExtResource( 6 )
+
+[node name="Streetlight3" type="Sprite" parent="Fountain/Bush4"]
+position = Vector2( 1361.45, -804.563 )
+scale = Vector2( 1.6618, 1.77129 )
+texture = ExtResource( 6 )
+
+[node name="Floating Capital Levels" parent="Fountain" instance=ExtResource( 1 )]
+z_index = -1
+collision_layer = 0
+collision_mask = 0
+tile_data = PoolIntArray( -917584, 0, 0, -917553, 0, 0, -917521, 0, 0, -983025, 0, 0, -982993, 0, 0 )

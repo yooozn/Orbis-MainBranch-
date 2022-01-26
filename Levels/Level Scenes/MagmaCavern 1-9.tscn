@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Levels/Platforms.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Shaders/MagmaCavernShaders.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Make_Trans Levels.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Level Scenes/Portal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/BG/BackroundMagmaCavern.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/Level Scenes/MagmaCavern 1-9.gd" type="Script" id=7]
+
+[node name="MagmaCavern 1-9" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="Make_Trans Levels" parent="." instance=ExtResource( 4 )]
+tile_data = PoolIntArray( 0, 2, 0 )
+
+[node name="Platforms" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 1310721, 6, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1882, 1755 )
+
+[node name="Shaders" parent="." instance=ExtResource( 3 )]
+
+[node name="Portals" type="Node" parent="."]
+
+[node name="Left side" parent="Portals" instance=ExtResource( 5 )]
+position = Vector2( 2029, 1383 )
+next_scene_path = "res://Levels/Level Scenes/FloatingCapital Left.tscn"
+player_spawn_location = Vector2( 128, 1812 )
+
+[node name="1-8" parent="Portals" instance=ExtResource( 5 )]
+position = Vector2( 220, 2066 )
+rotation = -1.57901
+next_scene_path = "res://Levels/Level Scenes/Magma Cavern 1-8.tscn"
+player_spawn_location = Vector2( 951, 574 )
+
+[node name="BackroundMagmaCavern" parent="." instance=ExtResource( 6 )]
