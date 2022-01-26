@@ -80,6 +80,8 @@
 [ext_resource path="res://Cutscene/Triangle.png" type="Texture" id=78]
 [ext_resource path="res://Brock_Bosses/Michelle/MichelleDialog.gd" type="Script" id=79]
 [ext_resource path="res://Brock_Bosses/Michelle/MichelleBoss.gd" type="Script" id=80]
+[ext_resource path="res://MichelleAvalible.tres" type="Animation" id=81]
+[ext_resource path="res://MichelleNo.tres" type="Animation" id=82]
 
 [sub_resource type="CapsuleShape2D" id=17]
 radius = 74.0
@@ -96,14 +98,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 7 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "attack1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 32 ), ExtResource( 34 ), ExtResource( 37 ), ExtResource( 35 ), ExtResource( 48 ), ExtResource( 36 ), ExtResource( 45 ), ExtResource( 44 ), ExtResource( 42 ), ExtResource( 47 ), ExtResource( 33 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 38 ), ExtResource( 43 ), ExtResource( 39 ), ExtResource( 46 ) ],
 "loop": true,
 "name": "attack2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 7 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "attack1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 67 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 59 ), ExtResource( 68 ), ExtResource( 62 ), ExtResource( 52 ), ExtResource( 58 ), ExtResource( 53 ), ExtResource( 60 ), ExtResource( 64 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 61 ), ExtResource( 63 ), ExtResource( 57 ) ],
@@ -1728,60 +1730,6 @@ tracks/0/keys = {
 "values": [ Vector2( 504, 208 ), Vector2( 504, 195.237 ) ]
 }
 
-[sub_resource type="Animation" id=24]
-resource_name = "Avalible"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 25, 1416 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-
-[sub_resource type="Animation" id=25]
-resource_name = "No"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1026, 2016 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 90.0 ]
-}
-
 [sub_resource type="Animation" id=26]
 length = 0.001
 tracks/0/type = "value"
@@ -2000,8 +1948,8 @@ player_spawn_location = Vector2( 1912, 1899 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Portal"]
 autoplay = "No"
-anims/Avalible = SubResource( 24 )
-anims/No = SubResource( 25 )
+anims/Avalible = ExtResource( 81 )
+anims/No = ExtResource( 82 )
 anims/RESET = SubResource( 26 )
 
 [connection signal="body_entered" from="Node2D/MichelleDialog" to="Node2D/MichelleDialog" method="_on_MichelleDialog_body_entered"]

@@ -4,3 +4,4 @@
 rotation = 1.5708
 scale = Vector2( 2.29825, 0.491485 )
 enabled = true
+collision_mask = 5

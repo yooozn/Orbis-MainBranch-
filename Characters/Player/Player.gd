@@ -226,10 +226,10 @@ func damage(damage):
 	pass
 
 func health_update():
-	$"Camera2D/Post Processing/Curve/ui/Health/"._on_Player_health_update(health)
-	emit_signal("health_update", health)
 	get_tree().get_root().get_node("Player")
 	Globals.health -= 1
+	$"Camera2D/Post Processing/Curve/ui/Health/"._on_Player_health_update(health)
+	emit_signal("health_update", health)
 	print('current health is ', health)
 	pass
 

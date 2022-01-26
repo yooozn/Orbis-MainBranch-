@@ -14,3 +14,5 @@ func collected():
 	$AnimationPlayer.play('taken')
 	Globals.berries_collected = true
 	queue_free()
+	if Globals.berries_collected == true:
+		self.queue_free()

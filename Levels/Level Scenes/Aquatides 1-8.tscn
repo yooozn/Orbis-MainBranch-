@@ -6,7 +6,7 @@
 [ext_resource path="res://BackroundAquatides.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Levels/Platforms.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Particles/Bubble_Particles.tscn" type="PackedScene" id=6]
-[ext_resource path="res://GodRays.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Shaders/AquatidesShaders.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Characters/enemy/Fox_fury.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Shaders/Water.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Characters/enemy/Bobbing_Enemy.tscn" type="PackedScene" id=10]
@@ -39,8 +39,6 @@ player_spawn_location = Vector2( 144, 1815 )
 [node name="Platforms" parent="." instance=ExtResource( 5 )]
 tile_data = PoolIntArray( 524293, 5, 0, 524296, 5, 0, 720902, 5, 0, 851973, 5, 0, 851976, 5, 0, 1048580, 5, 0, 1048585, 5, 0 )
 
-[node name="GodRays" parent="." instance=ExtResource( 7 )]
-
 [node name="Enemy" parent="." instance=ExtResource( 8 )]
 position = Vector2( 479.753, 523.286 )
 scale = Vector2( 6.14009, 7.6783 )
@@ -49,9 +47,11 @@ scale = Vector2( 6.14009, 7.6783 )
 position = Vector2( 763, 527 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 614, 1654 )
-scale = Vector2( 2.81989, 2.70406 )
+position = Vector2( 620, 1783 )
+scale = Vector2( 1.53439, 1.62534 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1641, 1724 )
-scale = Vector2( 5.17246, 4.81801 )
+position = Vector2( 1601, 1773 )
+scale = Vector2( 3.8547, 4.24188 )
+
+[node name="Shaders" parent="." instance=ExtResource( 7 )]

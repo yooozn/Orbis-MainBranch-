@@ -7,7 +7,7 @@
 [ext_resource path="res://BackroundAquatides.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Particles/Bubble_Particles.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Shaders/Water.tscn" type="PackedScene" id=7]
-[ext_resource path="res://GodRays.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Shaders/AquatidesShaders.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Characters/enemy/Bobbing_Enemy.tscn" type="PackedScene" id=9]
 
 [node name="Aquatides 1-7" type="Node2D"]
@@ -16,7 +16,7 @@
 tile_data = PoolIntArray( 0, 6, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 398.808, 197.99 )
+position = Vector2( 1850, 1822 )
 
 [node name="Platforms" parent="." instance=ExtResource( 4 )]
 tile_data = PoolIntArray( 131074, 5, 0, 262148, 5, 0, 393222, 5, 0, 524292, 5, 0, 655362, 5, 0, 851968, 5, 0, 1048579, 5, 0, 1179654, 5, 0 )
@@ -30,6 +30,11 @@ scale = Vector2( 2.95861, 14.6261 )
 next_scene_path = "res://Levels/Level Scenes/Aquatides 1-6.tscn"
 player_spawn_location = Vector2( 647.591, 1743.42 )
 
+[node name="Boss" parent="Portals" instance=ExtResource( 3 )]
+position = Vector2( 2016, 1420 )
+next_scene_path = "res://Brock_Bosses/ColinBoss/ColinBoss.tscn"
+player_spawn_location = Vector2( 56, 1815 )
+
 [node name="BackroundAquatides" parent="." instance=ExtResource( 5 )]
 
 [node name="Water" parent="." instance=ExtResource( 7 )]
@@ -37,8 +42,8 @@ position = Vector2( 422, 486 )
 
 [node name="Bubble_Particles" parent="." instance=ExtResource( 6 )]
 
-[node name="GodRays" parent="." instance=ExtResource( 8 )]
-
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1558, 379 )
-scale = Vector2( 3.29469, 2.86859 )
+scale = Vector2( 1.78223, 2.5375 )
+
+[node name="Shaders" parent="." instance=ExtResource( 8 )]

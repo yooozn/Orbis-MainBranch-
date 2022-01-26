@@ -14,5 +14,6 @@ func _process(delta):
 		print('whyy')
 	if Globals.ColinDefeated == true:
 		$"ColinIdle".show()
-#		$"Portal/AnimationPlayer".play("Avalible")
+		$"Portal/AnimationPlayer".play("MichelleAvalible")
+		$"Portal2/AnimationPlayer".play("Michelleyes")
 		pass

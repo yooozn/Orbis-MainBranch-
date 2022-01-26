@@ -23,14 +23,14 @@ resource_local_to_scene = true
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "Attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 14 ), ExtResource( 2 ), ExtResource( 15 ), ExtResource( 3 ), ExtResource( 13 ), ExtResource( 11 ) ],
@@ -70,13 +70,12 @@ collision_mask = 7
 script = ExtResource( 10 )
 
 [node name="Hitbox" type="Area2D" parent="."]
-scale = Vector2( 1, 2.08 )
+scale = Vector2( 2.27095, 2.64044 )
 z_index = 1
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-visible = false
 modulate = Color( 1, 0.890196, 0, 1 )
 light_mask = 2
 position = Vector2( -0.527283, -0.75 )
@@ -93,7 +92,7 @@ position = Vector2( -1, -1 )
 scale = Vector2( 0.0972181, 0.0975471 )
 frames = SubResource( 4 )
 animation = "Walk"
-frame = 4
+frame = 1
 playing = true
 flip_h = true
 
@@ -120,8 +119,8 @@ shape = SubResource( 7 )
 
 [node name="Detext" type="Area2D" parent="."]
 scale = Vector2( 1.08647, 5.49837 )
-collision_layer = 0
-collision_mask = 0
+collision_layer = 4
+collision_mask = 4
 
 [node name="Detection" type="CollisionShape2D" parent="Detext"]
 position = Vector2( 1.38068, -0.596649 )

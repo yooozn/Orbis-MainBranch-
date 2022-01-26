@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Levels/Tileset/FloatingCapitalLevels/Floating Capital Levels.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=2]
@@ -23,6 +23,8 @@
 [ext_resource path="res://Levels/Level Scenes/MackenzieDialogFountain.gd" type="Script" id=21]
 [ext_resource path="res://Characters/New/Orbis Animations/mackenzie/Mackenzie_Idle_1-1.png" type="Texture" id=22]
 [ext_resource path="res://Levels/Level Scenes/FloatingCaptial Middle.gd" type="Script" id=23]
+[ext_resource path="res://TitleOfplaces/Floating_Capital_Title.png" type="Texture" id=24]
+[ext_resource path="res://Levels/SparkForestTitle.gd" type="Script" id=25]
 
 [sub_resource type="CapsuleShape2D" id=8]
 radius = 137.0
@@ -332,6 +334,36 @@ texture = ExtResource( 22 )
 anims/Dissapear = SubResource( 9 )
 anims/RESET = SubResource( 10 )
 
+[node name="TitleIntroduction" type="CanvasLayer" parent="."]
+script = ExtResource( 25 )
+
+[node name="SparkForest" type="TextureProgress" parent="TitleIntroduction"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 111.0
+margin_top = -100.0
+margin_right = 2159.0
+margin_bottom = 1948.0
+rect_scale = Vector2( 0.402454, 0.431997 )
+texture_progress = ExtResource( 24 )
+fill_mode = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="TitleIntroduction"]
+wait_time = 0.01
+autostart = true
+
+[node name="Timer2" type="Timer" parent="TitleIntroduction"]
+wait_time = 0.6
+
+[node name="Timer3" type="Timer" parent="TitleIntroduction"]
+wait_time = 0.001
+
 [connection signal="body_entered" from="MackenzieDialogFountain" to="MackenzieDialogFountain" method="_on_MackenzieDialogFountain_body_entered"]
 [connection signal="timeout" from="MackenzieCutscene/MackenzieCutscene/Timer" to="MackenzieCutscene" method="_on_Timer_timeout"]
 [connection signal="timeout" from="MackenzieCutscene/MackenzieCutscene/Timer" to="MackenzieCutscene/MackenzieCutscene" method="_on_Timer_timeout"]
+[connection signal="timeout" from="TitleIntroduction/Timer" to="TitleIntroduction" method="_on_Timer_timeout"]
+[connection signal="timeout" from="TitleIntroduction/Timer2" to="TitleIntroduction" method="_on_Timer2_timeout"]
+[connection signal="timeout" from="TitleIntroduction/Timer3" to="TitleIntroduction" method="_on_Timer3_timeout"]

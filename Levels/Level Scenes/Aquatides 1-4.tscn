@@ -9,7 +9,7 @@
 [ext_resource path="res://Characters/enemy/Bobbing_Enemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Particles/Bubble_Particles.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Shaders/Water.tscn" type="PackedScene" id=9]
-[ext_resource path="res://GodRays.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Shaders/AquatidesShaders.tscn" type="PackedScene" id=10]
 
 [node name="Aquatides 1-4" type="Node2D"]
 
@@ -49,9 +49,9 @@ scale = Vector2( 4.72859, 4.7357 )
 position = Vector2( 754, 310 )
 scale = Vector2( 2.68317, 2.8344 )
 
-[node name="GodRays" parent="." instance=ExtResource( 10 )]
-
 [node name="Bubble_Particles" parent="." instance=ExtResource( 8 )]
 
 [node name="Water" parent="." instance=ExtResource( 9 )]
 position = Vector2( 855, 549 )
+
+[node name="Shaders" parent="." instance=ExtResource( 10 )]

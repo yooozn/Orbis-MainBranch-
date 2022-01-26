@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Levels/SparkForestTitle.gd" type="Script" id=1]
+[ext_resource path="res://TitleOfplaces/Floating_Capital_Title.png" type="Texture" id=2]
+
+[node name="TitleIntroduction" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="SparkForest" type="TextureProgress" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 111.0
+margin_top = -100.0
+margin_right = 2159.0
+margin_bottom = 1948.0
+rect_scale = Vector2( 0.402454, 0.431997 )
+texture_progress = ExtResource( 2 )
+fill_mode = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.01
+autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.6
+
+[node name="Timer3" type="Timer" parent="."]
+wait_time = 0.001
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_Timer3_timeout"]

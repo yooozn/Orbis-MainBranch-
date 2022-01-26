@@ -1,14 +1,22 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Levels/Tileset/AquaTideLevels/AquatidesLevels.tscn" type="PackedScene" id=1]
 [ext_resource path="res://BackroundAquatides.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Levels/Level Scenes/Portal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Shaders/AquatidesShaders.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/SparkForestTitle.gd" type="Script" id=6]
 [ext_resource path="res://Levels/Platforms.tscn" type="PackedScene" id=7]
+[ext_resource path="res://TitleOfplaces/AquaTide_Title.png" type="Texture" id=8]
 [ext_resource path="res://Characters/enemy/Bobbing_Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Levels/Level Scenes/Aquatides 1-2.gd" type="Script" id=10]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 53.0
+height = 760.199
 
 [node name="Aquatides 1-2" type="Node2D"]
+script = ExtResource( 10 )
 
 [node name="Aquatides Levels" parent="." instance=ExtResource( 1 )]
 tile_data = PoolIntArray( 0, 1, 0 )
@@ -30,15 +38,60 @@ position = Vector2( 2066, 1418 )
 next_scene_path = "res://Levels/Level Scenes/Aquatides 1-3.tscn"
 player_spawn_location = Vector2( 88.966, 489 )
 
+[node name="Make_trans" parent="Portals" instance=ExtResource( 4 )]
+position = Vector2( 595, -11 )
+rotation = -1.56939
+next_scene_path = "res://Levels/Level Scenes/Make_TransSparkForest - Aquatide.tscn"
+player_spawn_location = Vector2( 1176, 1813 )
+
 [node name="Platforms" parent="." instance=ExtResource( 7 )]
-tile_data = PoolIntArray( 524296, 4, 0, 851971, 4, 0, 917515, 4, 0, 983042, 4, 0, 1048588, 4, 0, 1114113, 4, 0 )
+tile_data = PoolIntArray( 196612, 4, 0, 524296, 4, 0, 851971, 4, 0, 917515, 4, 0, 983042, 4, 0, 1048588, 4, 0, 1114113, 4, 0 )
 
 [node name="Shaders" parent="." instance=ExtResource( 5 )]
 
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
-position = Vector2( 932, 928 )
-scale = Vector2( 2.87317, 3.66348 )
+position = Vector2( 868, 1785 )
+scale = Vector2( 1.74583, 1.70607 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1574, 948 )
-scale = Vector2( 2.25709, 2.92839 )
+position = Vector2( 1537, 990 )
+scale = Vector2( 1.40742, 1.28762 )
+
+[node name="Music" type="Area2D" parent="."]
+position = Vector2( 363, 253 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Music"]
+rotation = 1.56827
+shape = SubResource( 1 )
+
+[node name="TitleIntroduction" type="CanvasLayer" parent="."]
+script = ExtResource( 6 )
+
+[node name="SparkForest" type="TextureProgress" parent="TitleIntroduction"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 111.0
+margin_top = -100.0
+margin_right = 2159.0
+margin_bottom = 1948.0
+rect_scale = Vector2( 0.402454, 0.431997 )
+texture_progress = ExtResource( 8 )
+fill_mode = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="TitleIntroduction"]
+wait_time = 0.01
+autostart = true
+
+[node name="Timer2" type="Timer" parent="TitleIntroduction"]
+wait_time = 0.6
+
+[node name="Timer3" type="Timer" parent="TitleIntroduction"]
+wait_time = 0.001
+
+[connection signal="body_entered" from="Music" to="." method="_on_Music_body_entered"]
+[connection signal="timeout" from="TitleIntroduction/Timer" to="TitleIntroduction" method="_on_Timer_timeout"]
+[connection signal="timeout" from="TitleIntroduction/Timer2" to="TitleIntroduction" method="_on_Timer2_timeout"]
+[connection signal="timeout" from="TitleIntroduction/Timer3" to="TitleIntroduction" method="_on_Timer3_timeout"]
