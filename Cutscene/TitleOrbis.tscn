@@ -114,4 +114,5 @@ autoplay = true
 
 [connection signal="timeout" from="Title/Start" to="Title" method="_on_Start_timeout"]
 [connection signal="pressed" from="Buttons/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="pressed" from="Buttons/LoadGame" to="." method="_on_LoadGame_pressed"]
 [connection signal="pressed" from="Buttons/Exit" to="." method="_on_Exit_pressed"]
