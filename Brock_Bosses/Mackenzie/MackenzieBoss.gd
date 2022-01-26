@@ -6,6 +6,7 @@ extends Area2D
 # var b = "text"
 onready var _animPlayer = $AnimationPlayer
 var rng = RandomNumberGenerator.new()
+onready var projectile1 = preload("res://Brock_Bosses/Mackenzie/MackenzieProjectile.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_animPlayer.play("idle")
@@ -30,7 +31,7 @@ func attack():
 
 func attack1():
 	_animPlayer.play("attack1")
-	yield(get_tree().create_timer(1),"timeout")
+	yield(get_tree().create_timer(4),"timeout")
 	attack()
 
 func attack2():
@@ -41,6 +42,7 @@ func attack2():
 func attack3():
 	_animPlayer.play("attack3")
 	yield(get_tree().create_timer(1),"timeout")
+	attack()
 
 func _on_DetectionArea_body_entered(body):
 	if body.is_in_group("Player"):
@@ -50,3 +52,8 @@ func _on_DetectionArea_body_entered(body):
 		yield(get_tree().create_timer(1.1),"timeout")
 		position -= Vector2(-43,37)
 		attack()
+
+func _projectileAttack1():
+	var proj = projectile1.instance()
+	proj.position = global_position + Vector2(rng.randi_range(0, 200),rng.randi_range(0,200))
+	get_owner().add_child(proj)

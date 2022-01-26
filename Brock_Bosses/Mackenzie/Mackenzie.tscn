@@ -336,6 +336,29 @@ tracks/9/keys = {
 "update": 0,
 "values": [ 0.0 ]
 }
+tracks/10/type = "method"
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.8, 1.5, 2.5, 3.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_projectileAttack1"
+}, {
+"args": [  ],
+"method": "_projectileAttack1"
+}, {
+"args": [  ],
+"method": "_projectileAttack1"
+}, {
+"args": [  ],
+"method": "_projectileAttack1"
+} ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "attack2"
@@ -750,7 +773,7 @@ script = ExtResource( 1 )
 scale = Vector2( 0.35, 0.35 )
 frames = SubResource( 1 )
 animation = "attack1"
-frame = 1
+frame = 14
 
 [node name="Body" type="CollisionShape2D" parent="DisplacementNode/MackenzieBoss"]
 position = Vector2( -14, 36 )
