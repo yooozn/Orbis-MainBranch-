@@ -5,8 +5,8 @@ var inRange = false
 var immunity = false
 var phase = 1
 var offsetValue = Vector2(1032,1612)
-var healthPhase1 = 10
-var healthPhase2 = 10
+export var healthPhase1 = 10
+export var healthPhase2 = 10
 var phase1Timer = .4
 onready var shader = $AnimatedSprite.material
 onready var _anim_player = $AnimationPlayer
@@ -83,6 +83,7 @@ func damage(damage):
 		yield(get_tree().create_timer(.07),"timeout")
 		shader.set_shader_param("flash_modifier", 0)
 		if healthPhase2 == 0:
+			Globals.SamDefeated = true
 			queue_free()
 
 

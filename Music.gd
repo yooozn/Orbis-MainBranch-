@@ -10,6 +10,8 @@ var MichelleBoss = load("res://Music/A Mind_s Flame.wav")
 var FloatingCapital = load("res://Music/The Floating Capital (Better).wav")
 var HeroinesGarden = load("res://Music/Heroine_s Gardens (Again).wav")
 var ColinEncounter = load("res://Music/Aqua Blue Knight complete for real.wav")
+var SamsEncounter = load("res://Music/An Electric Presence.wav")
+var SamBoss = load("res://Music/Flight of the Electric Dreamer (better).wav")
 var PlaceHolder = load("res://Music/Aosta.wav")
 
 
@@ -44,6 +46,12 @@ func  play_music(number):
 	if number == 9: 
 		$ColinEncounter.stream = ColinEncounter
 		$ColinEncounter.play()
+	if number == 10: 
+		$SamsEncounter.stream = SamsEncounter
+		$SamsEncounter.play()
+	if number == 11: 
+		$SamBoss.stream = SamBoss
+		$SamBoss.play()
 	if number == 69:
 		$PlaceHolder.stream = PlaceHolder
 		$PlaceHolder.play()
@@ -79,3 +87,9 @@ func stop(number):
 	if number == 9:
 		$ColinEncounter.stream = ColinEncounter
 		$ColinEncounter.stop()
+	if number == 10: 
+		$SamsEncounter.stream = SamsEncounter
+		$SamsEncounter.stop()
+	if number == 11: 
+		$SamBoss.stream = SamBoss
+		$SamBoss.stop()

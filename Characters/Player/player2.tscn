@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Characters/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Camera2D.gd" type="Script" id=2]
@@ -312,6 +312,22 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "Death"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8, 10, 11, 12 ]
 }
 
 [sub_resource type="Animation" id=16]
@@ -848,6 +864,7 @@ anims/RESET = SubResource( 29 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
 anims/Dash = SubResource( 14 )
+anims/Death = SubResource( 30 )
 anims/Fall = SubResource( 16 )
 anims/Idle = SubResource( 17 )
 anims/Jump = SubResource( 18 )
@@ -896,6 +913,8 @@ shadow_gradient_length = 3.0
 
 [node name="Oli" type="Node2D" parent="."]
 
+[node name="DeathStart" type="Timer" parent="."]
+
 [connection signal="grounded_updated" from="." to="Camera2D" method="_on_Player_grounded_updated"]
 [connection signal="health_update" from="." to="Camera2D/Post Processing/Curve/ui/Health" method="_on_Player_health_update"]
 [connection signal="area_entered" from="World_collision/Attack" to="." method="_on_Attack_area_entered"]
@@ -911,3 +930,4 @@ shadow_gradient_length = 3.0
 [connection signal="timeout" from="Attack_timer" to="." method="_on_Attack_timer_timeout"]
 [connection signal="timeout" from="Attack_timer2" to="." method="_on_Attack_timer2_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_DashTimer_timeout"]
+[connection signal="timeout" from="DeathStart" to="." method="_on_DeathStart_timeout"]

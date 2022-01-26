@@ -23,7 +23,11 @@ var MackenzieVoiceline6 = load("res://Voicelines/Mackenzie_2 Line 3.wav")
 var MackenzieVoiceline7 = load("res://Voicelines/Mackenzie_2 Line 4.wav")
 var MackenzieVoiceline8 = load("res://Voicelines/Mackenzie_2 Line 5.wav")
 var MackenzieVoicelineStart = load("res://Voicelines/Mackenzie_2 Line 1.1.wav")
-
+var BammVoiceline1 = load("res://Voicelines/Bamm_Line 1.wav")
+var BammVoiceline2 = load("res://Voicelines/Bamm_Line 2.wav")
+var BammVoiceline3 = load("res://Voicelines/Bamm_Line 3.wav")
+var BammVoiceline4 = load("res://Voicelines/Bamm Line 3.5.wav")
+var BammVoiceline5 = load("res://Voicelines/Bamm_Line 4.wav")
 func play_voiceline(number):
 	if number == 1:
 		$MackenzieVoiceline1.stream = MackenzieVoiceline1
@@ -91,6 +95,21 @@ func play_voiceline(number):
 	if number == 22: 
 		$MackenzieVoicelineStart.stream = MackenzieVoicelineStart
 		$MackenzieVoicelineStart.play()
+	if number == 23: 
+		$BammVoiceline1.stream = BammVoiceline1
+		$BammVoiceline1.play()
+	if number == 24: 
+		$BammVoiceline2.stream = BammVoiceline2
+		$BammVoiceline2.play()
+	if number == 25: 
+		$BammVoiceline3.stream = BammVoiceline3
+		$BammVoiceline3.play()
+	if number == 26: 
+		$BammVoiceline4.stream = BammVoiceline4
+		$BammVoiceline4.play()
+	if number == 27: 
+		$BammVoiceline5.stream = BammVoiceline5
+		$BammVoiceline5.play()
 func stop(number):
 	if number == 1:
 		$MackenzieVoiceline1.stream = MackenzieVoiceline1
@@ -158,3 +177,18 @@ func stop(number):
 	if number == 22: 
 		$MackenzieVoicelineStart.stream = MackenzieVoicelineStart
 		$MackenzieVoicelineStart.stop()
+	if number == 23: 
+		$BammVoiceline1.stream = BammVoiceline1
+		$BammVoiceline1.stop()
+	if number == 24: 
+		$BammVoiceline2.stream = BammVoiceline2
+		$BammVoiceline2.stop()
+	if number == 25: 
+		$BammVoiceline3.stream = BammVoiceline3
+		$BammVoiceline3.stop()
+	if number == 26: 
+		$BammVoiceline4.stream = BammVoiceline4
+		$BammVoiceline4.stop()
+	if number == 27: 
+		$BammVoiceline5.stream = BammVoiceline5
+		$BammVoiceline5.stop()

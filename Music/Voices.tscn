@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Voicelines/Mackenzie_Encounter_Line1.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Voicelines/Mackenzie_Encounter_Line2.mp3" type="AudioStream" id=2]
@@ -22,6 +22,11 @@
 [ext_resource path="res://Voicelines/Mackenzie 2 Line 1.wav" type="AudioStream" id=20]
 [ext_resource path="res://Voicelines/Mackenzie_2 Line 3.wav" type="AudioStream" id=21]
 [ext_resource path="res://Voicelines/Mackenzie_2 Line 5.wav" type="AudioStream" id=22]
+[ext_resource path="res://Voicelines/Bamm_Line 1.wav" type="AudioStream" id=23]
+[ext_resource path="res://Voicelines/Bamm_Line 4.wav" type="AudioStream" id=24]
+[ext_resource path="res://Voicelines/Bamm_Line 2.wav" type="AudioStream" id=25]
+[ext_resource path="res://Voicelines/Bamm_Line 3.wav" type="AudioStream" id=26]
+[ext_resource path="res://Voicelines/Bamm Line 3.5.wav" type="AudioStream" id=27]
 
 [node name="Voices" type="Node2D"]
 script = ExtResource( 4 )
@@ -90,3 +95,18 @@ stream = ExtResource( 19 )
 stream = ExtResource( 22 )
 
 [node name="MackenzieVoicelineStart" type="AudioStreamPlayer" parent="."]
+
+[node name="BammVoiceline1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+
+[node name="BammVoiceline2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
+
+[node name="BammVoiceline3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+
+[node name="BammVoiceline4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 27 )
+
+[node name="BammVoiceline5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )

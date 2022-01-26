@@ -14,7 +14,4 @@ func _ready():
 
 
 func _on_Collectable_berries_collected():
-		berries = berries + 1
-		var BerryLabel = "Berries: "+String(berries)
-		Globals.berries += 1
-
+	pass

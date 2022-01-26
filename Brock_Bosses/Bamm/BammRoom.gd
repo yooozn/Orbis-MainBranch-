@@ -1,16 +1,13 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	
+	$"EndingCutscene/CollisionShape2D".disabled = true
+	if Globals.SamDefeated == true:
+		$"Node2D".queue_free()
+func _process(delta):
+	if Globals.SamDialog1Start == true:
+		$"BammDialog1".scale = Vector2(1, 1) 
+#		$"BammDialog1/TitleIntroduction/Timer".start()
+	if Globals.SamDefeated == true:
+		$"EndingCutscene/CollisionShape2D".disabled = false

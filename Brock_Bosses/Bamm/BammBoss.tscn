@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=2]
+[gd_scene load_steps=122 format=2]
 
 [ext_resource path="res://Brock_Bosses/Bamm/BammBoss.gd" type="Script" id=1]
 [ext_resource path="res://Levels/Tileset/SparkForestLevels/Spark Forest Levels.tscn" type="PackedScene" id=2]
@@ -93,6 +93,8 @@
 [ext_resource path="res://Cutscene/Triangle.png" type="Texture" id=91]
 [ext_resource path="res://Levels/blurybox.png" type="Texture" id=92]
 [ext_resource path="res://Brock_Bosses/Bamm/BammDialog1.gd" type="Script" id=93]
+[ext_resource path="res://Brock_Bosses/Bamm/BammRoom.gd" type="Script" id=94]
+[ext_resource path="res://Brock_Bosses/Bamm/EndingCutscene.gd" type="Script" id=95]
 
 [sub_resource type="CapsuleShape2D" id=21]
 radius = 80.0
@@ -2396,7 +2398,12 @@ tracks/0/keys = {
 "values": [ Vector2( 504, 208 ), Vector2( 504, 195.237 ) ]
 }
 
+[sub_resource type="CapsuleShape2D" id=26]
+radius = 294.0
+height = 1573.99
+
 [node name="BammBoss" type="Node2D"]
+script = ExtResource( 94 )
 
 [node name="Spark Forest Levels" parent="." instance=ExtResource( 2 )]
 tile_data = PoolIntArray( 0, 14, 0 )
@@ -2415,6 +2422,8 @@ shape = SubResource( 21 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 1 )
+healthPhase1 = 1
+healthPhase2 = 1
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Node2D/BammBoss"]
 material = ExtResource( 86 )
@@ -2512,6 +2521,7 @@ texture = ExtResource( 91 )
 [node name="Tween" type="Tween" parent="BammDialog1"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BammDialog1"]
+autoplay = "Triangle_Anim"
 anims/RESET = SubResource( 24 )
 anims/Triangle_Anim = SubResource( 25 )
 
@@ -2519,8 +2529,20 @@ anims/Triangle_Anim = SubResource( 25 )
 wait_time = 0.001
 autostart = true
 
+[node name="EndingCutscene" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 95 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndingCutscene"]
+position = Vector2( 1061, 1541 )
+rotation = -1.57133
+shape = SubResource( 26 )
+
 [connection signal="body_entered" from="Node2D/BammCutscene" to="Node2D/BammCutscene" method="_on_BammCutscene_body_entered"]
 [connection signal="body_entered" from="Node2D/BammBoss" to="Node2D/BammBoss" method="_on_BammBoss_body_entered"]
 [connection signal="body_exited" from="Node2D/BammBoss" to="Node2D/BammBoss" method="_on_BammBoss_body_exited"]
 [connection signal="body_entered" from="Node2D/BammBoss/DetectionRange" to="Node2D/BammBoss" method="_on_DetectionRange_body_entered"]
 [connection signal="body_entered" from="Node2D/BammDialog" to="Node2D/BammDialog" method="_on_BammDialog_body_entered"]
+[connection signal="timeout" from="BammDialog1/Timer" to="BammDialog1" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="EndingCutscene" to="EndingCutscene" method="_on_EndingCutscene_body_entered"]

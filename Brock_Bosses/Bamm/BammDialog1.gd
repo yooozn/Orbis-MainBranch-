@@ -15,26 +15,32 @@ var finished = false
 
 
 func _ready():
-	if Globals.Dialog == false:
+	if Globals.SamDialog1Start == false:
 		self.scale = Vector2(0, 0) # Hide
 		return
 	else:
 		load_dialog()
 func _process(delta):
-		if Globals.Dialog == false:
+		if Globals.SamDialog1Start == false:
 			return
 		if Input.is_action_just_pressed("attack"):
 			load_dialog()
 func load_dialog():
 	if dialog_index < dialog.size():
 		if dialog_index == 0:
-			Voices.play_voiceline(1)
+			Voices.play_voiceline(23)
 		if dialog_index == 1:
-			Voices.play_voiceline(2)
-			Voices.stop(1)
+			Voices.play_voiceline(24)
+			Voices.stop(23)
 		if dialog_index == 2:
-			Voices.play_voiceline(3)
-			Voices.stop(2)
+			Voices.play_voiceline(25)
+			Voices.stop(24)
+		if dialog_index == 3:
+			Voices.play_voiceline(26)
+			Voices.stop(25)
+		if dialog_index == 4:
+			Voices.play_voiceline(27)
+			Voices.stop(26)
 		$"Text".bbcode_text = dialog[dialog_index]
 		dialog_index += 1
 		$"Tween".interpolate_property(
@@ -43,14 +49,14 @@ func load_dialog():
 		)
 		$"Tween".start()
 	else:
-		Globals.Dialog = false
+		Globals.SamDialog1Start = false
 		self.scale = Vector2(0, 0)
 		Globals.cantmove = false
 		Globals.Cutscene = false
-		$"../MackenzieStand/AnimationPlayer".play('New Anim')
-		Voices.stop(3)
-		Music.stop(2)
-		Music.play_music(1)
+		Globals.SamDialog1End = true
+		Voices.stop(27)
+		Music.stop(10)
+		Music.play_music(11)
 		
 
 

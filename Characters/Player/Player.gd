@@ -5,6 +5,7 @@ signal health_update(health_)
 
 #Direction of input from keyboard 
 var dir = Vector2()
+var berries = Globals.berries
 #The velocity of the player
 var vel = Vector2()
 #The factor in which the player accelerates 
@@ -41,6 +42,9 @@ var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+#	berries = berries + 0
+#	var BerryLabel = "Berries: "+String(berries)
+#	Globals.berries += 0
 	$"Camera2D/Post Processing/Curve/ui/Health/"._on_Player_health_update(health)
 	emit_signal("health_update", health)
 	#Position of the player when entering the portal
@@ -233,6 +237,9 @@ func health_update():
 	$"Camera2D/Post Processing/Curve/ui/Health/"._on_Player_health_update(health)
 	emit_signal("health_update", health)
 	print('current health is ', health)
+	if health == 0:
+		$"AnimationPlayer".play("Death")
+		$DeathStart.start()
 	pass
 
 
@@ -366,3 +373,7 @@ func _on_Downslash_body_entered(body):
 		body.damage(1)
 		jab_connected = true
 	print(body)
+
+
+func _on_DeathStart_timeout():
+		get_tree().reload_current_scene()
