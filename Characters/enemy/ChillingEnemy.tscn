@@ -30,14 +30,14 @@ animations = [ {
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "Attack",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "Walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Attack",
 "speed": 5.0
 } ]
 
@@ -291,7 +291,7 @@ position = Vector2( -1.25159, 0 )
 scale = Vector2( 0.0473273, 0.0434873 )
 frames = SubResource( 10 )
 animation = "Walk"
-frame = 3
+frame = 1
 playing = true
 flip_h = true
 
@@ -325,7 +325,6 @@ scale = Vector2( 0.810613, 0.617241 )
 enabled = true
 
 [node name="DetectWall" parent="." instance=ExtResource( 8 )]
-collision_mask = 5
 
 [node name="DetectPortal" parent="." instance=ExtResource( 9 )]
 scale = Vector2( 1.99249, 0.867643 )

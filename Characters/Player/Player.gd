@@ -50,6 +50,9 @@ func _ready():
 	#Position of the player when entering the portal
 	self.global_position = Globals.player_initial_map_position
 	Globals.player = self
+	SaveAndLoad.room = str(get_owner().get_filename())
+	SaveAndLoad.playerPos = Globals.player_initial_map_position
+	SaveAndLoad._Save()
 	
 func _process(delta):
 	Globals.player = self

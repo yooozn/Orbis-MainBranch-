@@ -7,6 +7,7 @@ export var Jump = false
 export var Damage = 1
 export var Can_damage = true
 export var Health = 3
+onready var shader = $AnimatedSprite.material
 var pos = Vector2(0, 0)
 var speed = 100
 var left = true
@@ -46,6 +47,10 @@ func damage(damage):
 	Can_damage = false 
 	print(damage)
 	Health -= 1
+	shader.set_shader_param("flash_modifier", 1)
+	shader.set_shader_param("flash_color", 1, 0, 0, 1)
+	yield(get_tree().create_timer(.07),"timeout")
+	shader.set_shader_param("flash_modifier", 0)
 	if Health == 0:
 		 
 		queue_free()

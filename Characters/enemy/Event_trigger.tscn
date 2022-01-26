@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Characters/enemy/Event_trigger.gd" type="Script" id=1]
 [ext_resource path="res://Moss_Baby_Walk-2.png" type="Texture" id=2]
@@ -9,12 +9,16 @@
 [ext_resource path="res://Moss_Baby_Walk-4.png" type="Texture" id=7]
 [ext_resource path="res://testingthings/DetectWall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Characters/enemy/DetectPortal.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Shaders/Enemyhit.tres" type="Shader" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10.6451, 9.80361 )
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
+shader = ExtResource( 10 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -55,6 +59,7 @@ scale = Vector2( 3.19604, 3.51087 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 1 )
+Health = 5
 
 [node name="Hitbox" type="Area2D" parent="."]
 z_index = 1
@@ -77,6 +82,7 @@ position = Vector2( 0.625793, 0 )
 scale = Vector2( 0.0837345, 0.101094 )
 frames = SubResource( 3 )
 animation = "Walk"
+frame = 2
 playing = true
 flip_h = true
 
@@ -90,8 +96,8 @@ script = ExtResource( 6 )
 pitch_scale = 0.81
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 5
-collision_mask = 5
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -0.555546, -1.28173 )

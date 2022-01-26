@@ -57,6 +57,7 @@ UserData="*res://addons/github-integration/scripts/user_data.gd"
 RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
 Music="*res://Music/Music.tscn"
 Voices="*res://Music/Voices.tscn"
+SaveAndLoad="*res://SaveandLoading/SaveAndLoad.tscn"
 
 [display]
 
