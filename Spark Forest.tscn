@@ -287,7 +287,7 @@ wait_time = 0.6
 wait_time = 0.001
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1215, 803 )
+position = Vector2( 1048, 415 )
 z_index = 1
 
 [node name="Spark Forest Levels" parent="." instance=ExtResource( 5 )]

@@ -28,13 +28,22 @@ func _process(delta):
 func load_dialog():
 	if dialog_index < dialog.size():
 		if dialog_index == 0:
-			Voices.play_voiceline(1)
+			Voices.play_voiceline(22)
 		if dialog_index == 1:
-			Voices.play_voiceline(2)
-			Voices.stop(1)
+			Voices.play_voiceline(17)
+			Voices.stop(22)
 		if dialog_index == 2:
-			Voices.play_voiceline(3)
-			Voices.stop(2)
+			Voices.play_voiceline(18)
+			Voices.stop(17)
+		if dialog_index == 3:
+			Voices.play_voiceline(19)
+			Voices.stop(18)
+		if dialog_index == 4:
+			Voices.play_voiceline(20)
+			Voices.stop(19)
+		if dialog_index == 5:
+			Voices.play_voiceline(21)
+			Voices.stop(20)
 		$"Text".bbcode_text = dialog[dialog_index]
 		dialog_index += 1
 		$"Tween".interpolate_property(
@@ -49,7 +58,7 @@ func load_dialog():
 		Globals.Cutscene = false
 		Globals.MackenzieDialog2End = true
 		$"../../MackenzieIdle1-1/AnimationPlayer".play('Dissapear')
-		Voices.stop(3)
+		Voices.stop(21)
 		Music.stop(2)
 		Music.play_music(7)
 		

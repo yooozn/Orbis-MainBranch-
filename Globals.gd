@@ -4,6 +4,7 @@ extends Node
 var player_initial_map_position = Vector2(0, 0)
 var door1 = false
 var door2 = false
+var door3 = false
 var Cutscene = false
 var Dialog = false
 var cantmove = false
@@ -12,6 +13,7 @@ var player
 var berries_collected = false
 var berries = 0
 var health = 5
+var healthbar = 5
 
 #MichelleVariables
 var MichelleDialog1Start = false

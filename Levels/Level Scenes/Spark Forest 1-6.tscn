@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Levels/Tileset/SparkForestLevels/Spark Forest Levels.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Characters/enemy/Event_trigger.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Characters/enemy/Chilling_Enemytesuto.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Shaders/SparkForestShaders.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Levels/Door.tscn" type="PackedScene" id=12]
 
 [node name="Spark Forest 1-6" type="Node2D"]
 
@@ -44,7 +45,7 @@ scale = Vector2( 3.198, 3.466 )
 next_scene_path = "res://Levels/Level Scenes/SparkForest 1-6(2).tscn"
 
 [node name="FloatingCaptial" parent="Portals" instance=ExtResource( 6 )]
-position = Vector2( 2069, 578 )
+position = Vector2( 2077, 542 )
 scale = Vector2( 4.74776, 4.92481 )
 next_scene_path = "res://Levels/Level Scenes/FloatingCaptial Middle.tscn"
 
@@ -63,3 +64,7 @@ position = Vector2( 1378, 240 )
 scale = Vector2( 2.43578, 2.88435 )
 
 [node name="Shaders" parent="." instance=ExtResource( 11 )]
+
+[node name="Door" parent="." instance=ExtResource( 12 )]
+position = Vector2( 2468, -1210 )
+scale = Vector2( 0.616092, 3.56713 )

@@ -10,8 +10,8 @@ func _on_Switch2_area_entered(area):
 
 func _on_Switch2_body_entered(body):
 		if $AnimatedSprite.animation == "Interact":
-			$AnimatedSprite.stop()
 			$AnimatedSprite.play("Ending")
+			$AnimatedSprite.stop()
 
 
 

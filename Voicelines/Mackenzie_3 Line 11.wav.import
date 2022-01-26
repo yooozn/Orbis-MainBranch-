@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Mackenzie_3 Line 11.wav-012e2d975922d199351f61b4a56bf970.sample"
+
+[deps]
+
+source_file="res://Voicelines/Mackenzie_3 Line 11.wav"
+dest_files=[ "res://.import/Mackenzie_3 Line 11.wav-012e2d975922d199351f61b4a56bf970.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

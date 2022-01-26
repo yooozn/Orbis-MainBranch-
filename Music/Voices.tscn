@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Voicelines/Mackenzie_Encounter_Line1.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Voicelines/Mackenzie_Encounter_Line2.mp3" type="AudioStream" id=2]
@@ -17,6 +17,11 @@
 [ext_resource path="res://Voicelines/IMG_8437.mp3" type="AudioStream" id=15]
 [ext_resource path="res://Voicelines/IMG_8438.mp3" type="AudioStream" id=16]
 [ext_resource path="res://Voicelines/IMG_8440.mp3" type="AudioStream" id=17]
+[ext_resource path="res://Voicelines/Mackenzie_2 Line 2.wav" type="AudioStream" id=18]
+[ext_resource path="res://Voicelines/Mackenzie_2 Line 4.wav" type="AudioStream" id=19]
+[ext_resource path="res://Voicelines/Mackenzie 2 Line 1.wav" type="AudioStream" id=20]
+[ext_resource path="res://Voicelines/Mackenzie_2 Line 3.wav" type="AudioStream" id=21]
+[ext_resource path="res://Voicelines/Mackenzie_2 Line 5.wav" type="AudioStream" id=22]
 
 [node name="Voices" type="Node2D"]
 script = ExtResource( 4 )
@@ -68,3 +73,20 @@ stream = ExtResource( 16 )
 
 [node name="ColinVoiceline4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
+
+[node name="MackenzieVoiceline4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+
+[node name="MackenzieVoiceline5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+
+[node name="MackenzieVoiceline6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+
+[node name="MackenzieVoiceline7" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+
+[node name="MackenzieVoiceline8" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+
+[node name="MackenzieVoicelineStart" type="AudioStreamPlayer" parent="."]

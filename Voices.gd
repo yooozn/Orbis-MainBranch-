@@ -17,6 +17,12 @@ var ColinVoiceline1 = load("res://Voicelines/IMG_8427.mp3")
 var ColinVoiceline2 = load("res://Voicelines/IMG_8437.mp3")
 var ColinVoiceline3 = load("res://Voicelines/IMG_8438.mp3")
 var ColinVoiceline4 = load("res://Voicelines/IMG_8440.mp3")
+var MackenzieVoiceline4 = load("res://Voicelines/Mackenzie 2 Line 1.wav")
+var MackenzieVoiceline5 = load("res://Voicelines/Mackenzie_2 Line 2.wav")
+var MackenzieVoiceline6 = load("res://Voicelines/Mackenzie_2 Line 3.wav")
+var MackenzieVoiceline7 = load("res://Voicelines/Mackenzie_2 Line 4.wav")
+var MackenzieVoiceline8 = load("res://Voicelines/Mackenzie_2 Line 5.wav")
+var MackenzieVoicelineStart = load("res://Voicelines/Mackenzie_2 Line 1.1.wav")
 
 func play_voiceline(number):
 	if number == 1:
@@ -67,6 +73,24 @@ func play_voiceline(number):
 	if number == 16: 
 		$ColinVoiceline4.stream = ColinVoiceline4
 		$ColinVoiceline4.play()
+	if number == 17: 
+		$MackenzieVoiceline4.stream = MackenzieVoiceline4
+		$MackenzieVoiceline4.play()
+	if number == 18: 
+		$MackenzieVoiceline5.stream = MackenzieVoiceline5
+		$MackenzieVoiceline5.play()
+	if number == 19: 
+		$MackenzieVoiceline6.stream = MackenzieVoiceline6
+		$MackenzieVoiceline6.play()
+	if number == 20: 
+		$MackenzieVoiceline7.stream = MackenzieVoiceline7
+		$MackenzieVoiceline7.play()
+	if number == 21: 
+		$MackenzieVoiceline8.stream = MackenzieVoiceline8
+		$MackenzieVoiceline8.play()
+	if number == 22: 
+		$MackenzieVoicelineStart.stream = MackenzieVoicelineStart
+		$MackenzieVoicelineStart.play()
 func stop(number):
 	if number == 1:
 		$MackenzieVoiceline1.stream = MackenzieVoiceline1
@@ -110,3 +134,27 @@ func stop(number):
 	if number == 14:
 		$ColinVoiceline2.stream = ColinVoiceline2
 		$ColinVoiceline2.stop()
+	if number == 15:
+		$ColinVoiceline3.stream = ColinVoiceline3
+		$ColinVoiceline3.stop()
+	if number == 16:
+		$ColinVoiceline4.stream = ColinVoiceline4
+		$ColinVoiceline4.stop()
+	if number == 17:
+		$MackenzieVoiceline4.stream = MackenzieVoiceline4
+		$MackenzieVoiceline4.stop()
+	if number == 18:
+		$MackenzieVoiceline5.stream = MackenzieVoiceline5
+		$MackenzieVoiceline5.stop()
+	if number == 19: 
+		$MackenzieVoiceline6.stream = MackenzieVoiceline6
+		$MackenzieVoiceline6.stop()
+	if number == 20: 
+		$MackenzieVoiceline7.stream = MackenzieVoiceline7
+		$MackenzieVoiceline7.stop()
+	if number == 21: 
+		$MackenzieVoiceline8.stream = MackenzieVoiceline8
+		$MackenzieVoiceline8.stop()
+	if number == 22: 
+		$MackenzieVoicelineStart.stream = MackenzieVoicelineStart
+		$MackenzieVoicelineStart.stop()

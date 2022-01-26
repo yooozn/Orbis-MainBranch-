@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bamm_Line 3.wav-7e5b5652c3924368c2d7f35a00314dc9.sample"
+
+[deps]
+
+source_file="res://Voicelines/Bamm_Line 3.wav"
+dest_files=[ "res://.import/Bamm_Line 3.wav-7e5b5652c3924368c2d7f35a00314dc9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

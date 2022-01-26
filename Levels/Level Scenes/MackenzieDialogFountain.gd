@@ -9,3 +9,5 @@ func _on_MackenzieDialogFountain_body_entered(body):
 	Globals.cantmove = true
 	Globals.MackenzieDialog2End = false
 	self.queue_free()
+	Music.stop(7)
+	Music.play_music(2)
