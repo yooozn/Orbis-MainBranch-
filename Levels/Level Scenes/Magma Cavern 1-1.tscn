@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Tileset/LavaCavernLevels/MagmaCavern Levels.tscn" type="PackedScene" id=2]
@@ -6,16 +6,20 @@
 [ext_resource path="res://Levels/Platforms.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Shaders/Fire.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Shaders/MagmaCavernShaders.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/Level Scenes/Magma Cavern 1-1.gd" type="Script" id=7]
 [ext_resource path="res://Characters/enemy/Fox_fury.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Levels/BG/BackroundMagmaCavern.tscn" type="PackedScene" id=9]
 
+[sub_resource type="RectangleShape2D" id=1]
+
 [node name="Lava Cavern 1-1" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="LavaCavern Levels" parent="." instance=ExtResource( 2 )]
 tile_data = PoolIntArray( 0, 0, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1205, 1243 )
+position = Vector2( 276, 776 )
 
 [node name="Portals" type="Node" parent="."]
 
@@ -35,8 +39,14 @@ z_index = 1
 next_scene_path = "res://Levels/Level Scenes/Magma Cavern 1-2.tscn"
 player_spawn_location = Vector2( 416.511, 139 )
 
+[node name="MakeTrans" parent="Portals" instance=ExtResource( 3 )]
+position = Vector2( 451, -27 )
+rotation = -1.5658
+next_scene_path = "res://Levels/Level Scenes/Make_TransAquatide - MagmaCavern.tscn"
+player_spawn_location = Vector2( 1944, 1820 )
+
 [node name="Platforms" parent="." instance=ExtResource( 4 )]
-tile_data = PoolIntArray( 655372, 6, 0, 1114116, 6, 0, 1376258, 6, 0 )
+tile_data = PoolIntArray( 131074, 6, 0, 655372, 6, 0, 1114116, 6, 0, 1376258, 6, 0 )
 
 [node name="Stuff" type="Node" parent="."]
 
@@ -60,3 +70,11 @@ scale = Vector2( 5.2076, 5.0406 )
 [node name="BackroundMagmaCavern" parent="." instance=ExtResource( 9 )]
 
 [node name="Shaders" parent="." instance=ExtResource( 6 )]
+
+[node name="Music" type="Area2D" parent="."]
+position = Vector2( 283, 762 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Music"]
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="Music" to="." method="_on_Music_body_entered"]

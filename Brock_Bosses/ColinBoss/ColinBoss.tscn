@@ -1445,7 +1445,7 @@ script = ExtResource( 75 )
 shape = SubResource( 16 )
 
 [node name="Player" parent="." instance=ExtResource( 68 )]
-position = Vector2( 56, 1815 )
+position = Vector2( 64, 1777 )
 
 [node name="ColinDialog2" type="CanvasLayer" parent="."]
 layer = 128
@@ -1612,7 +1612,8 @@ anims/MichelleNo = ExtResource( 90 )
 [node name="Portal2" parent="." instance=ExtResource( 88 )]
 position = Vector2( 2014, 1454 )
 rotation = -0.00630462
-next_scene_path = "res://Levels/Level Scenes/Aquatides 1-1.tscn"
+next_scene_path = "res://Levels/Level Scenes/Make_TransAquatide - MagmaCavern.tscn"
+player_spawn_location = Vector2( 347, 587 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Portal2"]
 autoplay = "MichelleNo"

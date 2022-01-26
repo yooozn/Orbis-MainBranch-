@@ -13,7 +13,7 @@ func _on_Timer_timeout():
 		
 
 func _on_Timer2_timeout():
-	get_node("Timer3").start()
+	$"Timer3".start()
 
 
 func _on_Timer3_timeout():

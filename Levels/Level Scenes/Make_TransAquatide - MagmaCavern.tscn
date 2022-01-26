@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Make_Trans Levels.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Platforms.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Level Scenes/Portal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://BackroundAquatides.tscn" type="PackedScene" id=5]
+
+[node name="Make_TransAquatide - MagmaCavern" type="Node2D"]
+
+[node name="Make_Trans Levels" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 0, 1, 0 )
+
+[node name="Platforms" parent="." instance=ExtResource( 2 )]
+tile_data = PoolIntArray( 393222, 4, 0, 524292, 6, 0, 655372, 4, 0, 851978, 6, 0 )
+
+[node name="Portals" type="Node" parent="."]
+
+[node name="MagmaCavern" parent="Portals" instance=ExtResource( 3 )]
+position = Vector2( 2047, 1418 )
+next_scene_path = "res://Levels/Level Scenes/Magma Cavern 1-1.tscn"
+player_spawn_location = Vector2( 276, 776 )
+
+[node name="Water" parent="Portals" instance=ExtResource( 3 )]
+next_scene_path = "res://Brock_Bosses/ColinBoss/ColinBoss.tscn"
+player_spawn_location = Vector2( 1952, 1820 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 347, 587 )
+
+[node name="BackroundAquatides" parent="." instance=ExtResource( 5 )]

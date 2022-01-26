@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Levels/Tileset/FloatingCapitalLevels/Floating Capital Levels.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Levels/Level Scenes/FloatingCaptial Middle.gd" type="Script" id=23]
 [ext_resource path="res://TitleOfplaces/Floating_Capital_Title.png" type="Texture" id=24]
 [ext_resource path="res://Levels/SparkForestTitle.gd" type="Script" id=25]
+[ext_resource path="res://TitleOfplaces/Mackenzie_Title.png" type="Texture" id=26]
 
 [sub_resource type="CapsuleShape2D" id=8]
 radius = 137.0
@@ -325,6 +326,32 @@ anims/Triangle_Anim = SubResource( 6 )
 wait_time = 0.001
 autostart = true
 
+[node name="TitleIntroduction" type="CanvasLayer" parent="MackenzieCutscene"]
+script = ExtResource( 25 )
+
+[node name="SparkForest" type="TextureProgress" parent="MackenzieCutscene/TitleIntroduction"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 21.0
+margin_top = 223.0
+margin_right = 2069.0
+margin_bottom = 2271.0
+rect_scale = Vector2( 0.192, 0.179 )
+texture_progress = ExtResource( 26 )
+fill_mode = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="MackenzieCutscene/TitleIntroduction"]
+wait_time = 0.01
+
+[node name="Timer2" type="Timer" parent="MackenzieCutscene/TitleIntroduction"]
+wait_time = 0.001
+
+[node name="Timer3" type="Timer" parent="MackenzieCutscene/TitleIntroduction"]
+wait_time = 0.001
+
 [node name="MackenzieIdle1-1" type="Sprite" parent="."]
 position = Vector2( 1239, 1655 )
 scale = Vector2( 0.3, 0.3 )
@@ -362,8 +389,10 @@ wait_time = 0.6
 wait_time = 0.001
 
 [connection signal="body_entered" from="MackenzieDialogFountain" to="MackenzieDialogFountain" method="_on_MackenzieDialogFountain_body_entered"]
-[connection signal="timeout" from="MackenzieCutscene/MackenzieCutscene/Timer" to="MackenzieCutscene" method="_on_Timer_timeout"]
 [connection signal="timeout" from="MackenzieCutscene/MackenzieCutscene/Timer" to="MackenzieCutscene/MackenzieCutscene" method="_on_Timer_timeout"]
+[connection signal="timeout" from="MackenzieCutscene/TitleIntroduction/Timer" to="MackenzieCutscene/TitleIntroduction" method="_on_Timer_timeout"]
+[connection signal="timeout" from="MackenzieCutscene/TitleIntroduction/Timer2" to="MackenzieCutscene/TitleIntroduction" method="_on_Timer2_timeout"]
+[connection signal="timeout" from="MackenzieCutscene/TitleIntroduction/Timer3" to="MackenzieCutscene/TitleIntroduction" method="_on_Timer3_timeout"]
 [connection signal="timeout" from="TitleIntroduction/Timer" to="TitleIntroduction" method="_on_Timer_timeout"]
 [connection signal="timeout" from="TitleIntroduction/Timer2" to="TitleIntroduction" method="_on_Timer2_timeout"]
 [connection signal="timeout" from="TitleIntroduction/Timer3" to="TitleIntroduction" method="_on_Timer3_timeout"]

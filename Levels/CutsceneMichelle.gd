@@ -19,7 +19,7 @@ func _ready():
 		
 
 func _on_CutsceneMichelle_finished():
-	Globals.MichelleDialog1Start = true
+#	Globals.MichelleDialog1Start = true
 	Globals.Finished = true
 	Globals.cantmove = false
 	get_tree().set_pause(false)

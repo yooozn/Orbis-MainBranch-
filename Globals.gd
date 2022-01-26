@@ -26,3 +26,7 @@ var ColinDialog1End = false
 var ColinDialog2Start= false
 var ColinDialog2End = false
 var ColinDefeated = false
+
+#MackenzieVariables
+var MackenzieDialog2Start = false
+var MackenzieDialog2End = false

@@ -14,15 +14,16 @@ var finished = false
 
 
 func _ready():
-	if Globals.Dialog == false:
+	if Globals.MackenzieDialog2Start == false:
 		self.scale = Vector2(0, 0) # Hide
 		return
 	else:
 		load_dialog()
 func _process(delta):
-		if Globals.Dialog == false:
+		if Globals.MackenzieDialog2Start == false:
 			return
 		if Input.is_action_just_pressed("attack"):
+			$"../TitleIntroduction/Timer".start()
 			load_dialog()
 func load_dialog():
 	if dialog_index < dialog.size():
@@ -42,15 +43,15 @@ func load_dialog():
 		)
 		$"Tween".start()
 	else:
-		Globals.Dialog = false
+		Globals.MackenzieDialog2Start = false
 		self.scale = Vector2(0, 0)
 		Globals.cantmove = false
 		Globals.Cutscene = false
-		Globals.Finished = true
+		Globals.MackenzieDialog2End = true
 		$"../../MackenzieIdle1-1/AnimationPlayer".play('Dissapear')
 		Voices.stop(3)
 		Music.stop(2)
-		Music.play_music(1)
+		Music.play_music(7)
 		
 
 

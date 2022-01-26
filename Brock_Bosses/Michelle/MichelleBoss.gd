@@ -13,3 +13,4 @@ func _process(delta):
 	if Globals.MichelleDefeated == true:
 		$"MichelleStand".show()
 		$"Portal/AnimationPlayer".play("Avalible")
+		$"Portal2/AnimationPlayer".play("New Anim")

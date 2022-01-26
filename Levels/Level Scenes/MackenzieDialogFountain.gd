@@ -4,8 +4,8 @@ extends Area2D
 
 
 func _on_MackenzieDialogFountain_body_entered(body):
-	Globals.Dialog = true
+	Globals.MackenzieDialog2Start = true
 	Globals.Cutscene = true
 	Globals.cantmove = true
-	Globals.Finished = false
+	Globals.MackenzieDialog2End = false
 	self.queue_free()
