@@ -11,6 +11,7 @@ var Finished = false
 var player 
 var berries_collected = false
 var berries = 0
+var health = 5
 
 #MichelleVariables
 var MichelleDialog1Start = false

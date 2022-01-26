@@ -11,7 +11,7 @@ var vel = Vector2()
 var acel = 1
 #The max speed of the player
 var speed = 50
-export var health = 3
+var health = Globals.health
 #The time spent in the air
 var jump_time = 0.1
 #The jump height of the player
@@ -228,6 +228,8 @@ func damage(damage):
 func health_update():
 	$"Camera2D/Post Processing/Curve/ui/Health/"._on_Player_health_update(health)
 	emit_signal("health_update", health)
+	get_tree().get_root().get_node("Player")
+	Globals.health -= 1
 	print('current health is ', health)
 	pass
 
