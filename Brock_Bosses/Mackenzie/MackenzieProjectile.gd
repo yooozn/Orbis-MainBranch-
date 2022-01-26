@@ -10,10 +10,10 @@ var rng = RandomNumberGenerator.new()
 func _ready():
 	rng.randomize()
 	var startScale = rng.randf_range(0.1,.4)
-	$Tween.interpolate_property(self,"scale",Vector2(startScale,startScale),Vector2(1.2,1.2),.5,Tween.TRANS_LINEAR,Tween.EASE_IN)
-	$Tween.interpolate_property(self, "position", position, Globals.player.position, .6,Tween.TRANS_LINEAR,Tween.EASE_IN,.5)
+	$Tween.interpolate_property(self,"scale",Vector2(startScale,startScale),Vector2(1.2,1.2),.6,Tween.TRANS_LINEAR,Tween.EASE_IN)
+	$Tween.interpolate_property(self, "position", position, Globals.player.position, .6,Tween.TRANS_LINEAR,Tween.EASE_IN,.6)
 	$Tween.start()
-	yield(get_tree().create_timer(1),"timeout")
+	yield(get_tree().create_timer(2),"timeout")
 	queue_free()
 
 

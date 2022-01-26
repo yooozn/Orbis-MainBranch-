@@ -7,6 +7,7 @@ extends Area2D
 onready var _animPlayer = $AnimationPlayer
 var rng = RandomNumberGenerator.new()
 onready var projectile1 = preload("res://Brock_Bosses/Mackenzie/MackenzieProjectile.tscn")
+onready var projectile2 = preload("res://Brock_Bosses/Mackenzie/MackenzieProjectile2.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_animPlayer.play("idle")
@@ -57,3 +58,20 @@ func _projectileAttack1():
 	var proj = projectile1.instance()
 	proj.position = global_position + Vector2(rng.randi_range(0, 200),rng.randi_range(0,200))
 	get_owner().add_child(proj)
+
+func _projectileAttack2():
+	var proj = projectile2.instance()
+	proj.position = global_position + Vector2(-600,rng.randi_range(-300,-350))
+	get_owner().add_child(proj)
+	var proj2 = projectile2.instance()
+	proj2.position = global_position + Vector2(-300,rng.randi_range(-300,-350))
+	get_owner().add_child(proj2)
+	var proj3 = projectile2.instance()
+	proj3.position = global_position + Vector2(0,rng.randi_range(-300,-350))
+	get_owner().add_child(proj3)
+	var proj4 = projectile2.instance()
+	proj4.position = global_position + Vector2(300,rng.randi_range(-300,-350))
+	get_owner().add_child(proj4)
+	var proj5 = projectile2.instance()
+	proj5.position = global_position + Vector2(600,rng.randi_range(-300,-350))
+	get_owner().add_child(proj5)
