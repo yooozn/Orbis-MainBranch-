@@ -42,6 +42,8 @@ var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if Globals.map == false:
+		pass
 	if Globals.health == 0:
 		Globals.health = 5
 	$"Camera2D/Post Processing/Curve/ui/Health/"._on_Player_health_update(health)
@@ -341,10 +343,10 @@ func _on_Attack_body_shape_entered(body_id, body, body_shape, local_shape):
 
 
 func _on_Attack_area_entered(area):
-#	if area.is_in_group('Enemy'):
-#		print('collision')
-#		area.damage(1)
-#		jab_connected = true
+	if area.is_in_group('Enemy'):
+		print('collision')
+		area.damage(1)
+		jab_connected = true
 	print(area)
 	if area.is_in_group('Switch'):
 		print('opened')
@@ -379,7 +381,7 @@ func _on_Downslash_body_entered(body):
 
 
 func _on_DeathStart_timeout():
-		get_tree().reload_current_scene()
+		Globals.last_position
 
 
 func _on_Downslash_area_entered(area):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Spark Forest.gd" type="Script" id=1]
 [ext_resource path="res://Levels/SparkForestTitle.gd" type="Script" id=2]
@@ -16,9 +16,10 @@
 [ext_resource path="res://Shaders/SparkForestShaders.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Shaders/Swaying.tres" type="Material" id=15]
 [ext_resource path="res://Collectables/Collectable1.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Levels/waterfal.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Map/Map.gd" type="Script" id=17]
 [ext_resource path="res://Shaders/grass.gdshader" type="Shader" id=18]
 [ext_resource path="res://Levels/Tileset/Fg/Tall_Grass_Light.png" type="Texture" id=19]
+[ext_resource path="res://Map/Spark_Forest_1-1.png" type="Texture" id=20]
 [ext_resource path="res://SignPost.gd" type="Script" id=22]
 [ext_resource path="res://Levels/Sign_Post.png" type="Texture" id=23]
 [ext_resource path="res://Levels/Tileset/SparkForestLevels/Text/Controls_3.png" type="Texture" id=24]
@@ -290,6 +291,16 @@ wait_time = 0.001
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1048, 415 )
 z_index = 1
+
+[node name="Map" type="CanvasLayer" parent="Player"]
+scale = Vector2( 0.11032, 0.112262 )
+transform = Transform2D( 0.11032, 0, 0, 0.112262, 0, 0 )
+script = ExtResource( 17 )
+
+[node name="Sprite" type="Sprite" parent="Player/Map"]
+position = Vector2( 8085.59, 1086.74 )
+z_index = 168
+texture = ExtResource( 20 )
 
 [node name="Spark Forest Levels" parent="." instance=ExtResource( 5 )]
 tile_data = PoolIntArray( 0, 1, 0 )
@@ -612,11 +623,6 @@ texture = SubResource( 13 )
 
 [node name="Collectable" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1150, 1715 )
-
-[node name="DeathSpot" parent="." instance=ExtResource( 17 )]
-position = Vector2( 1432, 1035 )
-scale = Vector2( -3.91755, 3.4226 )
-next_scene_path = "res://Spark Forest.tscn"
 
 [connection signal="timeout" from="TitleIntroduction/Timer" to="TitleIntroduction" method="_on_Timer_timeout"]
 [connection signal="timeout" from="TitleIntroduction/Timer2" to="TitleIntroduction" method="_on_Timer2_timeout"]

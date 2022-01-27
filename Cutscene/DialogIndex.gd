@@ -44,6 +44,7 @@ func load_dialog():
 		self.scale = Vector2(0, 0)
 		Globals.cantmove = false
 		Globals.Cutscene = false
+		Globals.map = true
 		$"../MackenzieStand/AnimationPlayer".play('New Anim')
 		Voices.stop(3)
 		Music.stop(2)

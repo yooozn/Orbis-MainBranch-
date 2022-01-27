@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Levels/Tileset/AquaTideLevels/AquatidesLevels.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Platforms.tscn" type="PackedScene" id=2]
@@ -8,8 +8,11 @@
 [ext_resource path="res://Levels/Level Scenes/Portal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Particles/Bubble_Particles.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Shaders/Water.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Map/Map.gd" type="Script" id=9]
 [ext_resource path="res://Characters/enemy/Bobbing_Enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Characters/enemy/Feesh_Enemy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Map/AquaTide_1-1.png" type="Texture" id=12]
+[ext_resource path="res://Checkpointtesturo.tscn" type="PackedScene" id=13]
 
 [node name="Aquatides 1-1" type="Node2D"]
 rotation = -0.00377006
@@ -22,6 +25,16 @@ tile_data = PoolIntArray( 327687, 4, 0, 327692, 4, 0, 393217, 4, 0, 524291, 4, 0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 956.52, 659.611 )
+
+[node name="Map" type="CanvasLayer" parent="Player"]
+scale = Vector2( 0.11032, 0.112262 )
+transform = Transform2D( 0.11032, 0, 0, 0.112262, 0, 0 )
+script = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="Player/Map"]
+position = Vector2( 8085.59, 1086.74 )
+z_index = 168
+texture = ExtResource( 12 )
 
 [node name="BackroundAquatides" parent="." instance=ExtResource( 4 )]
 
@@ -46,11 +59,14 @@ position = Vector2( 862.861, 1156.19 )
 scale = Vector2( 1.09354, 1.85132 )
 
 [node name="Enemy" parent="." instance=ExtResource( 10 )]
-position = Vector2( 816.309, 1511.09 )
-scale = Vector2( 2.29188, 2.34561 )
+position = Vector2( 681.301, 1777.58 )
+scale = Vector2( 1.35974, 1.45946 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1575.73, 339.943 )
-scale = Vector2( 5.97788, 6.29834 )
+position = Vector2( 1547.5, 390.854 )
+scale = Vector2( 3.154, 3.76799 )
 
 [node name="Shaders" parent="." instance=ExtResource( 5 )]
+
+[node name="Checkpointtesturo" parent="." instance=ExtResource( 13 )]
+position = Vector2( 199.011, 262.752 )

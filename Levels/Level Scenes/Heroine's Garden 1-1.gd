@@ -15,6 +15,7 @@ func _on_Music_body_entered(body):
 
 
 func _on_Collectable_berries_collected():
-	berries = berries + 1
-	var BerryLabel = "Berries: "+String(berries)
-	Globals.berries += 1
+#	berries = berries + 1
+#	var BerryLabel = "Berries: "+String(berries)
+#	Globals.berries += 1
+	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Tileset/LavaCavernLevels/MagmaCavern Levels.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Levels/Level Scenes/Magma Cavern 1-1.gd" type="Script" id=7]
 [ext_resource path="res://Characters/enemy/Fox_fury.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Levels/BG/BackroundMagmaCavern.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Map/Map.gd" type="Script" id=10]
+[ext_resource path="res://Map/Lava_Cavern_1-1.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -20,6 +22,16 @@ tile_data = PoolIntArray( 0, 0, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 276, 776 )
+
+[node name="Map" type="CanvasLayer" parent="Player"]
+scale = Vector2( 0.11032, 0.112262 )
+transform = Transform2D( 0.11032, 0, 0, 0.112262, 0, 0 )
+script = ExtResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="Player/Map"]
+position = Vector2( 8085.59, 1086.74 )
+z_index = 168
+texture = ExtResource( 11 )
 
 [node name="Portals" type="Node" parent="."]
 
@@ -46,7 +58,7 @@ next_scene_path = "res://Levels/Level Scenes/Make_TransAquatide - MagmaCavern.ts
 player_spawn_location = Vector2( 1944, 1820 )
 
 [node name="Platforms" parent="." instance=ExtResource( 4 )]
-tile_data = PoolIntArray( 131074, 6, 0, 655372, 6, 0, 1114116, 6, 0, 1376258, 6, 0 )
+tile_data = PoolIntArray( 131074, 6, 0, 655372, 6, 0, 786442, 6, 0, 1114116, 6, 0, 1376258, 6, 0 )
 
 [node name="Stuff" type="Node" parent="."]
 

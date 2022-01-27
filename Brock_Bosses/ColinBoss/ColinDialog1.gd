@@ -22,7 +22,6 @@ func _process(delta):
 			return
 		if Input.is_action_just_pressed("attack"):
 			load_dialog()
-			$"TitleIntroduction/Timer".start()
 func load_dialog():
 	if dialog_index < dialog.size():
 		if dialog_index == 0:
