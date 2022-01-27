@@ -2,6 +2,7 @@ extends KinematicBody2D
 export var group = 'Null'
 export var Event = 'Null'
 export var Turn = false
+onready var shader = $AnimatedSprite.material
 export var Jump = false
 export var Damage = 1
 export var Can_damage = true
@@ -54,6 +55,10 @@ func damage(damage):
 		queue_free()
 	$Enemy_effects.play("Stagger")
 #	$Effects._damage()
+	shader.set_shader_param("flash_modifier", 1)
+#	shader.set_shader_param("flash_color", 1, 0, 0, 1)
+	yield(get_tree().create_timer(.07),"timeout")
+	shader.set_shader_param("flash_modifier", 0)
 	pass
 
 func detect_turn_around():

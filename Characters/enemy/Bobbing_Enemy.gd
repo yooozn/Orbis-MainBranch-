@@ -7,6 +7,7 @@ export var Jump = false
 export var Damage = 1
 export var Can_damage = true
 export var Health = 3
+onready var shader = $AnimatedSprite.material
 var pos = Vector2(0, 0)
 var speed = 100
 var left = true
@@ -51,6 +52,9 @@ func damage(damage):
 		 
 		queue_free()
 	$Enemy_effects.play("Stagger")
+	shader.set_shader_param("flash_modifier", 1)
+	yield(get_tree().create_timer(.07),"timeout")
+	shader.set_shader_param("flash_modifier", 0)
 #	$Effects._damage()
 	pass
 

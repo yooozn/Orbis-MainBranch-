@@ -42,6 +42,9 @@ var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Player_sprite/AttackSlash.hide()
+	$Player_sprite/DownSlash.hide()
+	$Player_sprite/UpSlash.hide()
 	if Globals.map == false:
 		pass
 	if Globals.health == 0:
@@ -51,9 +54,9 @@ func _ready():
 	#Position of the player when entering the portal
 	self.global_position = Globals.player_initial_map_position
 	Globals.player = self
-#	SaveAndLoad.room = str(get_owner().get_filename())
-#	SaveAndLoad.playerPos = Globals.player_initial_map_position
-#	SaveAndLoad._Save()
+	SaveAndLoad.room = str(get_owner().get_filename())
+	SaveAndLoad.playerPos = Globals.player_initial_map_position
+	SaveAndLoad._Save()
 	
 func _process(delta):
 	Globals.player = self
@@ -195,6 +198,7 @@ func attack():
 			jab_num += 1
 		elif jab_num == 2:
 			$"Player_sprite/AttackSlash".play("Slash2")
+			$"Player_sprite/AttackSlash".show()
 			$AnimationPlayer.play("Punch2")
 		$Attack_timer.start()
 		can_interupt = false
@@ -209,6 +213,7 @@ func attackdown():
 			jab_num += 1
 			$"attack".play()
 			$"Player_sprite/DownSlash".play("Down")
+			$Player_sprite/DownSlash.show()
 			$AnimationPlayer2.play("New Anim")
 			$Attack_timer.start()
 		can_interupt = false
@@ -225,6 +230,7 @@ func attackup():
 			$"Player_sprite/UpSlash".play("Up")
 			$"AnimationPlayer3".play("U")
 			$"AnimationPlayer".play("UpSlash")
+			$Player_sprite/UpSlash.show()
 			$Attack_timer.start()
 		can_interupt = false
 		
@@ -327,6 +333,9 @@ func _on_Attack_timer_timeout():
 
 func _on_Attack_timer2_timeout():
 	jab_num = 1
+	$"Player_sprite/AttackSlash".hide()
+	$"Player_sprite/DownSlash".hide()
+	$"Player_sprite/UpSlash".hide()
 	can_interupt = true
 	pass 
 

@@ -18,14 +18,14 @@ resource_local_to_scene = true
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "Walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -78,7 +78,7 @@ position = Vector2( -1.87732, -5.69659 )
 scale = Vector2( 0.0455738, 0.0448055 )
 frames = SubResource( 8 )
 animation = "Walk"
-frame = 3
+frame = 2
 playing = true
 flip_h = true
 

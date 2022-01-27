@@ -5,6 +5,7 @@ export var Event = 'Null'
 export var Turn = false
 export var Jump = false
 export var Damage = 1
+onready var shader = $AnimatedSprite.material
 export var Can_damage = true
 export var Health = 4
 export var healthStealNum = 4
@@ -58,6 +59,10 @@ func damage(damage):
 		queue_free()
 	$Enemy_effects.play("Stagger")
 #	$Effects._damage()
+	shader.set_shader_param("flash_modifier", 1)
+#	shader.set_shader_param("flash_color", 1, 0, 0, 1)
+	yield(get_tree().create_timer(.07),"timeout")
+	shader.set_shader_param("flash_modifier", 0)
 	pass
 
 func detect_turn_around():

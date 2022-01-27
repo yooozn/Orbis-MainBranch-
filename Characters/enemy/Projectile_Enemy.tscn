@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Characters/enemy/Fancy_Enemy-1.png" type="Texture" id=1]
 [ext_resource path="res://Characters/enemy/Fancy_Enemy-3.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Characters/enemy/Fancy_Enemy_Attack-5.png" type="Texture" id=12]
 [ext_resource path="res://Characters/enemy/Fancy_Enemy_Attack-6.png" type="Texture" id=13]
 [ext_resource path="res://Characters/enemy/Fancy_Enemy_Attack-7.png" type="Texture" id=14]
+[ext_resource path="res://Shaders/Enemyhit.tres" type="Shader" id=15]
 
 [sub_resource type="GDScript" id=10]
 script/source = "extends KinematicBody2D
@@ -24,6 +25,7 @@ export var Turn = false
 export var Jump = false
 export var Damage = 1
 export var Can_damage = true
+onready var shader = $AnimatedSprite.material
 export var Health = 3
 var pos = Vector2(0, 0)
 export var healthStealNum = 7
@@ -75,6 +77,10 @@ func damage(damage):
 	$DamageTimer.start()
 	Can_damage = false 
 	print(damage)
+	shader.set_shader_param(\"flash_modifier\", 1)
+#	shader.set_shader_param(\"flash_color\", 1, 0, 0, 1)
+	yield(get_tree().create_timer(.07),\"timeout\")
+	shader.set_shader_param(\"flash_modifier\", 0)
 	Health -= 1
 	if Health == 0:
 		 
@@ -159,12 +165,15 @@ radius = 24.7197
 
 [sub_resource type="ShaderMaterial" id=11]
 resource_local_to_scene = true
+shader = ExtResource( 15 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
 
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": true,
-"name": "Idle",
+"name": "Attack",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ],
@@ -172,9 +181,9 @@ animations = [ {
 "name": "Walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "Attack",
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -292,7 +301,7 @@ position = Vector2( -1.87744, -10.5387 )
 scale = Vector2( 0.0258359, 0.0262384 )
 frames = SubResource( 12 )
 animation = "Attack"
-frame = 6
+frame = 4
 playing = true
 
 [node name="Enemy_effects" type="AnimationPlayer" parent="."]
@@ -325,7 +334,6 @@ scale = Vector2( 0.810613, 0.617241 )
 enabled = true
 
 [node name="DetectWall" parent="." instance=ExtResource( 8 )]
-collision_mask = 5
 
 [node name="DetectPortal" parent="." instance=ExtResource( 9 )]
 scale = Vector2( 1.99249, 0.867643 )

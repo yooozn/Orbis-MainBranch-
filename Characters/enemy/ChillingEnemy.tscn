@@ -34,14 +34,14 @@ animations = [ {
 "name": "Attack",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "Walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -63,7 +63,7 @@ tracks/0/keys = {
 extents = Vector2( 15.2612, 14.0991 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 9, 2.33331 )
+extents = Vector2( 9, 5.1667 )
 
 [sub_resource type="Animation" id=9]
 resource_name = "Attack"
@@ -295,7 +295,7 @@ position = Vector2( -1.25159, 0 )
 scale = Vector2( 0.0473273, 0.0434873 )
 frames = SubResource( 10 )
 animation = "Walk"
-frame = 3
+frame = 2
 playing = true
 flip_h = true
 

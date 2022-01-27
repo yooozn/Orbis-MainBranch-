@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://testingthings/DetectWall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/enemy/Moss_Parent-4.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Characters/enemy/Moss_Parent-2.png" type="Texture" id=5]
 [ext_resource path="res://Characters/enemy/Moss_Parent-5.png" type="Texture" id=6]
 [ext_resource path="res://Characters/enemy/DetectPortal.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Shaders/Enemyhit.tres" type="Shader" id=8]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends KinematicBody2D
@@ -18,6 +19,7 @@ export var Jump = false
 export var Damage = 1
 export var Can_damage = true
 export var Health = 3
+onready var shader = $AnimatedSprite.material
 var pos = Vector2(0, 0)
 var speed = 300
 var left = true
@@ -63,6 +65,10 @@ func damage(damage):
 		queue_free()
 	$Enemy_effects.play(\"Stagger\")
 #	$Effects._damage()
+	shader.set_shader_param(\"flash_modifier\", 1)
+#	shader.set_shader_param(\"flash_color\", 1, 0, 0, 1)
+	yield(get_tree().create_timer(.07),\"timeout\")
+	shader.set_shader_param(\"flash_modifier\", 0)
 	pass
 
 func detect_turn_around():
@@ -102,17 +108,20 @@ extents = Vector2( 10.6451, 9.80361 )
 
 [sub_resource type="ShaderMaterial" id=3]
 resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -134,7 +143,7 @@ tracks/0/keys = {
 extents = Vector2( 20.75, 22.25 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 8.70232, 0.209591 )
+extents = Vector2( 8.70232, 0.908227 )
 
 [node name="Enemy" type="KinematicBody2D" groups=["Enemy"]]
 position = Vector2( 152, 94 )
@@ -188,7 +197,7 @@ position = Vector2( 0, -1 )
 shape = SubResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
-position = Vector2( -3.47932, 52.5 )
+position = Vector2( -3.47932, 47.5 )
 scale = Vector2( 8.32874, 7.1568 )
 shape = SubResource( 7 )
 

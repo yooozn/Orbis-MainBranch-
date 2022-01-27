@@ -8,6 +8,7 @@ export var Damage = 1
 export var Can_damage = true
 export var Health = 3
 var pos = Vector2(0, 0)
+onready var shader = $AnimatedSprite.material
 var speed = 100
 var left = true
 var right = false
@@ -56,6 +57,9 @@ func damage(damage):
 		queue_free()
 	$Enemy_effects.play("Stagger")
 #	$Effects._damage()
+	shader.set_shader_param("flash_modifier", 1)
+	yield(get_tree().create_timer(.07),"timeout")
+	shader.set_shader_param("flash_modifier", 0)
 	pass
 
 func detect_turn_around():

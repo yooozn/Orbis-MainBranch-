@@ -51,6 +51,9 @@ func damage(damage):
 		 
 		queue_free()
 	$Enemy_effects.play("Stagger")
+	shader.set_shader_param("flash_modifier", 1)
+	yield(get_tree().create_timer(.07),"timeout")
+	shader.set_shader_param("flash_modifier", 0)
 #	$Effects._damage()
 	pass
 
