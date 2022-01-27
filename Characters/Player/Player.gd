@@ -51,6 +51,8 @@ func _ready():
 
 	
 func _process(delta):
+	if Input.is_key_pressed(KEY_0):
+		damage(1)
 	Globals.player = self
 	if Globals.cantmove == true:
 		$"Player_sprite/AttackSlash".hide()
@@ -236,8 +238,10 @@ func health_update():
 	$"Camera2D/Post Processing/Curve/ui/Health/"._on_Player_health_update(health)
 	emit_signal("health_update", health)
 	print('current health is ', health)
-	pass
-
+	if Globals.health <= 0:
+		Globals.player_initial_map_position = SaveAndLoad.checkpointPos
+		Globals.health = 5
+		get_tree().change_scene(SaveAndLoad.checkpointRoom)
 
 
 func dash():

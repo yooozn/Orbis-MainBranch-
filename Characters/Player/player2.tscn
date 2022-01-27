@@ -204,6 +204,11 @@ animations = [ {
 "name": "Down",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "Slash1",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "Up",
@@ -212,11 +217,6 @@ animations = [ {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "Slash2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "Slash1",
 "speed": 5.0
 } ]
 

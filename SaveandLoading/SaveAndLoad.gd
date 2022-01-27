@@ -6,6 +6,8 @@ var collectible = 20
 var playerPos = Vector2(0,0)
 var cutscene = false
 var bossfight = false
+var checkpointPos
+var checkpointRoom
 
 func _Save():
 	#Variable data which is a dictionary to store all data. All values will be changed throughout different scenes, and scripts
@@ -29,6 +31,8 @@ func _Save():
 		"MD2Start" : Globals.MichelleDialog2Start,
 		"MD2End" : Globals.MichelleDialog2End,
 		"MDefeated" : Globals.MichelleDefeated,
+		"CheckPos" : checkpointPos,
+		"CheckRoom" : checkpointRoom,
 	}
 	#Opens file, unless there is an error.
 	var file = File.new()
@@ -91,9 +95,10 @@ func _Load():
 			Globals.MichelleDefeated = player_data["MDefeated"]
 			Globals.MackenzieDialog2Start = player_data["MZD1Start"]
 			Globals.MackenzieDialog2End = player_data["MZD1End"]
+			checkpointPos = player_data["CheckPos"]
+			checkpointRoom = player_data["CheckRoom"]
 			get_tree().change_scene(room)
 			print(player_data["1"])
-
 
 func _on_Timer_timeout():
 	if Globals.player != null:
