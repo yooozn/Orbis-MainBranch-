@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Levels/Tileset/LavaCavernLevels/MagmaCavern Levels.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Levels/Level Scenes/Magma Cavern 1-6.gd" type="Script" id=11]
 [ext_resource path="res://Characters/enemy/Fox_fury.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Characters/enemy/Fox_Projectile.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Collectables/Collectable3.tscn" type="PackedScene" id=14]
 
 [node name="Magma Cavern 1-6" type="Node2D"]
 script = ExtResource( 11 )
@@ -76,3 +77,6 @@ position = Vector2( 1528, 1058 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 12 )]
 position = Vector2( 1143, 327 )
+
+[node name="Collectable" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1753, 670 )

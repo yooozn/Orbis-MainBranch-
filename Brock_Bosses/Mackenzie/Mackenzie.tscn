@@ -1616,11 +1616,13 @@ script = ExtResource( 53 )
 shape = SubResource( 19 )
 
 [node name="MackenzieBoss" type="Area2D" parent="DisplacementNode" groups=["Enemy"]]
+position = Vector2( 1, 0 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 1 )
-healthPhase1 = 1
-healthPhase2 = 1
+healthPhase1 = 50
+healthPhase2 = 25
+healthStealNum = 3
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="DisplacementNode/MackenzieBoss"]
 material = SubResource( 15 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Levels/Tileset/AquaTideLevels/AquatidesLevels.tscn" type="PackedScene" id=1]
 [ext_resource path="res://BackroundAquatides.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Levels/Level Scenes/Aquatides 1-2.gd" type="Script" id=10]
 [ext_resource path="res://Map/Map.gd" type="Script" id=11]
 [ext_resource path="res://Map/AquaTide_1-2.png" type="Texture" id=12]
+[ext_resource path="res://Collectables/Collectable4.tscn" type="PackedScene" id=13]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 53.0
@@ -102,6 +103,9 @@ wait_time = 0.6
 
 [node name="Timer3" type="Timer" parent="TitleIntroduction"]
 wait_time = 0.001
+
+[node name="Collectable" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1152, 967 )
 
 [connection signal="body_entered" from="Music" to="." method="_on_Music_body_entered"]
 [connection signal="timeout" from="TitleIntroduction/Timer" to="TitleIntroduction" method="_on_Timer_timeout"]

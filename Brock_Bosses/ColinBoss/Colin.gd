@@ -25,7 +25,7 @@ var cooldown = false
 export var healthPhase1 = 10
 export var healthPhase2 = 10
 
-export var healthStealNum = 8
+export var healthStealNum = 3
 var healthStealCount = 0
 
 var canDamage = false
@@ -234,7 +234,7 @@ func damage(damage):
 	healthStealCount += 1
 	if healthStealCount >= healthStealNum and Globals.player.health < 5:
 		healthStealCount = 0
-		Globals.player.health += 1
+		Globals.health += 1
 		Globals.player.health_update()
 	if phase == 1:
 		healthPhase1 -= 1

@@ -21,5 +21,6 @@ func _ready():
 func _on_CutsceneColin_finished():
 	Globals.ColinDialog1Start = false
 	Globals.cantmove = false
+	Globals.Cutscene = false
 	get_tree().set_pause(false)
 	get_parent().queue_free()

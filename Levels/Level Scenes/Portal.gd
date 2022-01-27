@@ -5,7 +5,7 @@ export(Vector2) var player_spawn_location = Vector2.ZERO
 
 func _get_configuration_warning() -> String:
 	if next_scene_path == "":
-		return "Y-you b-baka! Senapai... there is nothing to transition to..."
+		return "Yas queen... there is nothing to transition to..."
 	else:
 		return ""
 

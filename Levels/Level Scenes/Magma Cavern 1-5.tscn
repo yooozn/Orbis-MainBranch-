@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Levels/Tileset/LavaCavernLevels/MagmaCavern Levels.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Levels/DeathZone.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Map/Map.gd" type="Script" id=10]
 [ext_resource path="res://Map/Lava_Cavern_1-5.png" type="Texture" id=11]
+[ext_resource path="res://Characters/enemy/Fox_fury.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Collectables/Collectable3.tscn" type="PackedScene" id=13]
 
 [node name="Magma Cavern 1-5" type="Node2D"]
 
@@ -67,3 +69,9 @@ scale = Vector2( 0.298907, 0.265323 )
 
 [node name="BackroundMagmaCavern" parent="." instance=ExtResource( 8 )]
 layer = -3
+
+[node name="Enemy" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1444, 1338 )
+
+[node name="Collectable" parent="." instance=ExtResource( 13 )]
+position = Vector2( 853, 960 )

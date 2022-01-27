@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Tileset/LavaCavernLevels/MagmaCavern Levels.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Levels/BG/BackroundMagmaCavern.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Map/Map.gd" type="Script" id=9]
 [ext_resource path="res://Map/Lava_Cavern_1-2.png" type="Texture" id=10]
+[ext_resource path="res://Characters/enemy/Fox_Projectile.tscn" type="PackedScene" id=11]
 
 [node name="Magma Cavern 1-2" type="Node2D"]
 scale = Vector2( 0.996373, 1 )
@@ -71,3 +72,6 @@ z_index = -1
 tile_data = PoolIntArray( 1114114, 7, 0 )
 
 [node name="BackroundMagmaCavern" parent="." instance=ExtResource( 8 )]
+
+[node name="Enemy" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1378, 982 )

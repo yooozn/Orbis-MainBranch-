@@ -47,10 +47,9 @@ func _ready():
 	$Player_sprite/UpSlash.hide()
 	if Globals.map == false:
 		pass
-	if Globals.health == 0:
-		Globals.health = 5
-	$"Camera2D/Post Processing/Curve/ui/Health/"._on_Player_health_update(health)
-	emit_signal("health_update", health)
+
+	$"Camera2D/Post Processing/Curve/ui/Health/"._on_Player_health_update(Globals.health)
+	emit_signal("health_update", Globals.health)
 	#Position of the player when entering the portal
 	self.global_position = Globals.player_initial_map_position
 	Globals.player = self
@@ -59,6 +58,8 @@ func _ready():
 	SaveAndLoad._Save()
 	
 func _process(delta):
+	if Globals.health == 0:
+		Globals.health = 5
 	Globals.player = self
 	if Globals.Cutscene == true:
 		$"Camera2D/Post Processing/Curve/ui/Health/Health_Bar_2 (1)".visible = false
@@ -240,17 +241,17 @@ func damage(damage):
 		$DamageTimer.start(0.0)
 		$sound_damage.play(0.0)
 		print(damage)
-		health -= damage
+		Globals.health -= damage
 		$Effects._damage(self.position)
 		health_update()
 	pass
 
 func health_update():
 #	get_tree().get_root().get_node("Player")
-	Globals.health -= 1
-	$"Camera2D/Post Processing/Curve/ui/Health/"._on_Player_health_update(health)
-	emit_signal("health_update", health)
-	print('current health is ', health)
+#	Globals.health -= 1
+	$"Camera2D/Post Processing/Curve/ui/Health/"._on_Player_health_update(Globals.health)
+	emit_signal("health_update", Globals.health)
+	print('current health is ', Globals.health)
 	if Globals.health <= 0:
 		Globals.cantmove = true
 		$"AnimationPlayer".play("Death")

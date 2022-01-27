@@ -7,7 +7,7 @@ export(String, FILE) var Video = cutscene_class
 func _ready():
 	if Globals.MackenzieDialog3End == true:
 		$"MackenzieDialog1".scale = Vector2(0, 0) 
-#		$ColinDialogue.position.x = -999
+		$"DisplacementNode/MackenzieDialog".position.y = 999
 	if Globals.MackenzieMemoryEnd == true:
 		$"DisplacementNode".queue_free()
 func _process(delta):

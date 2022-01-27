@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Tileset/LavaCavernLevels/MagmaCavern Levels.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Levels/BG/BackroundMagmaCavern.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Map/Map.gd" type="Script" id=10]
 [ext_resource path="res://Map/Lava_Cavern_1-1.png" type="Texture" id=11]
+[ext_resource path="res://Collectables/Collectable3.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -88,5 +89,11 @@ position = Vector2( 283, 762 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Music"]
 shape = SubResource( 1 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1320, 1269 )
+
+[node name="Collectable" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1623, 1246 )
 
 [connection signal="body_entered" from="Music" to="." method="_on_Music_body_entered"]
