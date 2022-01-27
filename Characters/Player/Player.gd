@@ -24,6 +24,7 @@ var term_gravity = 100
 var can_move = true
 var can_interupt = true
 var can_beHit = true
+var dashcan_beHit = true
 var is_jumping = false
 var is_grounded
 var can_dash = true
@@ -109,6 +110,7 @@ func input_stuff():
 		if Input.is_action_pressed("ui_left"):
 			$Player_sprite.flip_h = true
 			$"Player_sprite/AttackSlash".flip_h = true
+			$AttackDirectionHitbox.play("FacingLeft")
 			dir.x = -1.0
 			if can_move == true and can_interupt == true:
 				if is_on_floor():
@@ -119,6 +121,7 @@ func input_stuff():
 		elif Input.is_action_pressed("ui_right"):
 			$Player_sprite.flip_h = false
 			$"Player_sprite/AttackSlash".flip_h = false
+			$AttackDirectionHitbox.play("FacingRight")
 			dir.x = 1.0
 			if can_move == true and can_interupt == true:
 				if is_on_floor():
@@ -222,7 +225,7 @@ func attackup():
 		can_interupt = false
 		
 func damage(damage):
-	if can_beHit == true:
+	if can_beHit == true and dashcan_beHit == true:
 		can_beHit = false
 		$DamageTimer.start(0.0)
 		$sound_damage.play(0.0)
@@ -245,7 +248,7 @@ func health_update():
 
 
 func dash():
-	can_beHit = false
+	dashcan_beHit = false
 	$Dash_invun.start()
 	$AnimationPlayer.play("Dash")
 	partical_make(jump_particles, self.position + Vector2(0, 25))
@@ -326,7 +329,7 @@ func _on_Damage_timeout():
 
 
 func _on_Dash_invun_timeout():
-	can_beHit = false
+	dashcan_beHit = false
 	pass # Replace with function body.
 
 
@@ -364,4 +367,4 @@ func set_limit(left, right, top, bottom):
 
 
 func _on_DashTimer_timeout():
-		can_beHit = true
+		dashcan_beHit = true
