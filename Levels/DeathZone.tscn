@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Levels/Level Scenes/Transition_Screen.tscn" type="PackedScene" id=1]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Area2D
+
+
+export(String, FILE) var next_scene_path = \"\"
+export(Vector2) var player_spawn_location = Vector2.ZERO
+
+func _get_configuration_warning() -> String:
+	if next_scene_path == \"\":
+		return \"Y-you b-baka! Senapai... there is nothing to transition to...\"
+	else:
+		return \"\"
+
+
+func _on_Portal_body_entered(body):
+	Globals.player_initial_map_position = player_spawn_location
+	#Changes the scene Cole! if the scene is not Okay... You go through this...
+	if get_tree().change_scene(next_scene_path):
+		$Transition_Screen.transition()
+	else:
+		if get_tree().change_scene(next_scene_path) != OK:
+	#Error handling the situation stand by...
+			print(\"Error: The Scene is null\")
+		
+
+
+func _on_Area2D_body_entered(body):
+		if body.is_in_group('Player'):
+#	Area2D.damage(Damage)
+			body.damage(1)
+#			Globals.health - 1
+"
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 117.703 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 17.6698, 120.011 )
+
+[node name="DeathSpot" type="Area2D" groups=["Enemy"]]
+position = Vector2( 631, 1374 )
+scale = Vector2( 3.33904, 3.46636 )
+collision_layer = 2
+collision_mask = 2
+script = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Transition_Screen" parent="." instance=ExtResource( 1 )]
+layer = 8
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2( 0.915821, 1.00899 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0.299469, 0.288483 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="." to="." method="_on_Portal_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

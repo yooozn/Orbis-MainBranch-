@@ -47,10 +47,6 @@ func damage(damage):
 	Can_damage = false 
 	print(damage)
 	Health -= 1
-	shader.set_shader_param("flash_modifier", 1)
-#	shader.set_shader_param("flash_color", 1, 0, 0, 1)
-	yield(get_tree().create_timer(.07),"timeout")
-	shader.set_shader_param("flash_modifier", 0)
 	if Health == 0:
 		 
 		queue_free()
@@ -66,7 +62,6 @@ func detect_turn_around():
 		left = !left
 		scale.x = -scale.x
 		
-		
 
 func _on_DamageTimer_timeout():
 	Can_damage = true
@@ -81,15 +76,10 @@ func _on_Hitbox_body_entered(body):
 		body.damage(1)
 		
 func _on_Area2D_area_entered(area):
-	if area.is_in_group('DetectL'):
-		position.x += -speed
 		if left == true:
 				left = false
 				right = true
 				$"AnimatedSprite".flip_h = false
-		print("yass")
-	if area.is_in_group('DetectR'):
-		position.x += speed
 		if right == true:
 				right = false
 				left = true

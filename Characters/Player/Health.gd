@@ -16,14 +16,14 @@ func _ready():
 
 func _on_Player_health_update(health_):
 	print('test')
-	if health_ == 5:
+	if Globals.health == 5:
 		$"Health_Bar_2 (1)/1".visible = true
 		$"Health_Bar_2 (1)/2".visible = true
 		$"Health_Bar_2 (1)/3".visible = true
 		$"Health_Bar_2 (1)/4".visible = true
 		$"Health_Bar_2 (1)/5".visible = true
-		
-	if health_ == 4:
+
+	if Globals.health == 4:
 		$"Health_Bar_2 (1)/1".visible = true
 		$"Health_Bar_2 (1)/2".visible = true
 		$"Health_Bar_2 (1)/3".visible = true
@@ -32,7 +32,7 @@ func _on_Player_health_update(health_):
 		var particle_effect = damage_particles.instance()
 		particle_effect.position = $"Health_Bar_2 (1)/5".position
 		add_child(particle_effect)
-	if health_ == 3:
+	if Globals.health == 3:
 		$"Health_Bar_2 (1)/1".visible = true
 		$"Health_Bar_2 (1)/2".visible = true
 		$"Health_Bar_2 (1)/3".visible = true
@@ -41,7 +41,7 @@ func _on_Player_health_update(health_):
 		var particle_effect = damage_particles.instance()
 		particle_effect.position = $"Health_Bar_2 (1)/4".position
 		add_child(particle_effect)
-	if health_ == 2:
+	if Globals.health == 2:
 		$"Health_Bar_2 (1)/1".visible = true
 		$"Health_Bar_2 (1)/2".visible = true
 		$"Health_Bar_2 (1)/3".visible = false
@@ -50,7 +50,7 @@ func _on_Player_health_update(health_):
 		var particle_effect = damage_particles.instance()
 		particle_effect.position = $"Health_Bar_2 (1)/3".position
 		add_child(particle_effect)
-	if health_ == 1:
+	if Globals.health == 1:
 		$"Health_Bar_2 (1)/1".visible = true
 		$"Health_Bar_2 (1)/2".visible = false
 		$"Health_Bar_2 (1)/3".visible = false
@@ -59,7 +59,7 @@ func _on_Player_health_update(health_):
 		var particle_effect = damage_particles.instance()
 		particle_effect.position = $"Health_Bar_2 (1)/2".position
 		add_child(particle_effect)
-	if health_ == 0:
+	if Globals.health == 0:
 		$"Health_Bar_2 (1)/1".visible = false
 		$"Health_Bar_2 (1)/2".visible = false
 		$"Health_Bar_2 (1)/3".visible = false

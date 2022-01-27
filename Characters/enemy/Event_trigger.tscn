@@ -56,13 +56,11 @@ extents = Vector2( 9, 0.142416 )
 [node name="Enemy" type="KinematicBody2D" groups=["Enemy"]]
 position = Vector2( 152, 94 )
 scale = Vector2( 3.19604, 3.51087 )
-collision_layer = 3
-collision_mask = 3
 script = ExtResource( 1 )
 Health = 5
 
 [node name="Hitbox" type="Area2D" parent="."]
-z_index = 1
+z_index = 2
 collision_layer = 2
 collision_mask = 2
 
@@ -82,7 +80,7 @@ position = Vector2( 0.625793, 0 )
 scale = Vector2( 0.0837345, 0.101094 )
 frames = SubResource( 3 )
 animation = "Walk"
-frame = 2
+frame = 1
 playing = true
 flip_h = true
 
@@ -104,7 +102,7 @@ position = Vector2( -0.555546, -1.28173 )
 rotation = -3.14159
 shape = SubResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.625774, 9.82662 )
 scale = Vector2( 1, 1 )
 shape = SubResource( 6 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Spark Forest.gd" type="Script" id=1]
 [ext_resource path="res://Levels/SparkForestTitle.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Shaders/SparkForestShaders.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Shaders/Swaying.tres" type="Material" id=15]
 [ext_resource path="res://Collectables/Collectable1.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Levels/waterfal.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Shaders/grass.gdshader" type="Shader" id=18]
 [ext_resource path="res://Levels/Tileset/Fg/Tall_Grass_Light.png" type="Texture" id=19]
 [ext_resource path="res://SignPost.gd" type="Script" id=22]
@@ -611,6 +612,11 @@ texture = SubResource( 13 )
 
 [node name="Collectable" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1150, 1715 )
+
+[node name="DeathSpot" parent="." instance=ExtResource( 17 )]
+position = Vector2( 1432, 1035 )
+scale = Vector2( -3.91755, 3.4226 )
+next_scene_path = "res://Spark Forest.tscn"
 
 [connection signal="timeout" from="TitleIntroduction/Timer" to="TitleIntroduction" method="_on_Timer_timeout"]
 [connection signal="timeout" from="TitleIntroduction/Timer2" to="TitleIntroduction" method="_on_Timer2_timeout"]

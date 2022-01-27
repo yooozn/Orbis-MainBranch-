@@ -42,9 +42,8 @@ var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	berries = berries + 0
-#	var BerryLabel = "Berries: "+String(berries)
-#	Globals.berries += 0
+	if Globals.health == 0:
+		Globals.health = 5
 	$"Camera2D/Post Processing/Curve/ui/Health/"._on_Player_health_update(health)
 	emit_signal("health_update", health)
 	#Position of the player when entering the portal
@@ -236,7 +235,7 @@ func damage(damage):
 	pass
 
 func health_update():
-	get_tree().get_root().get_node("Player")
+#	get_tree().get_root().get_node("Player")
 	Globals.health -= 1
 	$"Camera2D/Post Processing/Curve/ui/Health/"._on_Player_health_update(health)
 	emit_signal("health_update", health)
