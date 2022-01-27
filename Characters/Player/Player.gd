@@ -110,6 +110,7 @@ func input_stuff():
 		if Input.is_action_pressed("ui_left"):
 			$Player_sprite.flip_h = true
 			$"Player_sprite/AttackSlash".flip_h = true
+			$"AnimationPlayer3".play("L")
 			dir.x = -1.0
 			if can_move == true and can_interupt == true:
 				if is_on_floor():
@@ -120,6 +121,7 @@ func input_stuff():
 		elif Input.is_action_pressed("ui_right"):
 			$Player_sprite.flip_h = false
 			$"Player_sprite/AttackSlash".flip_h = false
+			$"AnimationPlayer3".play("R")
 			dir.x = 1.0
 			if can_move == true and can_interupt == true:
 				if is_on_floor():
@@ -221,7 +223,8 @@ func attackup():
 			jab_num += 1
 			$"attack".play()
 			$"Player_sprite/UpSlash".play("Up")
-			$AnimationPlayer.play("UpSlash")
+			$"AnimationPlayer3".play("U")
+			$"AnimationPlayer".play("UpSlash")
 			$Attack_timer.start()
 		can_interupt = false
 		
@@ -242,9 +245,18 @@ func health_update():
 	$"Camera2D/Post Processing/Curve/ui/Health/"._on_Player_health_update(health)
 	emit_signal("health_update", health)
 	print('current health is ', health)
-	if health == 0:
+	if Globals.health <= 0:
+		Globals.cantmove = true
 		$"AnimationPlayer".play("Death")
 		$DeathStart.start()
+#		yield(get_tree().create_timer(5),"timeout")
+#		Globals.cantmove = false
+#		if SaveAndLoad.checkpointPos == null:
+#			get_tree().change_scene("res://Spark Forest.tscn")
+#		else:
+#			Globals.player_initial_map_position = SaveAndLoad.checkpointPos
+#			Globals.health = 5
+#			get_tree().change_scene(SaveAndLoad.checkpointRoom)
 	pass
 
 
@@ -381,6 +393,7 @@ func _on_Downslash_body_entered(body):
 
 
 func _on_DeathStart_timeout():
+		Globals.cantmove = false
 		get_tree().reload_current_scene()
 
 

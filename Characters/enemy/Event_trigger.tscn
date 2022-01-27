@@ -22,14 +22,14 @@ shader_param/flash_modifier = 0.0
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "Walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -102,9 +102,8 @@ position = Vector2( -0.555546, -1.28173 )
 rotation = -3.14159
 shape = SubResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
 position = Vector2( -0.625774, 9.82662 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 6 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
