@@ -20,6 +20,7 @@ func _on_Portal_body_entered(body):
 	Globals.player_initial_map_position = player_spawn_location
 	#Changes the scene Cole! if the scene is not Okay... You go through this...
 	if get_tree().change_scene(next_scene_path):
+		Globals.cantmove = false
 		$Transition_Screen.transition()
 	else:
 		if get_tree().change_scene(next_scene_path) != OK:
@@ -61,7 +62,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0.299469, 0.288483 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 3 )
 
 [connection signal="body_entered" from="." to="." method="_on_Portal_body_entered"]

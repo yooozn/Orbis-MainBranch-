@@ -406,15 +406,15 @@ extents = Vector2( 65.5, 43.875 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 52 ) ],
-"loop": false,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 53 ), ExtResource( 54 ), ExtResource( 60 ), ExtResource( 62 ), ExtResource( 66 ), ExtResource( 79 ), ExtResource( 72 ), ExtResource( 65 ), ExtResource( 78 ), ExtResource( 61 ), ExtResource( 74 ), ExtResource( 70 ), ExtResource( 77 ), ExtResource( 67 ), ExtResource( 81 ), ExtResource( 80 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 64 ), ExtResource( 73 ), ExtResource( 71 ), ExtResource( 82 ) ],
 "loop": false,
 "name": "Start",
 "speed": 12.0
+}, {
+"frames": [ ExtResource( 52 ) ],
+"loop": false,
+"name": "Idle",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 48 ), ExtResource( 2 ), ExtResource( 41 ), ExtResource( 27 ), ExtResource( 51 ), ExtResource( 23 ), ExtResource( 9 ), ExtResource( 25 ), ExtResource( 6 ), ExtResource( 46 ), ExtResource( 37 ), ExtResource( 28 ), ExtResource( 11 ), ExtResource( 47 ) ],
 "loop": true,

@@ -51,7 +51,7 @@ tracks/0/keys = {
 extents = Vector2( 15.2612, 14.0991 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 9, 0.142416 )
+extents = Vector2( 9, 9.54179 )
 
 [node name="Enemy" type="KinematicBody2D" groups=["Enemy"]]
 position = Vector2( 152, 94 )
@@ -103,7 +103,8 @@ rotation = -3.14159
 shape = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
-position = Vector2( -0.625774, 9.82662 )
+position = Vector2( -0.625774, 0.14241 )
+scale = Vector2( 1, 1 )
 shape = SubResource( 6 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

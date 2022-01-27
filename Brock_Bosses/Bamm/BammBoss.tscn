@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=2]
+[gd_scene load_steps=123 format=2]
 
 [ext_resource path="res://Brock_Bosses/Bamm/BammBoss.gd" type="Script" id=1]
 [ext_resource path="res://Levels/Tileset/SparkForestLevels/Spark Forest Levels.tscn" type="PackedScene" id=2]
@@ -95,6 +95,7 @@
 [ext_resource path="res://Brock_Bosses/Bamm/BammDialog1.gd" type="Script" id=93]
 [ext_resource path="res://Brock_Bosses/Bamm/BammRoom.gd" type="Script" id=94]
 [ext_resource path="res://Brock_Bosses/Bamm/EndingCutscene.gd" type="Script" id=95]
+[ext_resource path="res://Levels/BG/Creator_s_Grove_.png" type="Texture" id=96]
 
 [sub_resource type="CapsuleShape2D" id=21]
 radius = 80.0
@@ -2538,6 +2539,14 @@ script = ExtResource( 95 )
 position = Vector2( 1061, 1541 )
 rotation = -1.57133
 shape = SubResource( 26 )
+
+[node name="Heroine\'sGardenBackround" type="CanvasLayer" parent="."]
+layer = -7
+
+[node name="Sprite" type="Sprite" parent="Heroine\'sGardenBackround"]
+position = Vector2( 525, 283 )
+scale = Vector2( 0.482165, 0.39854 )
+texture = ExtResource( 96 )
 
 [connection signal="body_entered" from="Node2D/BammCutscene" to="Node2D/BammCutscene" method="_on_BammCutscene_body_entered"]
 [connection signal="body_entered" from="Node2D/BammBoss" to="Node2D/BammBoss" method="_on_BammBoss_body_entered"]

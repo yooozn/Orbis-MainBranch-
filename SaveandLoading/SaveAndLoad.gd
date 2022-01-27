@@ -15,8 +15,11 @@ func _Save():
 		"2" : playerPos,
 		"3" : Globals.berries,
 		"4" : Globals.health,
-		"5" : "five",
-		"6" : "six",
+		"5" : Globals.cantmove,
+		"6" : Globals.map,
+		"door1" : Globals.door1,
+		"door2" : Globals.door2,
+		"door3" : Globals.door3,
 		"MZD2Start" : Globals.MackenzieDialog2Start,
 		"MZD2End" : Globals.MackenzieDialog2End,
 		"CD1Start" : Globals.ColinDialog1Start,
@@ -24,16 +27,31 @@ func _Save():
 		"CD2Start" : Globals.ColinDialog2Start,
 		"CD2End" : Globals.ColinDialog2End,
 		"CDefeated" : Globals.ColinDefeated,
+		"CDMStart" : Globals.ColinMemoryStart,
+		"CDMEnd" : Globals.ColinMemoryEnd,
 		"MD1Start" : Globals.MichelleDialog1Start,
 		"MD1End" : Globals.MichelleDialog1End,
 		"MD2Start" : Globals.MichelleDialog2Start,
 		"MD2End" : Globals.MichelleDialog2End,
+		"MD2MStart" : Globals.MichelleMemoryStart,
+		"MD2MEnd" : Globals.MichelleMemoryEnd,
 		"MDefeated" : Globals.MichelleDefeated,
-#		"M  D1Start" : Globals.MackenzieDialog1Start,
-#		"MD1End" : Globals.MackenzieDialog1End,
-#		"MD2Start" : Globals.MichelleDialog2Start,
-#		"MD2End" : Globals.MichelleDialog2End,
-#		"MDefeated" : Globals.MichelleDefeated,
+		"MZD3Start" : Globals.MackenzieDialog3Start,
+		"MZD3End": Globals.MackenzieDialog3End,
+		"MZD4Start" : Globals.MackenzieDialog4Start,
+		"MZD4End" : Globals.MackenzieDialog4End,
+		"MZDMStart" : Globals.MackenzieMemoryStart,
+		"MZDMEnd" : Globals.MackenzieMemoryEnd,
+		"BD1Start" : Globals.SamDialog1Start,
+		"BD1End" : Globals.SamDialog1End,
+		"BD2Start" : Globals.SamDialog2Start,
+		"BD2End": Globals.SamDialog2End,
+		"BDefeated" : Globals.SamDefeated,
+		"BMStart" : Globals.SamMemoryStart,
+		"BMEnd" : Globals.SamMemoryEnd,
+		"MStart" : Globals.Cutscene,
+		"MDial" : Globals.Dialog,
+		"MFinish" : Globals.Finished,
 	}
 	#Opens file, unless there is an error.
 	var file = File.new()
@@ -94,9 +112,34 @@ func _Load():
 			Globals.MichelleDialog2Start = player_data["MD2Start"]
 			Globals.MichelleDialog2End = player_data["MD2End"]
 			Globals.MichelleDefeated = player_data["MDefeated"]
-			Globals.MackenzieDialog2Start = player_data["MZD1Start"]
-			Globals.MackenzieDialog2End = player_data["MZD1End"]
+			Globals.MackenzieDialog2Start = player_data["MZD2Start"]
+			Globals.MackenzieDialog2End = player_data["MZD2End"]
 			Globals.health = player_data['4']
+			Globals.door1 = player_data['door1']
+			Globals.door2 = player_data['door2']
+			Globals.door3 = player_data['door3']
+			Globals.map = player_data['6']
+			Globals.cantmove = player_data['5']
+			Globals.ColinMemoryStart = player_data['CDMStart']
+			Globals.ColinMemoryEnd = player_data['CDMEnd']
+			Globals.MichelleMemoryStart = player_data['MD2MStart']
+			Globals.MichelleMemoryEnd = player_data['MD2MEnd']
+			Globals.MackenzieMemoryStart = player_data['MZDMStart']
+			Globals.MackenzieMemoryEnd = player_data['MZDMEnd']
+			Globals.MackenzieDialog3Start = player_data['MZD3Start']
+			Globals.MackenzieDialog3End = player_data['MZD3End']
+			Globals.MackenzieDialog4Start = player_data['MZD4Start']
+			Globals.MackenzieDialog4End = player_data['MZD4End']
+			Globals.SamDialog1Start = player_data['BD1Start']
+			Globals.SamDialog1End = player_data['BD1End']
+			Globals.SamDialog2Start = player_data['BD2Start']
+			Globals.SamDialog2End = player_data['BD2End']
+			Globals.SamDefeated = player_data['BDefeated']
+			Globals.SamMemoryStart = player_data['BMStart']
+			Globals.SamMemoryEnd = player_data['BMEnd']
+			Globals.Cutscene = player_data['MStart']
+			Globals.Dialog = player_data['MDial']
+			Globals.Finished = player_data['MFinish']
 			get_tree().change_scene(room)
 			print(player_data["1"])
 

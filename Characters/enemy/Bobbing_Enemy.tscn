@@ -28,14 +28,14 @@ animations = [ {
 "name": "Attack",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 12 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 14 ), ExtResource( 2 ), ExtResource( 15 ), ExtResource( 3 ), ExtResource( 13 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "Walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -92,7 +92,7 @@ position = Vector2( -1, -1 )
 scale = Vector2( 0.0972181, 0.0975471 )
 frames = SubResource( 4 )
 animation = "Walk"
-frame = 1
+frame = 2
 playing = true
 flip_h = true
 
