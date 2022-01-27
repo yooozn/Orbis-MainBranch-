@@ -17,8 +17,8 @@ func _Save():
 		"4" : Globals.health,
 		"5" : "five",
 		"6" : "six",
-		"MZD1Start" : Globals.MackenzieDialog2Start,
-		"MZD1End" : Globals.MackenzieDialog2End,
+		"MZD2Start" : Globals.MackenzieDialog2Start,
+		"MZD2End" : Globals.MackenzieDialog2End,
 		"CD1Start" : Globals.ColinDialog1Start,
 		"CD1End" : Globals.ColinDialog1End,
 		"CD2Start" : Globals.ColinDialog2Start,
@@ -29,6 +29,11 @@ func _Save():
 		"MD2Start" : Globals.MichelleDialog2Start,
 		"MD2End" : Globals.MichelleDialog2End,
 		"MDefeated" : Globals.MichelleDefeated,
+#		"M  D1Start" : Globals.MackenzieDialog1Start,
+#		"MD1End" : Globals.MackenzieDialog1End,
+#		"MD2Start" : Globals.MichelleDialog2Start,
+#		"MD2End" : Globals.MichelleDialog2End,
+#		"MDefeated" : Globals.MichelleDefeated,
 	}
 	#Opens file, unless there is an error.
 	var file = File.new()

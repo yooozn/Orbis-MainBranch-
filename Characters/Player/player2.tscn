@@ -203,6 +203,11 @@ tracks/7/keys = {
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "Up",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "Slash1",
@@ -211,11 +216,6 @@ animations = [ {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "Slash2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "Up",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ), ExtResource( 12 ), ExtResource( 12 ), ExtResource( 12 ), ExtResource( 12 ), ExtResource( 12 ), ExtResource( 12 ) ],
@@ -875,7 +875,7 @@ one_shot = true
 
 [node name="sound_dash" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 16 )
-volume_db = 24.0
+volume_db = 5.0
 
 [node name="sound_damage" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 17 )
@@ -941,6 +941,7 @@ shadow_gradient_length = 3.0
 
 [node name="attack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 19 )
+volume_db = -3.0
 
 [connection signal="grounded_updated" from="." to="Camera2D" method="_on_Player_grounded_updated"]
 [connection signal="health_update" from="." to="Camera2D/Post Processing/Curve/ui/Health" method="_on_Player_health_update"]

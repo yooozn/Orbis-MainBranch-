@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Collectables/Berry_8.png" type="Texture" id=1]
-[ext_resource path="res://SoundEffects/Collectable Sound.wav" type="AudioStream" id=2]
+[ext_resource path="res://SoundEffects/Collect.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Collectables/Collectable.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -177,7 +177,6 @@ modulate = Color( 0.109804, 0.890196, 0.0823529, 1 )
 scale = Vector2( 0.159391, 0.150564 )
 texture = SubResource( 5 )
 
-[node name="Collect" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
+[node name="Collect" parent="." instance=ExtResource( 2 )]
 
 [connection signal="body_entered" from="." to="." method="_on_Collectable_body_entered"]

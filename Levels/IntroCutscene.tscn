@@ -43,6 +43,7 @@ texture = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 stream = ExtResource( 2 )
+volume_db = 24.0
 autoplay = true
 script = ExtResource( 3 )
 __meta__ = {
@@ -50,6 +51,5 @@ __meta__ = {
 }
 
 [node name="CutsceneTransition" parent="." instance=ExtResource( 4 )]
-fade_in = true
 
 [connection signal="finished" from="Cutscene" to="Cutscene" method="_on_Cutscene_finished"]

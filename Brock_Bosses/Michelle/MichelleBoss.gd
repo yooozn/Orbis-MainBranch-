@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	Music.stop(5)
 	if Globals.MichelleDialog1End == true:
 		$"MichelleDialog1".scale = Vector2(0, 0) 
 		$"Node2D/MichelleDialog".position.x = -999
