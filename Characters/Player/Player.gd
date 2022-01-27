@@ -381,7 +381,7 @@ func _on_Downslash_body_entered(body):
 
 
 func _on_DeathStart_timeout():
-		Globals.last_position
+		get_tree().reload_current_scene()
 
 
 func _on_Downslash_area_entered(area):

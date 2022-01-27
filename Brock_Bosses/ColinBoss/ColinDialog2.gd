@@ -44,3 +44,7 @@ func load_dialog():
 		Globals.Cutscene = false
 		Globals.ColinDialog2End = true
 		Voices.stop(16)
+
+
+func _on_Timer_timeout():
+	pass # Replace with function body.

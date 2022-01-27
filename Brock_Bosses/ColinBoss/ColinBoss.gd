@@ -4,6 +4,7 @@ extends Node2D
 func _ready():
 	if Globals.ColinDialog1End == true:
 		$"ColinDialog1".scale = Vector2(0, 0) 
+		$ColinDialogue.position.x = -999
 		$"ColinDialog1/TitleIntroduction/Timer2".start()
 	if Globals.ColinDefeated == true:
 		$"ColinDialogue".queue_free()

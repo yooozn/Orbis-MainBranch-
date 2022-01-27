@@ -113,9 +113,9 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 45 ), ExtResource( 49 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 57 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 44 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 27 ), ExtResource( 36 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "attack2",
+"name": "idleblurry",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 67 ), ExtResource( 56 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ) ],
@@ -123,14 +123,14 @@ animations = [ {
 "name": "attack1",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 45 ), ExtResource( 49 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 57 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 44 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 27 ), ExtResource( 36 ) ],
+"loop": true,
+"name": "attack2",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 30 ), ExtResource( 29 ), ExtResource( 1 ), ExtResource( 15 ), ExtResource( 3 ), ExtResource( 12 ), ExtResource( 20 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 19 ), ExtResource( 13 ), ExtResource( 23 ), ExtResource( 40 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "attack3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "idleblurry",
 "speed": 5.0
 } ]
 
@@ -1626,6 +1626,7 @@ anims/RESET = SubResource( 22 )
 [connection signal="body_exited" from="Node2D/Colin" to="Node2D/Colin" method="_on_Colin_body_exited"]
 [connection signal="body_entered" from="Node2D/Colin/DetectionRange" to="Node2D/Colin" method="_on_DetectionRange_body_entered"]
 [connection signal="body_entered" from="ColinDialogue" to="ColinDialogue" method="_on_ColinDialogue_body_entered"]
+[connection signal="timeout" from="ColinDialog2/Timer" to="ColinDialog2" method="_on_Timer_timeout"]
 [connection signal="timeout" from="ColinDialog1/TitleIntroduction/Timer" to="ColinDialog1/TitleIntroduction" method="_on_Timer_timeout"]
 [connection signal="timeout" from="ColinDialog1/TitleIntroduction/Timer2" to="ColinDialog1/TitleIntroduction" method="_on_Timer2_timeout"]
 [connection signal="timeout" from="ColinDialog1/TitleIntroduction/Timer3" to="ColinDialog1/TitleIntroduction" method="_on_Timer3_timeout"]

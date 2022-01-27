@@ -40,3 +40,8 @@ var SamDefeated = false
 #MackenzieVariables
 var MackenzieDialog2Start = false
 var MackenzieDialog2End = false
+var MackenzieDialog3Start = false
+var MackenzieDialog3End = false
+var MackenzieDialog4Start = false
+var MackenzieDialog4End = false
+var MackenzieDefeated = false
