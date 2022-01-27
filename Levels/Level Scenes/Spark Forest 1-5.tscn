@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Levels/Tileset/SparkForestLevels/Spark Forest Levels.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/Level Scenes/Portal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Levels/BG/BackroundSparkForest.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Characters/enemy/Chilling_Enemytesuto.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Shaders/SparkForestShaders.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Map/Map.gd" type="Script" id=7]
 [ext_resource path="res://Map/Spark_Forest_1-5.png" type="Texture" id=8]
@@ -15,7 +14,7 @@
 tile_data = PoolIntArray( 0, 9, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1915.48, 1831.06 )
+position = Vector2( 993, 1822 )
 
 [node name="Portal" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1257.25, 2025.41 )
@@ -36,8 +35,6 @@ next_scene_path = "res://Levels/Level Scenes/SparkForest 1-6(2).tscn"
 player_spawn_location = Vector2( 37.755, 1940.61 )
 
 [node name="BackroundSparkForest" parent="." instance=ExtResource( 4 )]
-
-[node name="Enemy" parent="." instance=ExtResource( 5 )]
 
 [node name="Shaders" parent="." instance=ExtResource( 6 )]
 

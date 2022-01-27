@@ -1,18 +1,78 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Tileset/SparkForestLevels/Door-4.png" type="Texture" id=2]
+[ext_resource path="res://Levels/Tileset/SparkForestLevels/Door-2.png" type="Texture" id=3]
+[ext_resource path="res://Levels/Tileset/SparkForestLevels/Door-1.png" type="Texture" id=4]
+[ext_resource path="res://Levels/Tileset/SparkForestLevels/Door-3.png" type="Texture" id=5]
+[ext_resource path="res://Levels/Tileset/SparkForestLevels/Door-5.png" type="Texture" id=6]
+[ext_resource path="res://Levels/Tileset/SparkForestLevels/Door-6.png" type="Texture" id=7]
+[ext_resource path="res://Levels/Tileset/SparkForestLevels/Door-7.png" type="Texture" id=8]
+[ext_resource path="res://Levels/Tileset/SparkForestLevels/Door-8.png" type="Texture" id=9]
+[ext_resource path="res://Levels/Level Scenes/Dooryend.gd" type="Script" id=10]
+[ext_resource path="res://BackroundSparkForestBoss.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Levels/Tileset/SparkForestLevels/Spark Forest Levels.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Levels/Platforms.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Shaders/SparkForestShaders.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Levels/Level Scenes/Portal.tscn" type="PackedScene" id=15]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Neutral",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "Open",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 205.245, 704.282 )
 
 [node name="Spark Forest 1-9(1)" type="Node2D"]
 
 [node name="Portals" type="Node2D" parent="."]
 
+[node name="Portal" parent="Portals" instance=ExtResource( 15 )]
+position = Vector2( -15, 375 )
+next_scene_path = "res://Brock_Bosses/Bamm/BammBoss.tscn"
+
+[node name="Portal2" parent="Portals" instance=ExtResource( 15 )]
+position = Vector2( 1958, 382 )
+next_scene_path = "res://Levels/Level Scenes/Spark Forest 1-5.tscn"
+player_spawn_location = Vector2( 993, 1822 )
+
 [node name="Spark Forest Levels" parent="." instance=ExtResource( 12 )]
+tile_data = PoolIntArray( 0, 13, 0 )
 
 [node name="Platforms" parent="." instance=ExtResource( 13 )]
+tile_data = PoolIntArray( 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0 )
 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1391, 1149 )
+position = Vector2( 618, 700 )
+
+[node name="Door" type="Node2D" parent="."]
+position = Vector2( 196, 400 )
+scale = Vector2( 0.262814, 0.553642 )
+
+[node name="Dooryend" type="StaticBody2D" parent="Door"]
+script = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Door/Dooryend"]
+frames = SubResource( 1 )
+animation = "Neutral"
+speed_scale = 2.0
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Dooryend"]
+position = Vector2( -531.199, -25.1754 )
+shape = SubResource( 2 )
+
+[node name="BackroundSparkForestBoss" parent="." instance=ExtResource( 11 )]
+
+[node name="Shaders" parent="." instance=ExtResource( 14 )]

@@ -1,16 +1,28 @@
 extends VideoPlayer
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+#Tells us aspect ratio
+var aspect_ratio = 16.0/9.0
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	#Finds the size of the viewport
+	var vsize = get_viewport_rect().size
+	#Gets the colorrect to the size of the ciewport
+	get_parent().get_node("ColorRect").set_size(vsize)
+	#How tall and how wide it is and would figure it out and if the video is not tall enough it sqqueezes it
+	if vsize.y < vsize.x / aspect_ratio:
+		set_size(Vector2(vsize.y * aspect_ratio, vsize.y))
+		set_position(Vector2( (vsize.x - vsize.y * aspect_ratio) / 2, 0))
+	else:
+		set_size(Vector2(vsize.x, vsize.x / aspect_ratio))
+		set_position(Vector2(0, (vsize.y - vsize.x / aspect_ratio)))
+		
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_CutsceneColinMemory_finished():
+					#	Globals.MichelleDialog1Start = true
+	Globals.Finished = true
+	Globals.cantmove = false
+	get_tree().set_pause(false)
+	get_parent().queue_free()
+

@@ -8,9 +8,10 @@ var berries = 0
 
 
 func _on_Music_body_entered(body):
-	$"Music/CollisionShape2D".position.x = -999
-	$"Music".position.x = -999
+#	$"Music/CollisionShape2D".position.x = -999
+#	$"Music".position.x = -999
 	Music.play_music(8)
+	Music.stop(7)
 	print("sam")
 
 

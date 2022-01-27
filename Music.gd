@@ -91,8 +91,8 @@ func stop(number):
 		$FloatingCapital.stream = FloatingCapital
 		$FloatingCapital.stop()
 	if number == 8:
-		$HeroinesGarden.stream = HeroinesGarden
-		$HeroinesGarden.stop()
+		$"Heroine's Garden".stream = HeroinesGarden
+		$"Heroine's Garden".stop()
 	if number == 9:
 		$ColinEncounter.stream = ColinEncounter
 		$ColinEncounter.stop()

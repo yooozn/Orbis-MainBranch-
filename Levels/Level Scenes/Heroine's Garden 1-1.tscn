@@ -29,6 +29,11 @@ position = Vector2( 2046, 1424 )
 next_scene_path = "res://Levels/Level Scenes/Heroine's Garden 1-2.tscn"
 player_spawn_location = Vector2( 183, 365 )
 
+[node name="Portal" parent="Portal" instance=ExtResource( 2 )]
+position = Vector2( -11, 1465 )
+next_scene_path = "res://Levels/Level Scenes/FloatingCaptialSide Right.tscn"
+player_spawn_location = Vector2( 1899, 1822 )
+
 [node name="Heroine\'sGardenBackround" parent="." instance=ExtResource( 3 )]
 
 [node name="Player" parent="." instance=ExtResource( 4 )]

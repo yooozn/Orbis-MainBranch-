@@ -13,7 +13,7 @@ var player
 var berries_collected = false
 var berries = 0
 var health = 5
-var map = true
+var map = false
 var last_position = null
 
 #MichelleVariables
