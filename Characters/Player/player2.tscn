@@ -199,14 +199,9 @@ tracks/7/keys = {
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [ ExtResource( 12 ), ExtResource( 12 ), ExtResource( 12 ), ExtResource( 12 ), ExtResource( 12 ), ExtResource( 12 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "Down",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "Slash1",
+"name": "Slash2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
@@ -216,7 +211,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "Slash2",
+"name": "Slash1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 12 ), ExtResource( 12 ), ExtResource( 12 ), ExtResource( 12 ), ExtResource( 12 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Down",
 "speed": 5.0
 } ]
 

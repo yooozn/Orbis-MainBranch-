@@ -20,4 +20,4 @@ func _on_Checkpoints_body_entered(body):
 	if body.is_in_group("Player"):
 		SaveAndLoad.checkpointPos = position
 		SaveAndLoad.checkpointRoom = get_owner().get_filename()
-		print(SaveAndLoad.checkpointRoom)
+#		print(SaveAndLoad.checkpointRoom)

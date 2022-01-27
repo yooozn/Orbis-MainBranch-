@@ -43,6 +43,7 @@ var player
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Position of the player when entering the portal
+	$World_collision/Attack/Attack_collision.set_deferred("disabled", true)
 	self.global_position = Globals.player_initial_map_position
 	Globals.player = self
 	print(str(get_owner().get_filename()))
@@ -59,8 +60,7 @@ func _process(delta):
 		$"Player_sprite/AttackSlash".hide()
 		$"Player_sprite/DownSlash".hide()
 		$"Player_sprite/UpSlash".hide()
-		dir.x = 0
-		pass
+		return
 	else:
 		$"Player_sprite/AttackSlash".hide()
 		$"Player_sprite/DownSlash".hide()
@@ -242,9 +242,15 @@ func health_update():
 	emit_signal("health_update", health)
 	print('current health is ', health)
 	if Globals.health <= 0:
-		Globals.player_initial_map_position = SaveAndLoad.checkpointPos
-		Globals.health = 5
-		get_tree().change_scene(SaveAndLoad.checkpointRoom)
+		Globals.cantmove = true
+		yield(get_tree().create_timer(5),"timeout")
+		Globals.cantmove = false
+		if SaveAndLoad.checkpointPos == null:
+			get_tree().change_scene("res://Spark Forest.tscn")
+		else:
+			Globals.player_initial_map_position = SaveAndLoad.checkpointPos
+			Globals.health = 5
+			get_tree().change_scene(SaveAndLoad.checkpointRoom)
 
 
 func dash():

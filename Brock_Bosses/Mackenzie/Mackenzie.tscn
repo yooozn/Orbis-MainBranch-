@@ -70,21 +70,6 @@ shader_param/flash_modifier = 0.0
 
 [sub_resource type="SpriteFrames" id=16]
 animations = [ {
-"frames": [ ExtResource( 37 ), ExtResource( 35 ), ExtResource( 40 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 31 ), ExtResource( 28 ), ExtResource( 44 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 10 ), ExtResource( 36 ), ExtResource( 22 ), ExtResource( 41 ), ExtResource( 42 ) ],
-"loop": true,
-"name": "start",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 17 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 47 ), ExtResource( 12 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 45 ), ExtResource( 34 ), ExtResource( 38 ), ExtResource( 16 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "attack1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 43 ), ExtResource( 46 ), ExtResource( 49 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "attack2",
@@ -93,6 +78,21 @@ animations = [ {
 "frames": [ ExtResource( 25 ), ExtResource( 39 ), ExtResource( 26 ), ExtResource( 14 ), ExtResource( 48 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 30 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "attack3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 17 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 47 ), ExtResource( 12 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 45 ), ExtResource( 34 ), ExtResource( 38 ), ExtResource( 16 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "attack1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 35 ), ExtResource( 40 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 31 ), ExtResource( 28 ), ExtResource( 44 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 10 ), ExtResource( 36 ), ExtResource( 22 ), ExtResource( 41 ), ExtResource( 42 ) ],
+"loop": true,
+"name": "start",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
 "speed": 5.0
 } ]
 
