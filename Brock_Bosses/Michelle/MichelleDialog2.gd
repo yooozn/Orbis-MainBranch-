@@ -13,13 +13,13 @@ var finished = false
 
 
 func _ready():
-	if Globals.MichelleDefeated == false || Globals.MichelleDialog2End == true:
+	if Globals.MichelleDefeated == false || Globals.MichelleDialog2End == true || Globals.MichelleMemoryStart == true:
 		self.scale = Vector2(0, 0) # Hide
 		return
 	else:
 		load_dialog()
 func _process(delta):
-		if Globals.MichelleDefeated == false || Globals.MichelleDialog2End == true:
+		if Globals.MichelleDefeated == false || Globals.MichelleDialog2End == true || Globals.MichelleMemoryStart == true:
 			return
 		if Input.is_action_just_pressed("attack"):
 			load_dialog()
@@ -44,3 +44,8 @@ func load_dialog():
 		Globals.Cutscene = false
 		Globals.MichelleDialog2End = true
 		Voices.stop(12)
+		Music.play_music(5)
+
+
+func _on_Timer_timeout():
+	pass # Replace with function body.

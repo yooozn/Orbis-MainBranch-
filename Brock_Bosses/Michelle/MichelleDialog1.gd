@@ -16,13 +16,13 @@ var finished = false
 
 
 func _ready():
-	if Globals.MichelleDialog1Start == false || Globals.MichelleDialog1End == true:
+	if Globals.MichelleDialog1Start == false || Globals.MichelleDialog1End == true || Globals.MichelleMemoryStart == true:
 		self.scale = Vector2(0, 0) # Hide
 		return
 	else:
 		load_dialog()
 func _process(delta):
-		if Globals.MichelleDialog1Start == false || Globals.MichelleDialog1End == true:
+		if Globals.MichelleDialog1Start == false || Globals.MichelleDialog1End == true || Globals.MichelleMemoryStart == true:
 			return
 		if Input.is_action_just_pressed("attack"):
 			load_dialog()

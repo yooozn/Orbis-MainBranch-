@@ -133,8 +133,10 @@ func damage(damage):
 		if healthPhase2 <= 0:
 			$"../../Transition_Screen".transition()
 			Globals.MichelleDefeated = true
-			$"../../MichelleDialog2".scale = Vector2(1, 1) 
-			Music.play_music(5.1)
+			Globals.MichelleMemoryStart = true
+			$"../MichelleMemory/CollisionShape2D".disabled = false
+#			$"../../MichelleDialog2".scale = Vector2(1, 1) 
+			Music.stop(5)
 			Music.stop(6)
 			queue_free()
 

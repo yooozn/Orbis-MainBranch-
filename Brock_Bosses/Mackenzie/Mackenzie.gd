@@ -1,15 +1,11 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-
+	if Globals.MackenzieDialog3End == true:
+		$"ColinDialog1".scale = Vector2(0, 0) 
+		$ColinDialogue.position.x = -999
+	if Globals.MackenzieMemoryEnd == true:
+		$"DisplacementNode".queue_free()
 func _process(delta):
 	if Globals.MackenzieDialog3Start == true:
 		$"MackenzieDialog1".scale = Vector2(1, 1) 

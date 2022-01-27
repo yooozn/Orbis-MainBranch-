@@ -13,13 +13,13 @@ var finished = false
 
 
 func _ready():
-	if Globals.ColinDefeated == false || Globals.ColinDialog2End == true:
+	if Globals.ColinDefeated == false || Globals.ColinDialog2End == true  || Globals.ColinMemoryStart == true:
 		self.scale = Vector2(0, 0) # Hide
 		return
 	else:
 		load_dialog()
 func _process(delta):
-		if Globals.ColinDefeated == false || Globals.ColinDialog2End == true:
+		if Globals.ColinDefeated == false || Globals.ColinDialog2End == true  || Globals.ColinMemoryStart == true:
 			return
 		if Input.is_action_just_pressed("attack"):
 			load_dialog()
@@ -44,6 +44,8 @@ func load_dialog():
 		Globals.Cutscene = false
 		Globals.ColinDialog2End = true
 		Voices.stop(16)
+		Music.play_music(3)
+		Music.stop(4)
 
 
 func _on_Timer_timeout():

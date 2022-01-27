@@ -18,8 +18,17 @@ func _ready():
 		
 		
 
+func _on_CutsceneColinMemory_finished():
+	#	Globals.MichelleDialog1Start = true
+	Globals.Finished = true
+	Globals.cantmove = false
+	get_tree().set_pause(false)
+	get_parent().queue_free()
+
+
+
 func _on_CutsceneMichelle_finished():
-#	Globals.MichelleDialog1Start = true
+		#	Globals.MichelleDialog1Start = true
 	Globals.Finished = true
 	Globals.cantmove = false
 	get_tree().set_pause(false)

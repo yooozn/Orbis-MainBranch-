@@ -45,9 +45,12 @@ func _process(delta):
 	if healthPhase2 == 0:
 		$"../../Transition_Screen".transition()
 		Globals.ColinDefeated = true
-		$"../../ColinDialog2".scale = Vector2(1, 1) 
-		Music.play_music(9)
+		Globals.ColinMemoryStart = true
+		$"../ColinMemory/CollisionShape2D".disabled = false
+#		$"../../ColinDialog2".scale = Vector2(1, 1) 
+		Music.stop(9)
 		Music.stop(4)
+		Music.stop(12)
 		queue_free()
 	if canDamage == true and inRange == true and immunity == false:
 		Globals.player.damage(1)

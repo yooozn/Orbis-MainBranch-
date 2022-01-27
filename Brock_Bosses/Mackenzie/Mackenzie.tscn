@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://Brock_Bosses/Mackenzie/MackenzieBoss.gd" type="Script" id=1]
 [ext_resource path="res://Levels/Tileset/HeroinesGardenLevels/Heroine'sGarden.tscn" type="PackedScene" id=2]
@@ -60,6 +60,11 @@
 [ext_resource path="res://Brock_Bosses/Mackenzie/MackenzieDialog1.gd" type="Script" id=58]
 [ext_resource path="res://Levels/blurybox.png" type="Texture" id=59]
 [ext_resource path="res://Cutscene/Triangle.png" type="Texture" id=60]
+[ext_resource path="res://Brock_Bosses/Mackenzie/MackenzieDialog2.gd" type="Script" id=61]
+
+[sub_resource type="CapsuleShape2D" id=19]
+radius = 76.0
+height = 366.0
 
 [sub_resource type="Shader" id=3]
 code = "shader_type canvas_item;
@@ -1512,11 +1517,45 @@ tracks/3/keys = {
 radius = 120.0
 height = 596.0
 
-[sub_resource type="CapsuleShape2D" id=19]
-radius = 76.0
-height = 366.0
-
 [sub_resource type="DynamicFont" id=1]
+size = 64
+outline_size = 1
+use_filter = true
+font_data = ExtResource( 54 )
+
+[sub_resource type="Animation" id=22]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Triangle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 504, 208 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "Triangle_Anim"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Triangle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 504, 208 ), Vector2( 504, 195.237 ) ]
+}
+
+[sub_resource type="DynamicFont" id=24]
 size = 64
 outline_size = 1
 use_filter = true
@@ -1560,10 +1599,19 @@ script = ExtResource( 51 )
 [node name="DisplacementNode" type="Node2D" parent="."]
 position = Vector2( 1064, 1624 )
 
+[node name="MackenzieCutsceneTrigger" type="Area2D" parent="DisplacementNode"]
+position = Vector2( -951, 13 )
+script = ExtResource( 53 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DisplacementNode/MackenzieCutsceneTrigger"]
+shape = SubResource( 19 )
+
 [node name="MackenzieBoss" type="Area2D" parent="DisplacementNode" groups=["Enemy"]]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 1 )
+healthPhase1 = 1
+healthPhase2 = 1
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="DisplacementNode/MackenzieBoss"]
 material = SubResource( 15 )
@@ -1609,14 +1657,59 @@ script = ExtResource( 52 )
 position = Vector2( -616, -228 )
 shape = SubResource( 18 )
 
-[node name="MackenzieCutsceneTrigger" type="Area2D" parent="DisplacementNode"]
-position = Vector2( -951, 13 )
-script = ExtResource( 53 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DisplacementNode/MackenzieCutsceneTrigger"]
-shape = SubResource( 19 )
-
 [node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 75, 1795 )
+
+[node name="MackenzieDialog2" type="CanvasLayer" parent="."]
+layer = 4
+script = ExtResource( 61 )
+
+[node name="VoiceLineOne" type="AudioStreamPlayer2D" parent="MackenzieDialog2"]
+stream = ExtResource( 56 )
+
+[node name="VoiceLineThree" type="AudioStreamPlayer2D" parent="MackenzieDialog2"]
+stream = ExtResource( 55 )
+
+[node name="VoiceLineTwo" type="AudioStreamPlayer2D" parent="MackenzieDialog2"]
+stream = ExtResource( 57 )
+
+[node name="TextBox" type="TextureProgress" parent="MackenzieDialog2"]
+margin_left = 192.0
+margin_top = 16.0
+margin_right = 842.0
+margin_bottom = 229.0
+texture_progress = ExtResource( 59 )
+fill_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="MackenzieDialog2"]
+margin_left = 208.0
+margin_top = 32.0
+margin_right = 2008.0
+margin_bottom = 462.0
+rect_scale = Vector2( 0.34227, 0.377282 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Triangle" type="Sprite" parent="MackenzieDialog2"]
+position = Vector2( 504, 208 )
+scale = Vector2( 0.0451389, 0.0462963 )
+texture = ExtResource( 60 )
+
+[node name="Tween" type="Tween" parent="MackenzieDialog2"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MackenzieDialog2"]
+anims/RESET = SubResource( 22 )
+anims/Triangle_Anim = SubResource( 23 )
+
+[node name="Timer" type="Timer" parent="MackenzieDialog2"]
+wait_time = 0.001
+autostart = true
 
 [node name="MackenzieDialog1" type="CanvasLayer" parent="."]
 layer = 4
@@ -1636,6 +1729,7 @@ margin_left = 192.0
 margin_top = 16.0
 margin_right = 842.0
 margin_bottom = 229.0
+value = 100.0
 texture_progress = ExtResource( 59 )
 fill_mode = 2
 __meta__ = {
@@ -1648,7 +1742,7 @@ margin_top = 32.0
 margin_right = 2008.0
 margin_bottom = 462.0
 rect_scale = Vector2( 0.34227, 0.377282 )
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 24 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1662,6 +1756,7 @@ texture = ExtResource( 60 )
 [node name="Tween" type="Tween" parent="MackenzieDialog1"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MackenzieDialog1"]
+autoplay = "Triangle_Anim"
 anims/RESET = SubResource( 20 )
 anims/Triangle_Anim = SubResource( 21 )
 
@@ -1675,9 +1770,9 @@ tile_data = PoolIntArray( 0, 8, 0 )
 
 [node name="HeroinesGardenShaders" parent="." instance=ExtResource( 50 )]
 
+[connection signal="body_entered" from="DisplacementNode/MackenzieCutsceneTrigger" to="DisplacementNode/MackenzieCutsceneTrigger" method="_on_MackenzieCutsceneTrigger_body_entered"]
 [connection signal="body_entered" from="DisplacementNode/MackenzieBoss" to="DisplacementNode/MackenzieBoss" method="_on_MackenzieBoss_body_entered"]
 [connection signal="body_exited" from="DisplacementNode/MackenzieBoss" to="DisplacementNode/MackenzieBoss" method="_on_MackenzieBoss_body_exited"]
 [connection signal="body_entered" from="DisplacementNode/MackenzieBoss/DetectionArea" to="DisplacementNode/MackenzieBoss" method="_on_DetectionArea_body_entered"]
 [connection signal="body_entered" from="DisplacementNode/MackenzieDialog" to="DisplacementNode/MackenzieDialog" method="_on_MackenzieDialog_body_entered"]
-[connection signal="body_entered" from="DisplacementNode/MackenzieCutsceneTrigger" to="DisplacementNode/MackenzieCutsceneTrigger" method="_on_MackenzieCutsceneTrigger_body_entered"]
 [connection signal="timeout" from="MackenzieDialog1/Timer" to="MackenzieDialog1" method="_on_Timer_timeout"]

@@ -28,6 +28,15 @@ var BammVoiceline2 = load("res://Voicelines/Bamm_Line 2.wav")
 var BammVoiceline3 = load("res://Voicelines/Bamm_Line 3.wav")
 var BammVoiceline4 = load("res://Voicelines/Bamm Line 3.5.wav")
 var BammVoiceline5 = load("res://Voicelines/Bamm_Line 4.wav")
+var MackenzieVoiceline9 = load("res://Voicelines/Mackenzie_3 Line 1.wav")
+var MackenzieVoiceline10 = load("res://Voicelines/Mackenzie_3 Line 2.wav")
+var MackenzieVoiceline11 = load("res://Voicelines/Mackenzie_3 Line 3.wav")
+var MackenzieVoiceline12 = load("res://Voicelines/Mackenzie_3 Line 4.wav")
+var MackenzieVoiceline13 = load("res://Voicelines/Mackenzie_3 Line 5.wav")
+var MackenzieVoiceline14 = load("res://Voicelines/Mackenzie_3 Line 6.wav")
+var MackenzieVoiceline15 = load("res://Voicelines/Mackenzie_3 Line 7.wav")
+var MackenzieVoiceline16 = load("res://Voicelines/Mackenzie_3 Line 8.wav")
+var MackenzieVoiceline17 = load("res://Voicelines/Mackenzie_3 Line 9.wav")
 func play_voiceline(number):
 	if number == 1:
 		$MackenzieVoiceline1.stream = MackenzieVoiceline1
@@ -110,6 +119,33 @@ func play_voiceline(number):
 	if number == 27: 
 		$BammVoiceline5.stream = BammVoiceline5
 		$BammVoiceline5.play()
+	if number == 28: 
+		$MackenzieVoiceline9.stream = MackenzieVoiceline9
+		$MackenzieVoiceline9.play()
+	if number == 29: 
+		$MackenzieVoiceline10.stream = MackenzieVoiceline10
+		$MackenzieVoiceline10.play()
+	if number == 30: 
+		$MackenzieVoiceline11.stream = MackenzieVoiceline11
+		$MackenzieVoiceline11.play()
+	if number == 31: 
+		$MackenzieVoiceline12.stream = MackenzieVoiceline12
+		$MackenzieVoiceline12.play()
+	if number == 32: 
+		$MackenzieVoiceline13.stream = MackenzieVoiceline13
+		$MackenzieVoiceline13.play()
+	if number == 33: 
+		$MackenzieVoiceline14.stream = MackenzieVoiceline14
+		$MackenzieVoiceline14.play()
+	if number == 34: 
+		$MackenzieVoiceline15.stream = MackenzieVoiceline15
+		$MackenzieVoiceline15.play()
+	if number == 35: 
+		$MackenzieVoiceline16.stream = MackenzieVoiceline16
+		$MackenzieVoiceline16.play()
+	if number == 36: 
+		$MackenzieVoiceline17.stream = MackenzieVoiceline17
+		$MackenzieVoiceline17.play()
 func stop(number):
 	if number == 1:
 		$MackenzieVoiceline1.stream = MackenzieVoiceline1
@@ -192,3 +228,30 @@ func stop(number):
 	if number == 27: 
 		$BammVoiceline5.stream = BammVoiceline5
 		$BammVoiceline5.stop()
+	if number == 28: 
+		$MackenzieVoiceline9.stream = MackenzieVoiceline9
+		$MackenzieVoiceline9.stop()
+	if number == 29: 
+		$MackenzieVoiceline10.stream = MackenzieVoiceline10
+		$MackenzieVoiceline10.stop()
+	if number == 30: 
+		$MackenzieVoiceline11.stream = MackenzieVoiceline11
+		$MackenzieVoiceline11.stop()
+	if number == 31: 
+		$MackenzieVoiceline12.stream = MackenzieVoiceline12
+		$MackenzieVoiceline12.stop()
+	if number == 32: 
+		$MackenzieVoiceline13.stream = MackenzieVoiceline13
+		$MackenzieVoiceline13.stop()
+	if number == 33: 
+		$MackenzieVoiceline14.stream = MackenzieVoiceline14
+		$MackenzieVoiceline14.stop()
+	if number == 34: 
+		$MackenzieVoiceline15.stream = MackenzieVoiceline15
+		$MackenzieVoiceline15.stop()
+	if number == 35: 
+		$MackenzieVoiceline16.stream = MackenzieVoiceline16
+		$MackenzieVoiceline16.stop()
+	if number == 36: 
+		$MackenzieVoiceline17.stream = MackenzieVoiceline17
+		$MackenzieVoiceline17.stop()

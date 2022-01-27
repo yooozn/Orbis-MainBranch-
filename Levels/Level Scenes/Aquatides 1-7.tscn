@@ -45,7 +45,7 @@ player_spawn_location = Vector2( 647.591, 1743.42 )
 [node name="Boss" parent="Portals" instance=ExtResource( 3 )]
 position = Vector2( 2016, 1420 )
 next_scene_path = "res://Brock_Bosses/ColinBoss/ColinBoss.tscn"
-player_spawn_location = Vector2( 56, 1815 )
+player_spawn_location = Vector2( 192, 1801 )
 
 [node name="BackroundAquatides" parent="." instance=ExtResource( 5 )]
 

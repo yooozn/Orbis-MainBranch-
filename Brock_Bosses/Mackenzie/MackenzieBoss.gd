@@ -121,6 +121,8 @@ func _on_DetectionArea_body_entered(body):
 	if body.is_in_group("Player"):
 		$DetectionArea/CollisionShape2D.set_deferred("disabled",true)
 		position += Vector2(-43,37)
+		Music.stop(2)
+		Music.play_music(13)
 		_animPlayer.play("start")
 		yield(get_tree().create_timer(1.1),"timeout")
 		position -= Vector2(-43,37)

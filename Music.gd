@@ -12,7 +12,10 @@ var HeroinesGarden = load("res://Music/Heroine_s Gardens (Again).wav")
 var ColinEncounter = load("res://Music/Aqua Blue Knight complete for real.wav")
 var SamsEncounter = load("res://Music/An Electric Presence.wav")
 var SamBoss = load("res://Music/Flight of the Electric Dreamer (better).wav")
+var ColinPhase2 = load("res://Music/TidalWave Incoming.wav")
+var MackenzieBoss = load("res://Music/Flowers Among Fantasy (Better).wav")
 var PlaceHolder = load("res://Music/Aosta.wav")
+
 
 
 func  play_music(number):
@@ -52,6 +55,12 @@ func  play_music(number):
 	if number == 11: 
 		$SamBoss.stream = SamBoss
 		$SamBoss.play()
+	if number == 12:
+		$ColinPhase2.stream = ColinPhase2
+		$ColinPhase2.play()
+	if number == 13:
+		$MackenzieBoss.stream = MackenzieBoss
+		$MackenzieBoss.play()
 	if number == 69:
 		$PlaceHolder.stream = PlaceHolder
 		$PlaceHolder.play()
@@ -93,3 +102,9 @@ func stop(number):
 	if number == 11: 
 		$SamBoss.stream = SamBoss
 		$SamBoss.stop()
+	if number == 12:
+		$ColinPhase2.stream = ColinPhase2
+		$ColinPhase2.stop()
+	if number == 13:
+		$MackenzieBoss.stream = MackenzieBoss
+		$MackenzieBoss.stop()

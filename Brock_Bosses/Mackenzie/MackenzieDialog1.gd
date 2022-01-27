@@ -9,6 +9,7 @@ var dialog = [
 	"In reality, or rather, I this dream world, I am one of many close friends to The Dreamer.",
 	"But please, don't think any less of me. I am my own entity, and the main character of my own life's story. Just as you are to yours.",
 	"How about this? I'll tell you the whole story if you can beat me.",
+	"However, the way I tell that story, the way truths will be revealed or concealed may affect your upcomming reality.",
 	"But, that doesn't mean I'm obligated to lose, my friend!",
 ]
 
@@ -30,17 +31,32 @@ func _process(delta):
 			load_dialog()
 func load_dialog():
 	if dialog_index < dialog.size():
-#		if dialog_index == 0:
-##				Voices.play_voiceline(13)
-#		if dialog_index == 1:
-#			Voices.play_voiceline(14)
-#			Voices.stop(13)
-#		if dialog_index == 2:
-#			Voices.play_voiceline(6)
-#			Voices.stop(5)
-#		if dialog_index == 3:
-#			Voices.play_voiceline(7)
-#			Voices.stop(6)
+		if dialog_index == 0:
+				Voices.play_voiceline(28)
+		if dialog_index == 1:
+			Voices.play_voiceline(29)
+			Voices.stop(13)
+		if dialog_index == 2:
+			Voices.play_voiceline(30)
+			Voices.stop(29)
+		if dialog_index == 3:
+			Voices.play_voiceline(31)
+			Voices.stop(30)
+		if dialog_index == 4:
+			Voices.play_voiceline(32)
+			Voices.stop(31)
+		if dialog_index == 5:
+			Voices.play_voiceline(33)
+			Voices.stop(32)
+		if dialog_index == 6:
+			Voices.play_voiceline(34)
+			Voices.stop(33)
+		if dialog_index == 7:
+			Voices.play_voiceline(35)
+			Voices.stop(34)
+		if dialog_index == 8:
+			Voices.play_voiceline(36)
+			Voices.stop(6)
 		$"Text".bbcode_text = dialog[dialog_index]
 		dialog_index += 1
 		$"Tween".interpolate_property(
@@ -54,7 +70,7 @@ func load_dialog():
 		Globals.cantmove = false
 		Globals.Cutscene = false
 		Globals.MackenzieDialog3End = true
-		Voices.stop(14)
+		Voices.stop(35)
 
 
 func _on_Timer_timeout():

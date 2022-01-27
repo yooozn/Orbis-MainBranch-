@@ -9,8 +9,8 @@ func _on_MackenzieCutsceneTrigger_body_entered(body):
 			Globals.Cutscene = true
 			Globals.cantmove = true
 		var fade_scene = fade_class.instance()
-		Music.play_music(9)
-		Music.stop(3)
+		Music.play_music(2)
+		Music.stop(7)
 		fade_scene.connect("finished",  self, "load_cutscene")
 		get_parent().add_child(cutscene_class.instance())
 		get_parent().add_child(fade_scene)

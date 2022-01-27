@@ -22,6 +22,8 @@ var MichelleDialog1End = false
 var MichelleDialog2Start = false
 var MichelleDialog2End = false
 var MichelleDefeated = false
+var MichelleMemoryStart = false
+var MichelleMemoryEnd = false
 
 #ColinVariables
 var ColinDialog1Start = false
@@ -29,6 +31,8 @@ var ColinDialog1End = false
 var ColinDialog2Start= false
 var ColinDialog2End = false
 var ColinDefeated = false
+var ColinMemoryStart = false
+var ColinMemoryEnd = false
 
 #BammVariables
 var SamDialog1Start = false
@@ -36,6 +40,8 @@ var SamDialog1End = false
 var SamDialog2Start= false
 var SamDialog2End = false
 var SamDefeated = false
+var SamMemoryStart = false
+var SamMemoryEnd = false
 
 #MackenzieVariables
 var MackenzieDialog2Start = false
@@ -45,3 +51,5 @@ var MackenzieDialog3End = false
 var MackenzieDialog4Start = false
 var MackenzieDialog4End = false
 var MackenzieDefeated = false
+var MackenzieMemoryStart = false
+var MackenzieMemoryEnd = false
