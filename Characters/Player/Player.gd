@@ -50,19 +50,22 @@ func _ready():
 	#Position of the player when entering the portal
 	self.global_position = Globals.player_initial_map_position
 	Globals.player = self
-	SaveAndLoad.room = str(get_owner().get_filename())
-	SaveAndLoad.playerPos = Globals.player_initial_map_position
-	SaveAndLoad._Save()
+#	SaveAndLoad.room = str(get_owner().get_filename())
+#	SaveAndLoad.playerPos = Globals.player_initial_map_position
+#	SaveAndLoad._Save()
 	
 func _process(delta):
 	Globals.player = self
+	if Globals.Cutscene == true:
+		$"Camera2D/Post Processing/Curve/ui/Health/Health_Bar_2 (1)".visible = false
+	if Globals.Cutscene == false:
+		$"Camera2D/Post Processing/Curve/ui/Health/Health_Bar_2 (1)".visible = true
 	if Globals.cantmove == true:
 		$"Player_sprite/AttackSlash".hide()
 		$"Player_sprite/DownSlash".hide()
 		$"Player_sprite/UpSlash".hide()
-		dir.x = 0
-		pass
-	else:
+		return
+	if Globals.cantmove == false:
 		$"Player_sprite/AttackSlash".hide()
 		$"Player_sprite/DownSlash".hide()
 		$"Player_sprite/UpSlash".hide()
@@ -99,11 +102,6 @@ func _process(delta):
 #			vel.x = -25.0
 	input_stuff()
 	move_and_slide(vel * 10, Vector2(0, -1))
-
-	if Globals.Cutscene == true:
-		$"Camera2D/Post Processing/Curve/ui/Health/Health_Bar_2 (1)".visible = false
-	if Globals.Cutscene == false:
-		$"Camera2D/Post Processing/Curve/ui/Health/Health_Bar_2 (1)".visible = true
 		
 func input_stuff():
 		dir.x = 0
@@ -189,6 +187,7 @@ func attack():
 			$"Player_sprite/AttackSlash".play("Slash1")
 			$"Player_sprite/AttackSlash".show()
 			$AnimationPlayer.play("Punch")
+			$"attack".play()
 			$Attack_timer.start()
 			jab_num += 1
 		elif jab_num == 2:
@@ -205,6 +204,7 @@ func attackdown():
 		print(jab_num)
 		if jab_num == 1:
 			jab_num += 1
+			$"attack".play()
 			$"Player_sprite/DownSlash".play("Down")
 			$AnimationPlayer2.play("New Anim")
 			$Attack_timer.start()
@@ -218,6 +218,7 @@ func attackup():
 		print(jab_num)
 		if jab_num == 1:
 			jab_num += 1
+			$"attack".play()
 			$"Player_sprite/UpSlash".play("Up")
 			$AnimationPlayer.play("UpSlash")
 			$Attack_timer.start()
@@ -341,10 +342,10 @@ func _on_Attack_body_shape_entered(body_id, body, body_shape, local_shape):
 
 
 func _on_Attack_area_entered(area):
-	if area.is_in_group('Enemy'):
-		print('collision')
-		area.damage(1)
-		jab_connected = true
+#	if area.is_in_group('Enemy'):
+#		print('collision')
+#		area.damage(1)
+#		jab_connected = true
 	print(area)
 	if area.is_in_group('Switch'):
 		print('opened')
@@ -380,3 +381,9 @@ func _on_Downslash_body_entered(body):
 
 func _on_DeathStart_timeout():
 		get_tree().reload_current_scene()
+
+
+func _on_Downslash_area_entered(area):
+		if area.is_in_group('Switch'):
+			print('opened')
+		pass

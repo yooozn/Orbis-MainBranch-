@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Characters/enemy/ChillingEnemy.gd" type="Script" id=1]
 [ext_resource path="res://Characters/enemy/Chilling_Enemy-4.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://testingthings/DetectWall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Characters/enemy/DetectPortal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Characters/enemy/Cloudchilling.png" type="Texture" id=10]
+[ext_resource path="res://Shaders/Enemyhit.tres" type="Shader" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10.6451, 9.80361 )
@@ -22,9 +23,17 @@ radius = 24.7197
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
+shader = ExtResource( 11 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 1.0
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Attack",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Idle",
@@ -33,11 +42,6 @@ animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "Walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "Attack",
 "speed": 5.0
 } ]
 
@@ -291,7 +295,7 @@ position = Vector2( -1.25159, 0 )
 scale = Vector2( 0.0473273, 0.0434873 )
 frames = SubResource( 10 )
 animation = "Walk"
-frame = 1
+frame = 3
 playing = true
 flip_h = true
 

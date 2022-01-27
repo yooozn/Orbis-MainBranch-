@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Collectable Sound.wav-09ed6a495497f368f5550bcc2021bcc2.sample"
+
+[deps]
+
+source_file="res://SoundEffects/Collectable Sound.wav"
+dest_files=[ "res://.import/Collectable Sound.wav-09ed6a495497f368f5550bcc2021bcc2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

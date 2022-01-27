@@ -48,7 +48,7 @@ func damage(damage):
 	print(damage)
 	Health -= 1
 	shader.set_shader_param("flash_modifier", 1)
-	shader.set_shader_param("flash_color", 1, 0, 0, 1)
+#	shader.set_shader_param("flash_color", 1, 0, 0, 1)
 	yield(get_tree().create_timer(.07),"timeout")
 	shader.set_shader_param("flash_modifier", 0)
 	if Health == 0:
