@@ -34,5 +34,6 @@ player_spawn_location = Vector2( 1840, 1814 )
 
 [node name="BossRoom" parent="Portals" instance=ExtResource( 4 )]
 position = Vector2( 2034, 1428 )
+next_scene_path = "res://Brock_Bosses/Mackenzie/Mackenzie.tscn"
 
 [node name="HeroinesGardenShaders" parent="." instance=ExtResource( 3 )]

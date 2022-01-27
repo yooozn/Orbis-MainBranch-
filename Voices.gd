@@ -37,6 +37,14 @@ var MackenzieVoiceline14 = load("res://Voicelines/Mackenzie_3 Line 6.wav")
 var MackenzieVoiceline15 = load("res://Voicelines/Mackenzie_3 Line 7.wav")
 var MackenzieVoiceline16 = load("res://Voicelines/Mackenzie_3 Line 8.wav")
 var MackenzieVoiceline17 = load("res://Voicelines/Mackenzie_3 Line 9.wav")
+var MackenzieVoiceline18 = load("res://Voicelines/Mackenzie_3 Line 10.wav")
+var MackenzieVoiceline19 = load("res://Voicelines/Mackenzie_3 Line 11.wav")
+var MackenzieVoiceline20 = load("res://Voicelines/Mackenzie_3 Line 12.wav")
+var MackenzieVoiceline21 = load("res://Voicelines/Mackenzie_3 Line 13.wav")
+var MackenzieVoiceline22 = load("res://Voicelines/Mackenzie_3 Line 14.wav")
+var MackenzieVoiceline23 = load("res://Voicelines/Mackenzie_3 Line 15.wav")
+var MackenzieVoiceline24 = load("res://Voicelines/Mackenzie_3 Line 16.wav")
+var MackenzieVoiceline25 = load("res://Voicelines/Mackenzie_3 Line 17.wav")
 func play_voiceline(number):
 	if number == 1:
 		$MackenzieVoiceline1.stream = MackenzieVoiceline1
@@ -146,6 +154,30 @@ func play_voiceline(number):
 	if number == 36: 
 		$MackenzieVoiceline17.stream = MackenzieVoiceline17
 		$MackenzieVoiceline17.play()
+	if number == 37: 
+		$MackenzieVoiceline18.stream = MackenzieVoiceline18
+		$MackenzieVoiceline18.play()
+	if number == 38: 
+		$MackenzieVoiceline19.stream = MackenzieVoiceline19
+		$MackenzieVoiceline19.play()
+	if number == 39: 
+		$MackenzieVoiceline20.stream = MackenzieVoiceline20
+		$MackenzieVoiceline20.play()
+	if number == 40: 
+		$MackenzieVoiceline21.stream = MackenzieVoiceline21
+		$MackenzieVoiceline21.play()
+	if number == 41: 
+		$MackenzieVoiceline22.stream = MackenzieVoiceline22
+		$MackenzieVoiceline22.play()
+	if number == 42: 
+		$MackenzieVoiceline23.stream = MackenzieVoiceline23
+		$MackenzieVoiceline23.play()
+	if number == 43: 
+		$MackenzieVoiceline24.stream = MackenzieVoiceline24
+		$MackenzieVoiceline24.play()
+	if number == 44: 
+		$MackenzieVoiceline25.stream = MackenzieVoiceline25
+		$MackenzieVoiceline25.play()
 func stop(number):
 	if number == 1:
 		$MackenzieVoiceline1.stream = MackenzieVoiceline1
@@ -255,3 +287,27 @@ func stop(number):
 	if number == 36: 
 		$MackenzieVoiceline17.stream = MackenzieVoiceline17
 		$MackenzieVoiceline17.stop()
+	if number == 37: 
+		$MackenzieVoiceline18.stream = MackenzieVoiceline18
+		$MackenzieVoiceline18.stop()
+	if number == 38: 
+		$MackenzieVoiceline19.stream = MackenzieVoiceline19
+		$MackenzieVoiceline19.stop()
+	if number == 39: 
+		$MackenzieVoiceline20.stream = MackenzieVoiceline20
+		$MackenzieVoiceline20.stop()
+	if number == 40: 
+		$MackenzieVoiceline21.stream = MackenzieVoiceline21
+		$MackenzieVoiceline21.stop()
+	if number == 41: 
+		$MackenzieVoiceline22.stream = MackenzieVoiceline22
+		$MackenzieVoiceline22.stop()
+	if number == 42: 
+		$MackenzieVoiceline23.stream = MackenzieVoiceline23
+		$MackenzieVoiceline23.stop()
+	if number == 43: 
+		$MackenzieVoiceline24.stream = MackenzieVoiceline24
+		$MackenzieVoiceline24.stop()
+	if number == 44: 
+		$MackenzieVoiceline25.stream = MackenzieVoiceline25
+		$MackenzieVoiceline25.stop()

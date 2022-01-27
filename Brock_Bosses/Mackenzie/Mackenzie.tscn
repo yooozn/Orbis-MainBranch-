@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=2]
+[gd_scene load_steps=92 format=2]
 
 [ext_resource path="res://Brock_Bosses/Mackenzie/MackenzieBoss.gd" type="Script" id=1]
 [ext_resource path="res://Levels/Tileset/HeroinesGardenLevels/Heroine'sGarden.tscn" type="PackedScene" id=2]
@@ -61,6 +61,11 @@
 [ext_resource path="res://Levels/blurybox.png" type="Texture" id=59]
 [ext_resource path="res://Cutscene/Triangle.png" type="Texture" id=60]
 [ext_resource path="res://Brock_Bosses/Mackenzie/MackenzieDialog2.gd" type="Script" id=61]
+[ext_resource path="res://Brock_Bosses/Mackenzie/MackenzieMemory.gd" type="Script" id=62]
+[ext_resource path="res://Levels/Level Scenes/Transition_Screen.tscn" type="PackedScene" id=63]
+[ext_resource path="res://Levels/Level Scenes/Portal.tscn" type="PackedScene" id=64]
+[ext_resource path="res://MichelleAvalible.tres" type="Animation" id=65]
+[ext_resource path="res://MichelleNo.tres" type="Animation" id=66]
 
 [sub_resource type="CapsuleShape2D" id=19]
 radius = 76.0
@@ -96,6 +101,11 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 25 ), ExtResource( 39 ), ExtResource( 26 ), ExtResource( 14 ), ExtResource( 48 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 30 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "attack3",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 17 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 47 ), ExtResource( 12 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 45 ), ExtResource( 34 ), ExtResource( 38 ), ExtResource( 16 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "attack1",
@@ -104,11 +114,6 @@ animations = [ {
 "frames": [ ExtResource( 43 ), ExtResource( 46 ), ExtResource( 49 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "attack2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 39 ), ExtResource( 26 ), ExtResource( 14 ), ExtResource( 48 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 30 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "attack3",
 "speed": 5.0
 } ]
 
@@ -1517,6 +1522,10 @@ tracks/3/keys = {
 radius = 120.0
 height = 596.0
 
+[sub_resource type="CapsuleShape2D" id=25]
+radius = 79.2205
+height = 1894.44
+
 [sub_resource type="DynamicFont" id=1]
 size = 64
 outline_size = 1
@@ -1660,6 +1669,17 @@ shape = SubResource( 18 )
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 75, 1795 )
 
+[node name="MackenzieMemory" type="Area2D" parent="."]
+position = Vector2( 1036, 2259 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 62 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MackenzieMemory"]
+position = Vector2( 0, 0.00012207 )
+rotation = -1.56035
+shape = SubResource( 25 )
+
 [node name="MackenzieDialog2" type="CanvasLayer" parent="."]
 layer = 4
 script = ExtResource( 61 )
@@ -1678,6 +1698,7 @@ margin_left = 192.0
 margin_top = 16.0
 margin_right = 842.0
 margin_bottom = 229.0
+value = 100.0
 texture_progress = ExtResource( 59 )
 fill_mode = 2
 __meta__ = {
@@ -1704,6 +1725,7 @@ texture = ExtResource( 60 )
 [node name="Tween" type="Tween" parent="MackenzieDialog2"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MackenzieDialog2"]
+autoplay = "RESET"
 anims/RESET = SubResource( 22 )
 anims/Triangle_Anim = SubResource( 23 )
 
@@ -1770,9 +1792,29 @@ tile_data = PoolIntArray( 0, 8, 0 )
 
 [node name="HeroinesGardenShaders" parent="." instance=ExtResource( 50 )]
 
+[node name="MackenzieIdle-2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1308, 1631 )
+scale = Vector2( 0.303535, 0.331917 )
+texture = ExtResource( 3 )
+
+[node name="Transition_Screen" parent="." instance=ExtResource( 63 )]
+
+[node name="Portal" parent="." instance=ExtResource( 64 )]
+position = Vector2( 1031, 2029 )
+rotation = -1.56752
+next_scene_path = "res://Levels/Level Scenes/Heroine's Garden 1-8.tscn"
+player_spawn_location = Vector2( 75, 1795 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Portal"]
+autoplay = "MichelleNo"
+anims/MichelleAvalible = ExtResource( 65 )
+anims/MichelleNo = ExtResource( 66 )
+
 [connection signal="body_entered" from="DisplacementNode/MackenzieCutsceneTrigger" to="DisplacementNode/MackenzieCutsceneTrigger" method="_on_MackenzieCutsceneTrigger_body_entered"]
 [connection signal="body_entered" from="DisplacementNode/MackenzieBoss" to="DisplacementNode/MackenzieBoss" method="_on_MackenzieBoss_body_entered"]
 [connection signal="body_exited" from="DisplacementNode/MackenzieBoss" to="DisplacementNode/MackenzieBoss" method="_on_MackenzieBoss_body_exited"]
 [connection signal="body_entered" from="DisplacementNode/MackenzieBoss/DetectionArea" to="DisplacementNode/MackenzieBoss" method="_on_DetectionArea_body_entered"]
 [connection signal="body_entered" from="DisplacementNode/MackenzieDialog" to="DisplacementNode/MackenzieDialog" method="_on_MackenzieDialog_body_entered"]
+[connection signal="body_entered" from="MackenzieMemory" to="MackenzieMemory" method="_on_MackenzieMemory_body_entered"]
 [connection signal="timeout" from="MackenzieDialog1/Timer" to="MackenzieDialog1" method="_on_Timer_timeout"]

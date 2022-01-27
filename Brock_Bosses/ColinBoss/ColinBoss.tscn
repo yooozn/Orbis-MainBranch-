@@ -114,9 +114,9 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 30 ), ExtResource( 29 ), ExtResource( 1 ), ExtResource( 15 ), ExtResource( 3 ), ExtResource( 12 ), ExtResource( 20 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 19 ), ExtResource( 13 ), ExtResource( 23 ), ExtResource( 40 ), ExtResource( 14 ) ],
 "loop": true,
-"name": "idleblurry",
+"name": "attack3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 67 ), ExtResource( 56 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ) ],
@@ -129,9 +129,9 @@ animations = [ {
 "name": "attack2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 30 ), ExtResource( 29 ), ExtResource( 1 ), ExtResource( 15 ), ExtResource( 3 ), ExtResource( 12 ), ExtResource( 20 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 19 ), ExtResource( 13 ), ExtResource( 23 ), ExtResource( 40 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "attack3",
+"name": "idleblurry",
 "speed": 5.0
 } ]
 

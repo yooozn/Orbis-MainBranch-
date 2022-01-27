@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Voicelines/Mackenzie_Encounter_Line1.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Voicelines/Mackenzie_Encounter_Line2.mp3" type="AudioStream" id=2]
@@ -36,6 +36,14 @@
 [ext_resource path="res://Voicelines/Mackenzie_3 Line 7.wav" type="AudioStream" id=34]
 [ext_resource path="res://Voicelines/Mackenzie_3 Line 3.wav" type="AudioStream" id=35]
 [ext_resource path="res://Voicelines/Mackenzie_3 Line 8.wav" type="AudioStream" id=36]
+[ext_resource path="res://Voicelines/Mackenzie_3 Line 17.wav" type="AudioStream" id=37]
+[ext_resource path="res://Voicelines/Mackenzie_3 Line 18.wav" type="AudioStream" id=38]
+[ext_resource path="res://Voicelines/Mackenzie_3 Line 10.wav" type="AudioStream" id=39]
+[ext_resource path="res://Voicelines/Mackenzie_3 Line 11.wav" type="AudioStream" id=40]
+[ext_resource path="res://Voicelines/Mackenzie_3 Line 16.wav" type="AudioStream" id=41]
+[ext_resource path="res://Voicelines/Mackenzie_3 Line 12.wav" type="AudioStream" id=42]
+[ext_resource path="res://Voicelines/Mackenzie_3 Line 13.wav" type="AudioStream" id=43]
+[ext_resource path="res://Voicelines/Mackenzie_3 Line 14.wav" type="AudioStream" id=44]
 
 [node name="Voices" type="Node2D"]
 script = ExtResource( 4 )
@@ -146,3 +154,27 @@ stream = ExtResource( 36 )
 
 [node name="MackenzieVoiceline17" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 30 )
+
+[node name="MackenzieVoiceline18" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 39 )
+
+[node name="MackenzieVoiceline19" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 40 )
+
+[node name="MackenzieVoiceline20" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 42 )
+
+[node name="MackenzieVoiceline21" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 43 )
+
+[node name="MackenzieVoiceline22" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 44 )
+
+[node name="MackenzieVoiceline23" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 41 )
+
+[node name="MackenzieVoiceline24" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 37 )
+
+[node name="MackenzieVoiceline25" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 38 )

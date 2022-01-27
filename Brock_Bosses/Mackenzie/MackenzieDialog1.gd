@@ -35,7 +35,7 @@ func load_dialog():
 				Voices.play_voiceline(28)
 		if dialog_index == 1:
 			Voices.play_voiceline(29)
-			Voices.stop(13)
+			Voices.stop(28)
 		if dialog_index == 2:
 			Voices.play_voiceline(30)
 			Voices.stop(29)
@@ -56,7 +56,7 @@ func load_dialog():
 			Voices.stop(34)
 		if dialog_index == 8:
 			Voices.play_voiceline(36)
-			Voices.stop(6)
+			Voices.stop(35)
 		$"Text".bbcode_text = dialog[dialog_index]
 		dialog_index += 1
 		$"Tween".interpolate_property(
@@ -70,7 +70,7 @@ func load_dialog():
 		Globals.cantmove = false
 		Globals.Cutscene = false
 		Globals.MackenzieDialog3End = true
-		Voices.stop(35)
+		Voices.stop(36)
 
 
 func _on_Timer_timeout():

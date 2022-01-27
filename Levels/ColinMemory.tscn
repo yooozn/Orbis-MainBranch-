@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Cutscene/Colin’s Memory.ogv" type="VideoStream" id=1]
-[ext_resource path="res://Levels/CutsceneMichelle.gd" type="Script" id=2]
+[ext_resource path="res://Levels/CutsceneColinMemory.gd" type="Script" id=2]
 [ext_resource path="res://Levels/CutsceneTransition.tscn" type="PackedScene" id=5]
 
 [sub_resource type="GDScript" id=2]

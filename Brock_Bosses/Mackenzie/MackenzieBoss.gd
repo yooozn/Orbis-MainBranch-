@@ -213,6 +213,13 @@ func damage(damage):
 	else:
 		healthPhase2 -= 1
 	if healthPhase2 <= 0:
+		$"../../Transition_Screen".transition()
+		Globals.MackenzieDefeated = true
+		Globals.MackenzieMemoryStart = true
+		$"../../MackenzieMemory/CollisionShape2D".disabled = false
+		$"../../MackenzieMemory".position.y = 1782
+		$"../../MackenzieMemory".position.x = 980
+#		$"../../ColinDialog2".scale = Vector2(1, 1) 
 		queue_free()
 	shader.set_shader_param("flash_modifier", 1)
 	yield(get_tree().create_timer(.07),"timeout")

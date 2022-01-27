@@ -17,38 +17,35 @@ var finished = false
 
 
 func _ready():
-	if Globals.MackenzieDialog3Start == false || Globals.MackenzieDialog3End == true:
+	if Globals.MackenzieDefeated == false || Globals.MackenzieDialog4End == true || Globals.MackenzieMemoryStart == true:
 		self.scale = Vector2(0, 0) # Hide
 		return
 	else:
 		load_dialog()
 func _process(delta):
-		if Globals.MackenzieDialog3Start == false || Globals.MackenzieDialog3End == true:
+		if Globals.MackenzieDefeated == false || Globals.MackenzieDialog4End == true || Globals.MackenzieMemoryStart == true:
 			return
 		if Input.is_action_just_pressed("attack"):
 			load_dialog()
 func load_dialog():
 	if dialog_index < dialog.size():
 		if dialog_index == 0:
-				Voices.play_voiceline(28)
+			Voices.play_voiceline(39)
 		if dialog_index == 1:
-			Voices.play_voiceline(29)
-			Voices.stop(13)
+			Voices.play_voiceline(40)
+			Voices.stop(38)
 		if dialog_index == 2:
-			Voices.play_voiceline(30)
-			Voices.stop(29)
+			Voices.play_voiceline(41)
+			Voices.stop(39)
 		if dialog_index == 3:
-			Voices.play_voiceline(31)
-			Voices.stop(30)
+			Voices.play_voiceline(42)
+			Voices.stop(40)
 		if dialog_index == 4:
-			Voices.play_voiceline(32)
-			Voices.stop(31)
+			Voices.play_voiceline(43)
+			Voices.stop(41)
 		if dialog_index == 5:
-			Voices.play_voiceline(33)
-			Voices.stop(32)
-		if dialog_index == 6:
-			Voices.play_voiceline(34)
-			Voices.stop(33)
+			Voices.play_voiceline(44)
+			Voices.stop(42)
 		$"Text".bbcode_text = dialog[dialog_index]
 		dialog_index += 1
 		$"Tween".interpolate_property(
@@ -57,9 +54,9 @@ func load_dialog():
 		)
 		$"Tween".start()
 	else:
-		Globals.MackenzieDialog3Start = false
+		Globals.MackenzieDialog4Start = false
 		self.scale = Vector2(0, 0)
 		Globals.cantmove = false
 		Globals.Cutscene = false
-		Globals.MackenzieDialog3End = true
-		Voices.stop(35)
+		Globals.MackenzieDialog4End = true
+		Voices.stop(44)

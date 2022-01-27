@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Cutscene/Mackenzie-Encounter-2.ogv" type="VideoStream" id=1]
-[ext_resource path="res://Levels/CutsceneMichelle.gd" type="Script" id=2]
+[ext_resource path="res://Levels/CutsceneMackenzie1.gd" type="Script" id=2]
 [ext_resource path="res://Levels/CutsceneTransition.tscn" type="PackedScene" id=5]
 
 [sub_resource type="GDScript" id=2]
@@ -10,7 +10,8 @@ script/source = "extends CanvasLayer
 
 onready var fade_class = load(\"res://Levels/CutsceneTransition.tscn\")
 
-func _on_CutsceneMichelle_finished():
+
+func _on_CutsceneMackenzie_finished():
 	var fade_scene = fade_class.instance()
 	get_parent().add_child(fade_scene)
 	
@@ -42,6 +43,6 @@ layer = 2
 
 [node name="Timer" type="Timer" parent="."]
 
-[connection signal="finished" from="CutsceneMackenzie" to="." method="_on_CutsceneMichelle_finished"]
-[connection signal="finished" from="CutsceneMackenzie" to="CutsceneMackenzie" method="_on_CutsceneMichelle_finished"]
+[connection signal="finished" from="CutsceneMackenzie" to="." method="_on_CutsceneMackenzie_finished"]
+[connection signal="finished" from="CutsceneMackenzie" to="CutsceneMackenzie" method="_on_CutsceneMackenzie_finished"]
 [connection signal="ready" from="CutsceneMackenzie" to="." method="_on_Cutscene_ready"]
