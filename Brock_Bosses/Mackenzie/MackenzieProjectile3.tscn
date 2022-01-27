@@ -17,9 +17,10 @@ func _ready():
 	rng.randomize()
 	var startScale = rng.randf_range(0.1,.4)
 	$Tween.interpolate_property(self,\"scale\",Vector2(startScale,startScale),Vector2(1.2,1.2),.8,Tween.TRANS_LINEAR,Tween.EASE_IN)
-	$Tween.interpolate_property(self, \"position:y\", position.y, position.y + 1200, .6,Tween.TRANS_LINEAR,Tween.EASE_IN,.8)
+	$Tween.interpolate_property(self, \"position:y\", position.y, position.y + 1200, .8,Tween.TRANS_LINEAR,Tween.EASE_IN,.8)
+	$Tween.interpolate_property(self, \"position:x\", position.x, position.x + 1200, .8,Tween.TRANS_LINEAR,Tween.EASE_IN,.8)
 	$Tween.start()
-	yield(get_tree().create_timer(1.4),\"timeout\")
+	yield(get_tree().create_timer(1.6),\"timeout\")
 	queue_free()
 
 
