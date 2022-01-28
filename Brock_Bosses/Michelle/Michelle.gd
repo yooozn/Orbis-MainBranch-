@@ -114,9 +114,9 @@ func _attack2():
 
 func damage(damage):
 	healthStealCount += 1
-	if healthStealCount >= healthStealNum and Globals.player.health < 5:
+	if healthStealCount >= healthStealNum and Globals.health < 5:
 		healthStealCount = 0
-		Globals.player.health += 1
+		Globals.health += 1
 		Globals.player.health_update()
 	if phase == 1:
 		healthPhase1 -= damage
